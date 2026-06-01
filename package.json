@@ -1,0 +1,15 @@
+{
+  "name": "the-collectors-compendium",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive dashboard for a high-end collectible statue & figure collection.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "npx serve .",
+    "dev": "node build.mjs && npx serve ."
+  },
+  "author": "jacobmedley",
+  "license": "UNLICENSED",
+  "homepage": "https://jacobmedley.github.io/The-Collectors-Compendium/"
+}

@@ -50,8 +50,6 @@ const SEED_ITEMS = [
   { id: 'mystique', name: 'Mystique — Restin State', franchise: 'Marvel (X-Men)', studio: 'Diamond Select', category: 'Premier Collection Statue', edition: 'Premier Collection', rarityTier: 'T5', productionRun: 3000, msrp: 180, itemCost: 180, totalPaid: 180, marketLow: 150, marketMid: 180, marketHigh: 230, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['gift'], notes: 'Gift from wife (Neighborhood Comics). Cost at MSRP.', url: 'https://neighborhoodcomics.com/products/premier-collection-mystique-restin-state', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/mystique.jpg', purchaseDate: null, releaseDate: null, editionNumber: '0109', acquisitionDate: null, dimensions: { heightIn: 12.0, widthIn: 6.0, depthIn: 7.0, weightLbs: null }, status: 'owned' },
 ];
 
-];
-
 // =============================================================================
 // CONSTANTS
 // =============================================================================
@@ -179,7 +177,12 @@ const computeMetrics = (item) => {
       cagrPct = (Math.pow(marketMid / itemCost, 365 / holdingDays) - 1) * 100;
     }
   }
-  return { savingsAbs, savingsPct, overhead, gainAbs, gainPct, spreadPct, holdingDays, cagrPct };
+  const riskClass = (() => {
+    if (item.liquidity === 'high' && ['T3','T4','T5','T6'].includes(item.rarityTier)) return 'Conservative';
+    if (['T1','T2'].includes(item.rarityTier) || item.liquidity === 'low') return 'Speculative';
+    return 'Balanced';
+  })();
+  return { savingsAbs, savingsPct, overhead, gainAbs, gainPct, spreadPct, holdingDays, cagrPct, riskClass };
 };
 
 // Cross-environment persistence: window.storage (Claude sandbox) or localStorage (everywhere else)
@@ -264,10 +267,16 @@ export default function CollectionApp() {
     const gainAbs = marketMid - totalPaid;
     const liquidityWeight = { high: 1.0, medium: 0.85, low: 0.65 };
     const liquidAdjusted = committed.reduce((s, i) => s + (i.marketMid || 0) * (liquidityWeight[i.liquidity] || 0.85), 0);
+    const liquidationValue = committed.reduce((s, i) => s + (i.marketLow || 0) * (liquidityWeight[i.liquidity] || 0.85), 0);
+    const hhi = marketMid === 0 ? 0 : (() => {
+      const studioMap = {};
+      committed.forEach((i) => { studioMap[i.studio] = (studioMap[i.studio] || 0) + (i.marketMid || 0); });
+      return Object.values(studioMap).reduce((s, v) => s + Math.pow(v / marketMid, 2), 0) * 10000;
+    })();
     return {
       count: visible.length, committedCount: committed.length,
       msrp, itemSpend, overhead, totalPaid, marketMid, marketLow, marketHigh,
-      savingsAbs, gainAbs, liquidAdjusted,
+      savingsAbs, gainAbs, liquidAdjusted, liquidationValue, hhi,
       byStudio: groupBy('studio'), byFranchise: groupBy('franchise'), byRarity: groupBy('rarityTier'),
       topByMarket: [...committed].sort((a, b) => (b.marketMid || 0) - (a.marketMid || 0)).slice(0, 5),
       topBySavings: [...committed].filter(i => i.savingsAbs > 0).sort((a, b) => (b.savingsAbs || 0) - (a.savingsAbs || 0)).slice(0, 5),
@@ -332,6 +341,7 @@ export default function CollectionApp() {
           <Stat label="Market Value" tooltipKey="marketValue" value={fmt$(totals.marketMid)} sub={`range ${fmt$(totals.marketLow)}–${fmt$(totals.marketHigh)}`} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
           <Stat label="Total OOP" tooltipKey="totalPaid" value={fmt$(totals.totalPaid)} sub="all-in invested" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
           <Stat label="Unrealized Gain" tooltipKey="gainAbs" value={fmt$(totals.gainAbs)} sub={`liq-adj ${fmt$(totals.liquidAdjusted - totals.totalPaid)}`} tone={totals.gainAbs > 0 ? 'positive' : totals.gainAbs < 0 ? 'negative' : 'neutral'} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
+          <Stat label="Liquidation Value" value={fmt$(totals.liquidationValue)} sub="market low × liquidity factor" tone="muted" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
         </div>
         <button onClick={(e) => { e.stopPropagation(); setShowPortfolio(!showPortfolio); }} style={{ marginTop: 12, width: '100%', padding: '10px 14px', background: showPortfolio ? '#3a2f1c' : '#16161a', border: `1px solid ${showPortfolio ? '#7a5d2e' : '#2a2a30'}`, borderRadius: 8, color: showPortfolio ? '#c9a55c' : '#f5f1e8', fontSize: 13, fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
           <BarChart3 size={14} /> Portfolio Insights {showPortfolio ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
@@ -426,8 +436,20 @@ function InfoTooltip({ tooltipKey, activeTooltip, setActiveTooltip, anchorId }) 
 // =============================================================================
 
 function PortfolioInsights({ totals }) {
+  const hhiScore = Math.round(totals.hhi);
+  const hhiColor = hhiScore > 2500 ? '#c07070' : hhiScore > 1500 ? '#c9a55c' : '#5aaf6a';
+  const hhiLabel = hhiScore > 2500 ? 'Highly concentrated' : hhiScore > 1500 ? 'Moderate concentration' : 'Diversified';
+  const hhiDesc = hhiScore > 2500 ? 'Highly concentrated — top studio dominates resale risk' : hhiScore > 1500 ? 'Moderate concentration — a few studios drive portfolio value' : 'Well diversified across studios';
   return (
     <div style={{ marginTop: 12, padding: 14, background: '#0e0e10', border: '1px solid #2a2a30', borderRadius: 10 }}>
+      <div style={{ marginBottom: 18 }}>
+        <div style={{ fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Concentration Score (HHI)</div>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 4 }}>
+          <span className="mono display" style={{ fontSize: 28, color: hhiColor, fontWeight: 400, lineHeight: 1 }}>{hhiScore.toLocaleString()}</span>
+          <span style={{ fontSize: 12, color: hhiColor, fontWeight: 600 }}>{hhiLabel}</span>
+        </div>
+        <div style={{ fontSize: 12, color: 'var(--c-secondary)', lineHeight: 1.5 }}>{hhiDesc}</div>
+      </div>
       <ConcentrationBar title="By Studio" data={totals.byStudio} total={totals.marketMid} accent="#c9a55c" />
       <ConcentrationBar title="By Franchise" data={totals.byFranchise} total={totals.marketMid} accent="#9c7a4e" />
       <ConcentrationBar title="By Rarity" data={totals.byRarity} total={totals.marketMid} accent="#b89460" formatLabel={(k) => `${k} ${RARITY_TIERS[k]?.label || ''}`} />
@@ -541,6 +563,7 @@ function ItemCard({ item, onOpenModal, activeTooltip, setActiveTooltip }) {
   const liq = LIQUIDITY_LABELS[item.liquidity] || LIQUIDITY_LABELS.medium;
   const gainTone = item.gainAbs > 0 ? '#5aaf6a' : item.gainAbs < 0 ? '#c07070' : 'var(--c-muted)';
   const savingsTone = item.savingsAbs > 0 ? '#5aaf6a' : 'var(--c-muted)';
+  const riskColor = item.riskClass === 'Conservative' ? '#5aaf6a' : item.riskClass === 'Speculative' ? '#c07070' : '#c9a55c';
   const imgUrl = resolveImg(item);
   const [imgErr, setImgErr] = useState(false);
   const leBadge = item.productionRun ? (item.editionNumber ? `${String(item.editionNumber).padStart(String(item.productionRun).length, '0')}/${item.productionRun.toLocaleString()}` : item.productionRun.toLocaleString()) : null;
@@ -613,10 +636,13 @@ function ItemCard({ item, onOpenModal, activeTooltip, setActiveTooltip }) {
       </div>
       <div style={{ borderTop: `1px solid ${gc.border}`, background: gc.bg, padding: `8px clamp(12px, 2vw, 18px)`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
         <span className="mono" style={{ fontSize: 'var(--t-xs)', color: 'var(--c-secondary)' }}><span style={{ color: 'var(--c-faint)', marginRight: 4 }}>RS:</span>{fmt$(item.marketLow)} – {fmt$(item.marketHigh)}</span>
-        <span style={{ fontSize: 'var(--t-sm)', color: gc.text, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4 }}>
-          {item.gainAbs !== null && item.gainAbs > 0 && <TrendingUp size={12} />}
-          {item.gainAbs !== null && item.gainAbs < 0 && <TrendingDown size={12} />}
-          <span className="mono">{item.itemCost === 0 && item.totalPaid === 0 ? 'Gift / Free Bonus' : item.gainAbs !== null ? `${fmtPct(item.gainPct)} vs paid` : 'Market est.'}</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ fontSize: 'var(--t-sm)', color: gc.text, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4 }}>
+            {item.gainAbs !== null && item.gainAbs > 0 && <TrendingUp size={12} />}
+            {item.gainAbs !== null && item.gainAbs < 0 && <TrendingDown size={12} />}
+            <span className="mono">{item.itemCost === 0 && item.totalPaid === 0 ? 'Gift / Free Bonus' : item.gainAbs !== null ? `${fmtPct(item.gainPct)} vs paid` : 'Market est.'}</span>
+          </span>
+          {item.riskClass && <span style={{ fontSize: 'var(--t-sm)', color: riskColor, padding: '1px 6px', border: `1px solid ${riskColor}55`, borderRadius: 4, fontWeight: 500, lineHeight: 1.4, whiteSpace: 'nowrap' }}>{item.riskClass}</span>}
         </span>
       </div>
     </div>
@@ -694,6 +720,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
                 <DetailRow label="Rarity" value={`${item.rarityTier} · ${tier.rpg}`} sub={tier.label} tone={tier.color} tooltipKey="rarity" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-rar-m`} />
                 {item.productionRun && <DetailRow label="Production Run" value={`${item.productionRun.toLocaleString()} pieces`} tooltipKey="productionRun" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-prod-m`} />}
                 <DetailRow label="Liquidity" value={liq.label} sub={liq.desc} tone={liq.color} tooltipKey="liquidity" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-liq-m`} />
+                {item.riskClass && <DetailRow label="Risk Class" value={item.riskClass} tone={item.riskClass === 'Conservative' ? '#5aaf6a' : item.riskClass === 'Speculative' ? '#c07070' : '#c9a55c'} />}
                 <DetailRow label="Edition №" value={item.editionNumber ? `#${item.editionNumber} / ${item.productionRun ? item.productionRun.toLocaleString() : '?'}` : '— pending'} sub={item.editionNumber ? 'your specific piece' : 'add when you have the box'} tone={item.editionNumber ? 'var(--c-gold)' : 'var(--c-dim)'} tooltipKey="editionNumber" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-en-m`} />
                 {item.cagrPct !== null && <DetailRow label="CAGR (est.)" value={fmtPct(item.cagrPct)} mono tone={item.cagrPct > 0 ? '#5aaf6a' : '#c07070'} sub="annualized return" />}
                 {item.purchaseDate && <DetailRow label="Purchase Date" value={new Date(item.purchaseDate).toLocaleDateString('en-US', {year:'numeric', month:'short', day:'numeric'})} sub={item.holdingDays ? `${item.holdingDays} days held` : null} />}

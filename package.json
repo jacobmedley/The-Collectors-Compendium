@@ -6,8 +6,15 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "serve": "npx serve .",
-    "dev": "node build.mjs && npx serve ."
+    "dev": "node dev.mjs",
+    "lint": "eslint collection.jsx",
+    "smoke": "node smoke.mjs",
+    "test": "npm run lint && npm run build && npm run smoke"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9",
+    "eslint": "^9",
+    "globals": "^15"
   },
   "author": "jacobmedley",
   "license": "UNLICENSED",

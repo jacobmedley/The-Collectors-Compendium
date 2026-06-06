@@ -27,15 +27,17 @@
     // Shim React globals (Babel standalone needs these in scope)
     const { useState, useEffect, useMemo, useRef, useCallback } = React;
 
-    // Shim lucide-react named exports — wraps vanilla lucide icon-node arrays into React components
-    const _li = (nodes) => Array.isArray(nodes)
-      ? ({ size = 24, color = 'currentColor', strokeWidth = 2, style, ...r }) =>
-          React.createElement('svg', {
-            xmlns: 'http://www.w3.org/2000/svg', width: size, height: size,
-            viewBox: '0 0 24 24', fill: 'none', stroke: color,
-            strokeWidth, strokeLinecap: 'round', strokeLinejoin: 'round', style, ...r,
-          }, nodes.map(([tag, a], i) => React.createElement(tag, { key: i, ...a })))
-      : () => null;
+    // Shim lucide-react named exports — wraps vanilla lucide UMD icon data into React components.
+    // Lucide UMD icon format: ["svg", defaultAttributes, [[tag, attrs], ...]]
+    // Children are at index 2; we ignore index 0 (tag "svg") and index 1 (default attrs) since
+    // we supply our own SVG wrapper props from the component's own size/color/strokeWidth.
+    const _li = (icon) => !Array.isArray(icon) ? () => null :
+      ({ size = 24, color = 'currentColor', strokeWidth = 2, style, ...r }) =>
+        React.createElement('svg', {
+          xmlns: 'http://www.w3.org/2000/svg', width: size, height: size,
+          viewBox: '0 0 24 24', fill: 'none', stroke: color,
+          strokeWidth, strokeLinecap: 'round', strokeLinejoin: 'round', style, ...r,
+        }, icon[2].map(([tag, a], i) => React.createElement(tag, { key: i, ...a })));
     const Search = _li(lucide.Search); const Filter = _li(lucide.Filter);
     const ArrowUp = _li(lucide.ArrowUp); const ArrowDown = _li(lucide.ArrowDown);
     const X = _li(lucide.X); const Edit3 = _li(lucide.Edit3);

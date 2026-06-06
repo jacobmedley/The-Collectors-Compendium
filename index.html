@@ -27,11 +27,26 @@
     // Shim React globals (Babel standalone needs these in scope)
     const { useState, useEffect, useMemo, useRef, useCallback } = React;
 
-    // Shim lucide-react named exports
-    const { Search, Filter, ArrowUp, ArrowDown, X, Edit3, ExternalLink,
-            TrendingUp, TrendingDown, Minus, Gift, Info, BarChart3,
-            ChevronDown, ChevronUp, Award, Zap, CheckCircle2, Wallet,
-            CalendarClock, Percent } = lucide;
+    // Shim lucide-react named exports — wraps vanilla lucide icon-node arrays into React components
+    const _li = (nodes) => Array.isArray(nodes)
+      ? ({ size = 24, color = 'currentColor', strokeWidth = 2, style, ...r }) =>
+          React.createElement('svg', {
+            xmlns: 'http://www.w3.org/2000/svg', width: size, height: size,
+            viewBox: '0 0 24 24', fill: 'none', stroke: color,
+            strokeWidth, strokeLinecap: 'round', strokeLinejoin: 'round', style, ...r,
+          }, nodes.map(([tag, a], i) => React.createElement(tag, { key: i, ...a })))
+      : () => null;
+    const Search = _li(lucide.Search); const Filter = _li(lucide.Filter);
+    const ArrowUp = _li(lucide.ArrowUp); const ArrowDown = _li(lucide.ArrowDown);
+    const X = _li(lucide.X); const Edit3 = _li(lucide.Edit3);
+    const ExternalLink = _li(lucide.ExternalLink);
+    const TrendingUp = _li(lucide.TrendingUp); const TrendingDown = _li(lucide.TrendingDown);
+    const Minus = _li(lucide.Minus); const Gift = _li(lucide.Gift);
+    const Info = _li(lucide.Info); const BarChart3 = _li(lucide.BarChart3);
+    const ChevronDown = _li(lucide.ChevronDown); const ChevronUp = _li(lucide.ChevronUp);
+    const Award = _li(lucide.Award); const Zap = _li(lucide.Zap);
+    const CheckCircle2 = _li(lucide.CheckCircle2); const Wallet = _li(lucide.Wallet);
+    const CalendarClock = _li(lucide.CalendarClock); const Percent = _li(lucide.Percent);
 
 
 // =============================================================================

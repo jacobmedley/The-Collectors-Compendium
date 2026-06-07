@@ -120,6 +120,10 @@ const SORT_OPTIONS = [
   { key: 'liquidity', label: 'Liquidity' },
   { key: 'studio', label: 'Studio' },
   { key: 'franchise', label: 'Franchise' },
+  { key: 'heightIn', label: 'Height' },
+  { key: 'widthIn', label: 'Width' },
+  { key: 'depthIn', label: 'Depth' },
+  { key: 'weightLbs', label: 'Weight' },
 ];
 
 // Tooltip definitions — what each metric actually means
@@ -370,7 +374,7 @@ export default function CollectionApp() {
   }, [items]);
 
   const visible = useMemo(() => {
-    let arr = items.map((i) => ({ ...i, ...computeMetrics(i) }));
+    let arr = items.map((i) => ({ ...i, ...computeMetrics(i), ...i.dimensions }));
     if (search) {
       const q = search.toLowerCase();
       arr = arr.filter((i) => i.name.toLowerCase().includes(q) || i.franchise.toLowerCase().includes(q) || i.studio.toLowerCase().includes(q) || (i.notes || '').toLowerCase().includes(q));

@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:docs.google.com)",
-      "WebFetch(domain:doc-0c-7s-sheets.googleusercontent.com)"
+      "WebFetch(domain:doc-0c-7s-sheets.googleusercontent.com)",
+      "Bash(node *)",
+      "Bash(git add *)",
+      "Bash(git commit -m '@ *)",
+      "Bash(git push *)"
     ]
   }
 }

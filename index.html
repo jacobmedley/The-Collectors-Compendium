@@ -897,7 +897,7 @@ function ItemCard({ item, onOpenModal, activeTooltip, setActiveTooltip }) {
             ? <img
                 src={imgUrl}
                 alt={item.name}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
                 loading="lazy"
                 onError={() => setImgErr(true)}
               />
@@ -1065,7 +1065,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
         {/* ── HERO HEADER ── */}
         <div style={{ position: 'relative', flexShrink: 0, height: 200, background: '#1a1a22', overflow: 'hidden' }}>
           {imgUrl && !imgErr
-            ? <img src={imgUrl} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} onError={() => setImgErr(true)} />
+            ? <img src={imgUrl} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} onError={() => setImgErr(true)} />
             : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: `radial-gradient(ellipse at center, ${tier.color}18 0%, transparent 70%)` }}>
                 <span className="display" style={{ fontSize: 80, color: tier.color, opacity: 0.2, userSelect: 'none' }}>{item.franchise.charAt(0)}</span>
               </div>

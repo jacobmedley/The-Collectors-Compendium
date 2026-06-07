@@ -1135,10 +1135,10 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
                 <div style={{ marginBottom: 16 }}>
                   <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Dimensions</div>
                   <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
-                    {item.dimensions.heightIn  != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Height</div><div className="mono" style={{ fontSize: 'var(--t-sm)', color: 'var(--c-primary)' }}>{item.dimensions.heightIn}"</div></div>}
-                    {item.dimensions.widthIn   != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Width</div><div className="mono" style={{ fontSize: 'var(--t-sm)', color: 'var(--c-primary)' }}>{item.dimensions.widthIn}"</div></div>}
-                    {item.dimensions.depthIn   != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Depth</div><div className="mono" style={{ fontSize: 'var(--t-sm)', color: 'var(--c-primary)' }}>{item.dimensions.depthIn}"</div></div>}
-                    {item.dimensions.weightLbs != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Weight</div><div className="mono" style={{ fontSize: 'var(--t-sm)', color: 'var(--c-primary)' }}>{item.dimensions.weightLbs} lbs</div></div>}
+                    {item.dimensions.heightIn  != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Height</div><div className="mono" style={{ fontSize: 'var(--t-md)', color: 'var(--c-primary)' }}>{item.dimensions.heightIn}"</div></div>}
+                    {item.dimensions.widthIn   != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Width</div><div className="mono" style={{ fontSize: 'var(--t-md)', color: 'var(--c-primary)' }}>{item.dimensions.widthIn}"</div></div>}
+                    {item.dimensions.depthIn   != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Depth</div><div className="mono" style={{ fontSize: 'var(--t-md)', color: 'var(--c-primary)' }}>{item.dimensions.depthIn}"</div></div>}
+                    {item.dimensions.weightLbs != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Weight</div><div className="mono" style={{ fontSize: 'var(--t-md)', color: 'var(--c-primary)' }}>{item.dimensions.weightLbs} lbs</div></div>}
                   </div>
                 </div>
               )}
@@ -1203,7 +1203,7 @@ function DetailRow({ label, value, sub, mono = false, tone = '#f5f1e8', tooltipK
         {label}
         {tooltipKey && <InfoTooltip tooltipKey={tooltipKey} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={anchorId} />}
       </div>
-      <div className={mono ? 'mono' : ''} style={{ fontSize: 'var(--t-sm)', color: tone, fontWeight: mono ? 500 : 400 }}>{value}</div>
+      <div className={mono ? 'mono' : ''} style={{ fontSize: 'var(--t-md)', color: tone, fontWeight: mono ? 500 : 400 }}>{value}</div>
       {sub && <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-dim)', marginTop: 1 }}>{sub}</div>}
     </div>
   );

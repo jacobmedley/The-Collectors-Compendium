@@ -453,13 +453,13 @@ export default function CollectionApp() {
         body { margin: 0; }
         /* ── Fluid typography (WCAG 2.2 AA ≥ 4.5:1 on dark bg) ── */
         :root {
-          --t-xs:   clamp(10px, 0.55vw + 8.8px, 12px);
-          --t-sm:   clamp(11px, 0.65vw + 9.7px, 13px);
-          --t-base: clamp(13px, 0.8vw + 11.4px, 15px);
-          --t-md:   clamp(14px, 0.9vw + 12.2px, 17px);
-          --t-lg:   clamp(16px, 1.1vw + 13.7px, 20px);
-          --t-xl:   clamp(18px, 1.4vw + 15px, 24px);
-          --t-2xl:  clamp(22px, 1.8vw + 18px, 30px);
+          --t-xs:   clamp(14px, 0.77vw + 12px, 17px);
+          --t-sm:   clamp(15px, 0.91vw + 14px, 18px);
+          --t-base: clamp(18px, 1.12vw + 16px, 21px);
+          --t-md:   clamp(20px, 1.26vw + 17px, 24px);
+          --t-lg:   clamp(22px, 1.54vw + 19px, 28px);
+          --t-xl:   clamp(25px, 2vw + 21px, 34px);
+          --t-2xl:  clamp(31px, 2.5vw + 25px, 42px);
           /* WCAG-safe neutrals on #131316 (bg L≈0.005) — all ≥ 4.5:1 */
           --c-primary:   #edeae2;   /* 16.8:1 */
           --c-secondary: #b2ada4;   /*  8.9:1 */

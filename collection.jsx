@@ -539,10 +539,10 @@ export default function CollectionApp() {
 
       <header style={{ padding: '24px 16px 16px', borderBottom: '1px solid #1f1f24' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
-          <h1 className="display" style={{ fontSize: 28, fontWeight: 400, margin: 0 }}>The Archive</h1>
-          <span className="mono" style={{ fontSize: 12, color: 'var(--c-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{visible.length} / {items.length}</span>
+          <h1 className="display" style={{ fontSize: 'var(--t-2xl)', fontWeight: 400, margin: 0 }}>The Archive</h1>
+          <span className="mono" style={{ fontSize: 'var(--t-xs)', color: 'var(--c-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{visible.length} / {items.length}</span>
         </div>
-        <p style={{ fontSize: 11, color: 'var(--c-muted)', margin: 0, letterSpacing: '0.02em', lineHeight: 1.5 }}>
+        <p style={{ fontSize: 'var(--t-xs)', color: 'var(--c-muted)', margin: 0, letterSpacing: '0.02em', lineHeight: 1.5 }}>
           Creator MSRP · resell ranges · liquidity-weighted · tap <Info size={10} style={{ display: 'inline', verticalAlign: 'middle' }} /> to learn any metric
         </p>
 
@@ -556,7 +556,7 @@ export default function CollectionApp() {
           <Stat label="Liquidation Value" tooltipKey="liquidation" value={fmt$(totals.liquidationValue)} sub="market low × liquidity factor · 30-day floor" tone="muted" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
         </div>
 
-        <button onClick={(e) => { e.stopPropagation(); setShowPortfolio(!showPortfolio); }} style={{ marginTop: 12, width: '100%', padding: '10px 14px', background: showPortfolio ? '#3a2f1c' : '#16161a', border: `1px solid ${showPortfolio ? '#7a5d2e' : '#2a2a30'}`, borderRadius: 8, color: showPortfolio ? '#c9a55c' : '#f5f1e8', fontSize: 13, fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+        <button onClick={(e) => { e.stopPropagation(); setShowPortfolio(!showPortfolio); }} style={{ marginTop: 12, width: '100%', padding: '10px 14px', background: showPortfolio ? '#3a2f1c' : '#16161a', border: `1px solid ${showPortfolio ? '#7a5d2e' : '#2a2a30'}`, borderRadius: 8, color: showPortfolio ? '#c9a55c' : '#f5f1e8', fontSize: 'var(--t-sm)', fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
           <BarChart3 size={14} /> Portfolio Insights {showPortfolio ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
         </button>
 
@@ -566,16 +566,16 @@ export default function CollectionApp() {
       <div style={{ padding: 16, position: 'sticky', top: 0, background: 'rgba(10,10,11,0.92)', backdropFilter: 'blur(12px)', zIndex: 10, borderBottom: '1px solid #1f1f24' }}>
         <div style={{ position: 'relative', marginBottom: 10 }}>
           <Search size={14} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--c-dim)' }} />
-          <input type="text" placeholder="Search the archive…" value={search} onChange={(e) => setSearch(e.target.value)} style={{ width: '100%', padding: '10px 12px 10px 34px', background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', fontSize: 14, outline: 'none' }} />
+          <input type="text" placeholder="Search the archive…" value={search} onChange={(e) => setSearch(e.target.value)} style={{ width: '100%', padding: '10px 12px 10px 34px', background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', fontSize: 'var(--t-sm)', outline: 'none' }} />
         </div>
 
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <button onClick={(e) => { e.stopPropagation(); setShowFilters(!showFilters); }} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 12px', background: activeFilterCount > 0 ? '#3a2f1c' : '#16161a', border: `1px solid ${activeFilterCount > 0 ? '#7a5d2e' : '#2a2a30'}`, borderRadius: 8, color: activeFilterCount > 0 ? '#c9a55c' : '#f5f1e8', fontSize: 13, fontWeight: 500 }}>
+          <button onClick={(e) => { e.stopPropagation(); setShowFilters(!showFilters); }} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 12px', background: activeFilterCount > 0 ? '#3a2f1c' : '#16161a', border: `1px solid ${activeFilterCount > 0 ? '#7a5d2e' : '#2a2a30'}`, borderRadius: 8, color: activeFilterCount > 0 ? '#c9a55c' : '#f5f1e8', fontSize: 'var(--t-sm)', fontWeight: 500 }}>
             <Filter size={13} /> Filter
-            {activeFilterCount > 0 && <span style={{ background: '#c9a55c', color: '#0a0a0b', borderRadius: 99, padding: '0 6px', fontSize: 11, fontWeight: 700 }}>{activeFilterCount}</span>}
+            {activeFilterCount > 0 && <span style={{ background: '#c9a55c', color: '#0a0a0b', borderRadius: 99, padding: '0 6px', fontSize: 'var(--t-xs)', fontWeight: 700 }}>{activeFilterCount}</span>}
           </button>
           <div style={{ flex: 1, display: 'flex', gap: 6, alignItems: 'center' }}>
-            <select value={sortKey} onChange={(e) => setSortKey(e.target.value)} style={{ flex: 1, padding: '8px 10px', background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', fontSize: 13, appearance: 'none' }}>
+            <select value={sortKey} onChange={(e) => setSortKey(e.target.value)} style={{ flex: 1, padding: '8px 10px', background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', fontSize: 'var(--t-sm)', appearance: 'none' }}>
               {SORT_OPTIONS.map((o) => <option key={o.key} value={o.key}>Sort: {o.label}</option>)}
             </select>
             <button onClick={() => setSortDir(sortDir === 'asc' ? 'desc' : 'asc')} style={{ padding: 8, background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', display: 'flex' }}>
@@ -592,7 +592,7 @@ export default function CollectionApp() {
             <FilterRow label="Rarity" value={filterRarity} onChange={setFilterRarity} options={Object.keys(RARITY_TIERS)} optionLabel={(k) => `${k} — ${RARITY_TIERS[k].label}`} />
             <FilterRow label="Status" value={filterStatus} onChange={setFilterStatus} options={['owned', 'pre-order', 'payment-plan', 'wishlist']} optionLabel={(k) => STATUS_LABELS[k]} />
             <FilterRow label="Liquidity" value={filterLiquidity} onChange={setFilterLiquidity} options={['high', 'medium', 'low']} optionLabel={(k) => LIQUIDITY_LABELS[k].label} />
-            {activeFilterCount > 0 && <button onClick={clearFilters} style={{ padding: '8px 12px', background: 'transparent', border: '1px solid #5a4a2a', borderRadius: 6, color: '#c9a55c', fontSize: 12, fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}><X size={12} /> Clear all filters</button>}
+            {activeFilterCount > 0 && <button onClick={clearFilters} style={{ padding: '8px 12px', background: 'transparent', border: '1px solid #5a4a2a', borderRadius: 6, color: '#c9a55c', fontSize: 'var(--t-xs)', fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}><X size={12} /> Clear all filters</button>}
           </div>
         )}
       </div>
@@ -693,8 +693,8 @@ function PortfolioInsights({ totals }) {
     <div style={{ marginTop: 12, padding: 14, background: '#0e0e10', border: '1px solid #2a2a30', borderRadius: 10 }}>
       <div style={{ marginBottom: 18, padding: '10px 12px', background: '#131316', borderRadius: 8, border: `1px solid ${hhiColor}30`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
-          <div style={{ fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Studio Concentration (HHI)</div>
-          <div style={{ fontSize: 12, color: 'var(--c-secondary)' }}>
+          <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Studio Concentration (HHI)</div>
+          <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-secondary)' }}>
             {totals.hhi > 2500
               ? 'Highly concentrated — top studio dominates resale risk'
               : totals.hhi > 1500
@@ -702,7 +702,7 @@ function PortfolioInsights({ totals }) {
                 : 'Well diversified across studios'}
           </div>
         </div>
-        <div className="mono" style={{ fontSize: 22, fontWeight: 600, color: hhiColor, flexShrink: 0, marginLeft: 16 }}>
+        <div className="mono" style={{ fontSize: 'var(--t-xl)', fontWeight: 600, color: hhiColor, flexShrink: 0, marginLeft: 16 }}>
           {Math.round(totals.hhi).toLocaleString()}
         </div>
       </div>
@@ -721,7 +721,7 @@ function ConcentrationBar({ title, data, total, accent, formatLabel }) {
   if (!data || data.length === 0 || total === 0) return null;
   return (
     <div style={{ marginBottom: 18 }}>
-      <div style={{ fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>{title}</div>
+      <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>{title}</div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
         {data.slice(0, 6).map(([key, value]) => {
           const pct = (value / total) * 100;
@@ -746,12 +746,12 @@ function TopList({ title, icon, items, valueKey, formatValue, tone = '#c9a55c' }
   if (!items || items.length === 0) return null;
   return (
     <div style={{ marginBottom: 18 }}>
-      <div style={{ fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 6 }}>
+      <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 6 }}>
         <span style={{ color: tone }}>{icon}</span>{title}
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         {items.map((it, idx) => (
-          <div key={it.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, padding: '4px 0', borderBottom: idx < items.length - 1 ? '1px solid #1a1a1e' : 'none' }}>
+          <div key={it.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--t-xs)', padding: '4px 0', borderBottom: idx < items.length - 1 ? '1px solid #1a1a1e' : 'none' }}>
             <span style={{ color: '#d4cfc4', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '65%' }}>
               <span style={{ color: 'var(--c-dim)', marginRight: 6 }}>{idx + 1}.</span>{it.name}
             </span>
@@ -784,8 +784,8 @@ function Stat({ label, value, sub, tone = 'neutral', tooltipKey, activeTooltip, 
 function FilterRow({ label, value, onChange, options, optionLabel }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-      <span style={{ fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>{label}</span>
-      <select value={value} onChange={(e) => onChange(e.target.value)} style={{ padding: '8px 10px', background: '#0a0a0b', border: '1px solid #2a2a30', borderRadius: 6, color: '#f5f1e8', fontSize: 13 }}>
+      <span style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>{label}</span>
+      <select value={value} onChange={(e) => onChange(e.target.value)} style={{ padding: '8px 10px', background: '#0a0a0b', border: '1px solid #2a2a30', borderRadius: 6, color: '#f5f1e8', fontSize: 'var(--t-sm)' }}>
         <option value="all">All</option>
         {options.map((o) => <option key={o} value={o}>{optionLabel ? optionLabel(o) : o}</option>)}
       </select>
@@ -1062,19 +1062,19 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
           ><X size={16} /></button>
 
           {/* Rarity badge */}
-          <div style={{ position: 'absolute', top: 12, left: 12, padding: '4px 10px', background: 'rgba(8,8,10,0.82)', backdropFilter: 'blur(6px)', borderRadius: 6, border: `1px solid ${tier.color}55`, fontSize: 11, fontWeight: 800, color: tier.color, letterSpacing: '0.06em' }}>
+          <div style={{ position: 'absolute', top: 12, left: 12, padding: '4px 10px', background: 'rgba(8,8,10,0.82)', backdropFilter: 'blur(6px)', borderRadius: 6, border: `1px solid ${tier.color}55`, fontSize: 'var(--t-xs)', fontWeight: 800, color: tier.color, letterSpacing: '0.06em' }}>
             {item.rarityTier}
           </div>
 
           {/* LE badge + market value pinned to bottom-left of hero */}
           <div style={{ position: 'absolute', bottom: 12, left: 16, right: 60, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
             <div>
-              <div className="display" style={{ fontSize: 'clamp(18px,4vw,24px)', fontWeight: 400, color: 'var(--c-primary)', lineHeight: 1.15, textShadow: '0 1px 8px #000' }}>{item.name}</div>
-              <div style={{ fontSize: 12, color: 'var(--c-gold)', marginTop: 2 }}>{item.studio}</div>
+              <div className="display" style={{ fontSize: 'clamp(25px,4vw,34px)', fontWeight: 400, color: 'var(--c-primary)', lineHeight: 1.15, textShadow: '0 1px 8px #000' }}>{item.name}</div>
+              <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-gold)', marginTop: 2 }}>{item.studio}</div>
             </div>
             <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 12 }}>
-              <div className="display" style={{ fontSize: 'clamp(20px,4vw,26px)', color: 'var(--c-primary)', fontWeight: 400, lineHeight: 1 }}>{fmt$(item.marketMid)}</div>
-              <div style={{ fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.05em' }}>market mid</div>
+              <div className="display" style={{ fontSize: 'clamp(28px,4vw,36px)', color: 'var(--c-primary)', fontWeight: 400, lineHeight: 1 }}>{fmt$(item.marketMid)}</div>
+              <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.05em' }}>market mid</div>
             </div>
           </div>
         </div>
@@ -1086,16 +1086,16 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}>
             {leBadge && (
               <div style={{ display: 'inline-flex', alignItems: 'stretch' }}>
-                <span style={{ padding: '4px 9px', background: tier.color + '22', border: `1px solid ${tier.color}70`, borderRight: 'none', borderRadius: '6px 0 0 6px', fontSize: 11, fontWeight: 800, color: tier.color, letterSpacing: '0.1em' }}>LE</span>
-                <span className="mono" style={{ padding: '4px 9px', background: tier.color + '10', border: `1px solid ${tier.color}50`, borderLeft: `1px solid ${tier.color}30`, borderRadius: '0 6px 6px 0', fontSize: 11, fontWeight: 600, color: tier.color, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                <span style={{ padding: '4px 9px', background: tier.color + '22', border: `1px solid ${tier.color}70`, borderRight: 'none', borderRadius: '6px 0 0 6px', fontSize: 'var(--t-xs)', fontWeight: 800, color: tier.color, letterSpacing: '0.1em' }}>LE</span>
+                <span className="mono" style={{ padding: '4px 9px', background: tier.color + '10', border: `1px solid ${tier.color}50`, borderLeft: `1px solid ${tier.color}30`, borderRadius: '0 6px 6px 0', fontSize: 'var(--t-xs)', fontWeight: 600, color: tier.color, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
                   {leBadge}{item.marketSource === 'verified' && <CheckCircle2 size={10} style={{ opacity: 0.75 }} />}
                 </span>
               </div>
             )}
-            <span style={{ padding: '4px 10px', background: '#1a1a22', border: '1px solid #2a2a30', borderRadius: 6, fontSize: 11, color: 'var(--c-muted)' }}>{item.category}</span>
-            <span style={{ padding: '4px 10px', background: '#1a1a22', border: '1px solid #2a2a30', borderRadius: 6, fontSize: 11, color: 'var(--c-muted)' }}>{item.franchise}</span>
+            <span style={{ padding: '4px 10px', background: '#1a1a22', border: '1px solid #2a2a30', borderRadius: 6, fontSize: 'var(--t-xs)', color: 'var(--c-muted)' }}>{item.category}</span>
+            <span style={{ padding: '4px 10px', background: '#1a1a22', border: '1px solid #2a2a30', borderRadius: 6, fontSize: 'var(--t-xs)', color: 'var(--c-muted)' }}>{item.franchise}</span>
             {item.status !== 'owned' && (
-              <span style={{ padding: '4px 10px', background: '#1a1a2e', border: '1px solid #3a3a60', borderRadius: 6, fontSize: 11, color: '#8a9acd' }}>{STATUS_LABELS[item.status]}</span>
+              <span style={{ padding: '4px 10px', background: '#1a1a2e', border: '1px solid #3a3a60', borderRadius: 6, fontSize: 'var(--t-xs)', color: '#8a9acd' }}>{STATUS_LABELS[item.status]}</span>
             )}
           </div>
 
@@ -1133,12 +1133,12 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
               {/* Dimensions */}
               {item.dimensions && (item.dimensions.heightIn || item.dimensions.widthIn || item.dimensions.depthIn || item.dimensions.weightLbs) && (
                 <div style={{ marginBottom: 16 }}>
-                  <div style={{ fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Dimensions</div>
+                  <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Dimensions</div>
                   <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
-                    {item.dimensions.heightIn  != null && <div><div style={{ fontSize: 9, color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Height</div><div className="mono" style={{ fontSize: 15, color: 'var(--c-primary)' }}>{item.dimensions.heightIn}"</div></div>}
-                    {item.dimensions.widthIn   != null && <div><div style={{ fontSize: 9, color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Width</div><div className="mono" style={{ fontSize: 15, color: 'var(--c-primary)' }}>{item.dimensions.widthIn}"</div></div>}
-                    {item.dimensions.depthIn   != null && <div><div style={{ fontSize: 9, color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Depth</div><div className="mono" style={{ fontSize: 15, color: 'var(--c-primary)' }}>{item.dimensions.depthIn}"</div></div>}
-                    {item.dimensions.weightLbs != null && <div><div style={{ fontSize: 9, color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Weight</div><div className="mono" style={{ fontSize: 15, color: 'var(--c-primary)' }}>{item.dimensions.weightLbs} lbs</div></div>}
+                    {item.dimensions.heightIn  != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Height</div><div className="mono" style={{ fontSize: 'var(--t-sm)', color: 'var(--c-primary)' }}>{item.dimensions.heightIn}"</div></div>}
+                    {item.dimensions.widthIn   != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Width</div><div className="mono" style={{ fontSize: 'var(--t-sm)', color: 'var(--c-primary)' }}>{item.dimensions.widthIn}"</div></div>}
+                    {item.dimensions.depthIn   != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Depth</div><div className="mono" style={{ fontSize: 'var(--t-sm)', color: 'var(--c-primary)' }}>{item.dimensions.depthIn}"</div></div>}
+                    {item.dimensions.weightLbs != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Weight</div><div className="mono" style={{ fontSize: 'var(--t-sm)', color: 'var(--c-primary)' }}>{item.dimensions.weightLbs} lbs</div></div>}
                   </div>
                 </div>
               )}
@@ -1146,7 +1146,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
               {/* Savings methods */}
               {item.savingsMethods.length > 0 && (
                 <div style={{ marginBottom: 16 }}>
-                  <div style={{ fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Savings methods</div>
+                  <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Savings methods</div>
                   <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                     {item.savingsMethods.map((m) => <span key={m} style={{ fontSize: 'var(--t-sm)', padding: '4px 10px', background: 'rgba(58,47,28,0.6)', color: 'var(--c-gold)', borderRadius: 5, border: '1px solid #5a4a2a' }}>{SAVINGS_LABELS[m] || m}</span>)}
                   </div>
@@ -1156,7 +1156,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
               {/* Notes */}
               {item.notes && (
                 <div style={{ marginBottom: 16, padding: 12, background: '#131316', borderRadius: 8, border: '1px solid #252530' }}>
-                  <div style={{ fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 6 }}>Notes</div>
+                  <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 6 }}>Notes</div>
                   <div style={{ fontSize: 'var(--t-sm)', color: 'var(--c-secondary)', lineHeight: 1.65 }}>{item.notes}</div>
                 </div>
               )}
@@ -1171,7 +1171,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
           ) : (
             <>
               <div style={{ marginBottom: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: 13, color: 'var(--c-gold)', fontWeight: 600 }}>Edit values</span>
+                <span style={{ fontSize: 'var(--t-sm)', color: 'var(--c-gold)', fontWeight: 600 }}>Edit values</span>
                 <button onClick={onCloseEdit} style={{ padding: '6px 12px', background: 'transparent', border: '1px solid #2a2a30', borderRadius: 6, color: 'var(--c-muted)', fontSize: 12 }}>← Back</button>
               </div>
               <EditForm item={item} onUpdate={onUpdate} onClose={onCloseEdit} />
@@ -1199,12 +1199,12 @@ function MiniStat({ label, value, tone = 'var(--c-primary)', tooltipKey, activeT
 function DetailRow({ label, value, sub, mono = false, tone = '#f5f1e8', tooltipKey, activeTooltip, setActiveTooltip, anchorId }) {
   return (
     <div>
-      <div style={{ fontSize: 9, color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3, display: 'flex', alignItems: 'center' }}>
+      <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3, display: 'flex', alignItems: 'center' }}>
         {label}
         {tooltipKey && <InfoTooltip tooltipKey={tooltipKey} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={anchorId} />}
       </div>
-      <div className={mono ? 'mono' : ''} style={{ fontSize: 13, color: tone, fontWeight: mono ? 500 : 400 }}>{value}</div>
-      {sub && <div style={{ fontSize: 10, color: 'var(--c-dim)', marginTop: 1 }}>{sub}</div>}
+      <div className={mono ? 'mono' : ''} style={{ fontSize: 'var(--t-sm)', color: tone, fontWeight: mono ? 500 : 400 }}>{value}</div>
+      {sub && <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-dim)', marginTop: 1 }}>{sub}</div>}
     </div>
   );
 }
@@ -1252,13 +1252,13 @@ function EditForm({ item, onUpdate, onClose }) {
     onClose();
   };
 
-  const inputStyle = { width: '100%', padding: '8px 10px', background: '#0a0a0b', border: '1px solid #2a2a30', borderRadius: 6, color: '#f5f1e8', fontSize: 13, fontFamily: 'inherit' };
-  const labelStyle = { fontSize: 10, color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 4, display: 'block' };
+  const inputStyle = { width: '100%', padding: '8px 10px', background: '#0a0a0b', border: '1px solid #2a2a30', borderRadius: 6, color: '#f5f1e8', fontSize: 'var(--t-sm)', fontFamily: 'inherit' };
+  const labelStyle = { fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 4, display: 'block' };
 
   return (
     <div>
       <div style={{ marginBottom: 12 }}>
-        <div style={{ fontSize: 10, color: '#c9a55c', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Resell Range</div>
+        <div style={{ fontSize: 'var(--t-xs)', color: '#c9a55c', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Resell Range</div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
           <EditField label="Low" value={marketLow} onChange={setMarketLow} type="number" inputStyle={inputStyle} labelStyle={labelStyle} />
           <EditField label="Mid" value={marketMid} onChange={setMarketMid} type="number" inputStyle={inputStyle} labelStyle={labelStyle} />
@@ -1292,7 +1292,7 @@ function EditForm({ item, onUpdate, onClose }) {
           </select>
         </div>
         <div style={{ gridColumn: '1 / -1' }}>
-          <div style={{ fontSize: 10, color: '#c9a55c', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8, marginTop: 4 }}>Timeline & Edition</div>
+          <div style={{ fontSize: 'var(--t-xs)', color: '#c9a55c', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8, marginTop: 4 }}>Timeline & Edition</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
             <EditField label="Edition № (e.g. 068)" value={editionNumber} onChange={setEditionNumber} type="text" inputStyle={inputStyle} labelStyle={labelStyle} />
             <EditField label="Release Date (YYYY-MM-DD)" value={releaseDate} onChange={setReleaseDate} type="text" inputStyle={inputStyle} labelStyle={labelStyle} />
@@ -1301,7 +1301,7 @@ function EditForm({ item, onUpdate, onClose }) {
           </div>
         </div>
         <div style={{ gridColumn: '1 / -1' }}>
-          <div style={{ fontSize: 10, color: '#c9a55c', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8, marginTop: 4 }}>Dimensions (inches / lbs)</div>
+          <div style={{ fontSize: 'var(--t-xs)', color: '#c9a55c', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8, marginTop: 4 }}>Dimensions (inches / lbs)</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 8 }}>
             <EditField label='Height (in)' value={dimH} onChange={setDimH} type="number" inputStyle={inputStyle} labelStyle={labelStyle} />
             <EditField label='Width (in)'  value={dimW} onChange={setDimW} type="number" inputStyle={inputStyle} labelStyle={labelStyle} />
@@ -1316,8 +1316,8 @@ function EditForm({ item, onUpdate, onClose }) {
       </div>
 
       <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
-        <button onClick={save} style={{ flex: 1, padding: '10px 16px', background: '#c9a55c', border: 'none', borderRadius: 6, color: '#0a0a0b', fontSize: 13, fontWeight: 600 }}>Save</button>
-        <button onClick={onClose} style={{ padding: '10px 16px', background: 'transparent', border: '1px solid #2a2a30', borderRadius: 6, color: 'var(--c-muted)', fontSize: 13 }}>Cancel</button>
+        <button onClick={save} style={{ flex: 1, padding: '10px 16px', background: '#c9a55c', border: 'none', borderRadius: 6, color: '#0a0a0b', fontSize: 'var(--t-sm)', fontWeight: 600 }}>Save</button>
+        <button onClick={onClose} style={{ padding: '10px 16px', background: 'transparent', border: '1px solid #2a2a30', borderRadius: 6, color: 'var(--c-muted)', fontSize: 'var(--t-sm)' }}>Cancel</button>
       </div>
     </div>
   );

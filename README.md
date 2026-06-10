@@ -6,7 +6,11 @@ physical dimensions — and doubles as estate & insurance documentation.
 
 **Live:** https://jacobmedley.github.io/The-Collectors-Compendium/
 
-![Pieces](https://img.shields.io/badge/pieces-42-c9a55c) ![Build](https://img.shields.io/badge/build-zero--config-success)
+![Pieces](https://img.shields.io/badge/pieces-44-c9a55c) ![Build](https://img.shields.io/badge/build-zero--config-success)
+
+**Headline totals (2026-06-09):** 44 items (39 owned / 3 payment-plan / 2 pre-order) ·
+MSRP $30,604 · Paid $22,673 · Market mid $33,100 · Insurance value $41,637 ·
+Unrealized gain $10,427 · Verified rows 7 / Estimated 37
 
 ---
 
@@ -57,7 +61,7 @@ committing** or the live site will be stale. (See `CLAUDE.md` for the why.)
 ├── CLAUDE.md           # project memory / instructions for Claude Code
 ├── README.md           # this file
 └── images/
-    └── thumbs/         # 42 product photos, named <item-id>.jpg
+    └── thumbs/         # 44 product photos, named <item-id>.jpg
 ```
 
 ## Data model
@@ -88,14 +92,21 @@ Each item in `SEED_ITEMS` (top of `collection.jsx`) has:
 
 ### Rarity tiers (by production run)
 
-| Tier | Edition size |
-| --- | --- |
-| T1 — Mass | 10,000+ |
-| T2 — Wide | 2,500–9,999 |
-| T3 — Limited | 1,000–2,499 |
-| T4 — Rare | 250–999 |
-| T5 — Very Rare | 50–249 |
-| T6 — Ultra Rare | under 50 |
+T1 is the rarest tier; T6 is the most common.
+
+| Tier | Label | Edition size |
+| --- | --- | --- |
+| T1 | Ultra Rare | under 50 |
+| T2 | Very Rare | 50–249 |
+| T3 | Rare | 250–999 |
+| T4 | Limited | 1,000–2,500 |
+| T5 | Wide | 2,500–10,000 |
+| T6 | Mass | 10,000+ |
+
+### Dimension & weight conventions
+
+- **XM Studios spec sheets:** B → `widthIn`, L → `depthIn`.
+- **Weight-source priority:** actual statue weight > manufacturer listed product weight > shipping weight proxy > unknown. Proxy/estimated weights are noted in `notes`.
 
 ### Financial conventions
 
@@ -119,6 +130,10 @@ for quick personal tweaks; use `SEED_ITEMS` for anything that should stick.
 2. Save its photo as `images/thumbs/<id>.jpg`.
 3. `node build.mjs`
 4. Commit & push.
+
+## Data flow
+
+Google Sheet (Collection_Data) → edits to `SEED_ITEMS` in `collection.jsx` → `node build.mjs` → commit + push to `main` → live on GitHub Pages.
 
 ## Deploy
 

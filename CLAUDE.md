@@ -5,9 +5,12 @@ Project memory for Claude Code. Read this before making changes.
 ## What this is
 
 An interactive, single-page dashboard for a high-end collectible statue & figure
-collection (~42 pieces). It tracks what was paid, deal quality vs MSRP, current
-market value, gain/loss, rarity, liquidity, and physical dimensions. It doubles
-as estate & insurance documentation.
+collection (44 pieces: 39 owned, 3 payment-plan, 2 pre-order). It tracks what was
+paid, deal quality vs MSRP, current market value, gain/loss, rarity, liquidity, and
+physical dimensions. It doubles as estate & insurance documentation.
+
+**Headline totals (2026-06-09):** MSRP $30,604 | Paid $22,673 | Market mid $33,100 |
+Market high / insurance $41,637 | Unrealized gain $10,427 | Verified rows 7 / Estimated 37
 
 **Live site:** https://jacobmedley.github.io/The-Collectors-Compendium/
 **Hosting:** GitHub Pages, served from `main` branch root.
@@ -18,7 +21,7 @@ This is a **zero-build** app. There is no npm, no bundler, no transpile step.
 Two files matter:
 
 - **`collection.jsx`** — the entire React app in one file. This is the source of
-  truth you edit. ~1,230 lines: helpers, `SEED_ITEMS` data array, then components.
+  truth you edit. ~1,337 lines: helpers, `SEED_ITEMS` data array, then components.
 - **`index.html`** — a self-contained wrapper that loads React + ReactDOM + Babel
   Standalone + Lucide from CDN, then runs the JSX **inlined inside it** via an
   in-browser Babel transform. It is GENERATED from `collection.jsx` (see below).
@@ -65,7 +68,12 @@ Key ones for editing:
 - `marketLow/marketMid/marketHigh` — resell range. Mid is canonical for totals.
 - `marketSource` — `'verified'` (researched from real sales) or `'estimated'`.
 - `dimensions` — `{ heightIn, widthIn, depthIn, weightLbs }`, any can be `null`.
-- `rarityTier` — `'T1'`..`'T6'` by production run (see README §rarity).
+  **XM dimension convention:** XM spec sheets use B → `widthIn`, L → `depthIn`.
+  **Weight-source priority:** actual statue weight > manufacturer listed product weight >
+  shipping weight proxy > unknown. Proxy/estimated weights are noted in `notes`.
+- `rarityTier` — `'T1'`..`'T6'` by production run. **T1 = rarest.** Scale:
+  T1 Ultra Rare <50 | T2 Very Rare 50–249 | T3 Rare 250–999 |
+  T4 Limited 1k–2.5k | T5 Wide 2.5k–10k | T6 Mass 10k+
 
 ### Financial conventions (do not silently redefine)
 
@@ -94,7 +102,7 @@ backend (out of scope for the zero-build setup) or committing edits back into
 
 ## Images
 
-All 42 product photos live in `images/thumbs/<id>.jpg`, named by item id. They are
+All 44 product photos live in `images/thumbs/<id>.jpg`, named by item id. They are
 served from the same repo, so they always load on the live site (no hotlink issues).
 
 `resolveImg(item)` builds the URL from `IMAGE_BASE_URL + item.id + '.jpg'`.
@@ -113,6 +121,7 @@ of the original source). `resolveImg` ignores it in favor of the id-based path.
 - **Change styling/layout:** edit the relevant component in `collection.jsx`, rebuild.
 - **Verify market data:** check eBay sold listings / creator PDP; set `marketSource`
   to `'verified'` only when based on real observed sales.
+- **Data flow:** Google Sheet (Collection_Data) → edits to `SEED_ITEMS` → `node build.mjs` → commit + push.
 
 ## Guardrails
 

@@ -71,9 +71,10 @@ Key ones for editing:
   **XM dimension convention:** XM spec sheets use B → `widthIn`, L → `depthIn`.
   **Weight-source priority:** actual statue weight > manufacturer listed product weight >
   shipping weight proxy > unknown. Proxy/estimated weights are noted in `notes`.
-- `rarityTier` — `'T1'`..`'T6'` by production run. **T1 = rarest.** Scale:
-  T1 Ultra Rare <50 | T2 Very Rare 50–249 | T3 Rare 250–999 |
-  T4 Limited 1k–2.5k | T5 Wide 2.5k–10k | T6 Mass 10k+
+- `rarityTier` — `'T1'`..`'T6'` by production run. **T1 = rarest (Legendary).** Scale:
+  T1 Legendary #FF8000 (1–250) | T2 Epic #A335EE (251–999) | T3 Rare #0070DD (1k–2.4k) |
+  T4 Uncommon #1EFF00 (2.5k–4.9k) | T5 Common #E8E4DA (5k–9.9k) | T6 Mass #9D9D9D (10k+/open).
+  Tiers are always derived from production run, never hand-assigned.
 
 ### Financial conventions (do not silently redefine)
 
@@ -122,6 +123,12 @@ of the original source). `resolveImg` ignores it in favor of the id-based path.
 - **Verify market data:** check eBay sold listings / creator PDP; set `marketSource`
   to `'verified'` only when based on real observed sales.
 - **Data flow:** Google Sheet (Collection_Data) → edits to `SEED_ITEMS` → `node build.mjs` → commit + push.
+
+## Owner-verified record corrections (settled — do not re-open)
+
+- **Darkseid:** productionRun 1,000 confirmed. Edition #767/1,000. Prior notes saying "LE 2,000" were wrong.
+- **Magneto-prestige:** editionNumber '234' is final. Any prior "243 correction" was itself an error; 234 is authoritative.
+- **Vi (Hot Toys):** status = owned. Prior notes saying "Pre-order" were stale.
 
 ## Guardrails
 

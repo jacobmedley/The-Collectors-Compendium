@@ -92,16 +92,16 @@ Each item in `SEED_ITEMS` (top of `collection.jsx`) has:
 
 ### Rarity tiers (by production run)
 
-T1 is the rarest tier; T6 is the most common.
+T1 is the rarest tier; T6 is the most common. Tiers are derived from production run, never hand-assigned.
 
-| Tier | Label | Edition size |
-| --- | --- | --- |
-| T1 | Ultra Rare | under 50 |
-| T2 | Very Rare | 50–249 |
-| T3 | Rare | 250–999 |
-| T4 | Limited | 1,000–2,500 |
-| T5 | Wide | 2,500–10,000 |
-| T6 | Mass | 10,000+ |
+| Tier | Label | Color | Edition size |
+| --- | --- | --- | --- |
+| T1 | Legendary | #FF8000 orange | 1–250 |
+| T2 | Epic | #A335EE purple | 251–999 |
+| T3 | Rare | #0070DD blue | 1,000–2,499 |
+| T4 | Uncommon | #1EFF00 green | 2,500–4,999 |
+| T5 | Common | #E8E4DA white | 5,000–9,999 |
+| T6 | Mass | #9D9D9D gray | 10,000+ or open edition |
 
 ### Dimension & weight conventions
 
@@ -130,6 +130,15 @@ for quick personal tweaks; use `SEED_ITEMS` for anything that should stick.
 2. Save its photo as `images/thumbs/<id>.jpg`.
 3. `node build.mjs`
 4. Commit & push.
+
+## Owner-verified corrections (settled)
+
+| Item | Field | Value | Notes |
+| --- | --- | --- | --- |
+| Darkseid | productionRun | 1,000 | "LE 2,000" in old notes was wrong |
+| Darkseid | editionNumber | '767' | confirmed |
+| Magneto Prestige | editionNumber | '234' | any prior "243" was an error; 234 is final |
+| Vi (Hot Toys) | status | owned | prior "Pre-order" note was stale |
 
 ## Data flow
 

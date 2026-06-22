@@ -13,8 +13,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9",
+    "esbuild": "^0.28.1",
     "eslint": "^9",
-    "globals": "^15"
+    "globals": "^15",
+    "lucide": "^0.383.0"
   },
   "author": "jacobmedley",
   "license": "UNLICENSED",

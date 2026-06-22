@@ -55,9 +55,15 @@ html = readFileSync(htmlPath, 'utf8');
 check('contains <div id="root">', () => html.includes('<div id="root">'));
 check('contains CollectionApp', () => html.includes('CollectionApp'));
 check('contains SEED_ITEMS', () => html.includes('SEED_ITEMS'));
-check('contains _li(lucide. shim', () => html.includes('_li(lucide.'));
-check('contains React CDN script', () => html.includes('react@18'));
-check('contains Babel CDN script', () => html.includes('@babel/standalone'));
+check('contains _li shim', () => html.includes('_li(lucide.'));
+check('React pinned to 18.3.1', () => html.includes('react@18.3.1'));
+check('ReactDOM pinned to 18.3.1', () => html.includes('react-dom@18.3.1'));
+check('React loaded with defer', () => html.includes('defer src="https://unpkg.com/react@18.3.1'));
+check('no Babel script', () => !html.includes('babel'));
+check('no type="text/babel"', () => !html.includes('type="text/babel"'));
+check('no lucide UMD CDN', () => !html.includes('unpkg.com/lucide'));
+check('has error overlay', () => html.includes('window.onerror'));
+check('has DOMContentLoaded mount', () => html.includes('DOMContentLoaded'));
 
 const ICONS = [
   'Search','Filter','ArrowUp','ArrowDown','X','Edit3','ExternalLink',

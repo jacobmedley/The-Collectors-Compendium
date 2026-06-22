@@ -17,41 +17,47 @@ Market high / insurance $41,637 | Unrealized gain $10,427 | Verified rows 7 / Es
 
 ## Architecture (important — read before editing)
 
-This is a **zero-build** app. There is no npm, no bundler, no transpile step.
-Two files matter:
+This app has one dev dependency (`esbuild`) used only at build time. Three files matter:
 
 - **`collection.jsx`** — the entire React app in one file. This is the source of
   truth you edit. ~1,337 lines: helpers, `SEED_ITEMS` data array, then components.
-- **`index.html`** — a self-contained wrapper that loads React + ReactDOM + Babel
-  Standalone + Lucide from CDN, then runs the JSX **inlined inside it** via an
-  in-browser Babel transform. It is GENERATED from `collection.jsx` (see below).
+- **`icons.json`** — pre-extracted icon arrays for the 21 Lucide icons used by the
+  app (generated once by `node generate-icons.mjs`, then committed). `build.mjs`
+  reads this; the browser never fetches lucide separately.
+- **`index.html`** — a self-contained wrapper with React 18.3.1 loaded via CDN
+  (`defer`) and the JSX **precompiled and inlined** by `build.mjs`. It is GENERATED
+  from `collection.jsx` (see below). Never edit it by hand.
 
 ### The build/sync step (do this after every JSX edit)
 
-`index.html` contains a COPY of `collection.jsx` inlined in a `<script type="text/babel">`
-block. When you change `collection.jsx`, you must regenerate `index.html`, or the
-live site won't reflect your edits. The transform:
+`build.mjs` reads `collection.jsx` + `icons.json`, transpiles + minifies the JSX
+with esbuild (classic runtime: `React.createElement`, no auto-import), and writes
+the result into `index.html` as a plain `<script>` inside a `DOMContentLoaded`
+callback. The transform:
 
-1. Strip the two `import` lines from the top of `collection.jsx`
-   (`import React...` and `import {...} from 'lucide-react'`).
-2. Paste the rest between the shim header and the mount footer in the
-   `<script type="text/babel">` block.
-3. The shim header declares `const { useState, ... } = React;` and
-   `const { Search, ... } = lucide;` so the un-imported code resolves.
-4. The footer mounts: `root.render(<CollectionApp />);`
+1. Strip the two `import` lines from the top of `collection.jsx`.
+2. Inline `icons.json` as `const lucide = {...}` plus the `_li` shim and 21 icon
+   `const`s so the un-imported code resolves.
+3. Assemble React globals shim + lucide shim + app body + mount call.
+4. Run `esbuild.transformSync` with `loader:'jsx'`, `jsxFactory:'React.createElement'`,
+   `minify:true`, `target:'es2018'`.
+5. Wrap in `document.addEventListener('DOMContentLoaded', ...)` so it runs after
+   the defer'd React/ReactDOM CDN scripts.
 
-A `build.mjs` script in the repo does this automatically. Run:
+Run the build:
 ```
 node build.mjs
 ```
 This reads `collection.jsx` and rewrites `index.html`. Always run it before commit.
 
-### Why no build system?
+### Why keep a minimal build step?
 
 The owner wants to edit one file and push. GitHub Pages serves static files only.
-In-browser Babel keeps the toolchain at zero. The tradeoff: a ~0.3s transpile on
-each page load, which is fine for a personal dashboard. Do not "modernize" this
-into Vite/CRA unless the owner explicitly asks — it would break the workflow.
+The original in-browser Babel approach broke when unpkg silently rolled Babel to v8
+(which defaults to the automatic JSX runtime, emitting illegal `import` statements
+inside classic `<script>` tags). esbuild at build time is the minimal fix: one
+dev dependency, same single-file workflow, precompiled output, no runtime overhead.
+Do not migrate to Vite/CRA unless the owner explicitly asks.
 
 ## Data model
 

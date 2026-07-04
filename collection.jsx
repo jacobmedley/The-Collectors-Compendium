@@ -849,6 +849,7 @@ function ItemCard({ item, onOpenModal, activeTooltip, setActiveTooltip }) {
 
   const imgUrl = resolveImg(item);
   const [imgErr, setImgErr] = useState(false);
+  const isMobile = useMobile();
 
   // Segmented LE badge data (no [] brackets)
   const leBadge = item.productionRun
@@ -873,10 +874,10 @@ function ItemCard({ item, onOpenModal, activeTooltip, setActiveTooltip }) {
     <div style={{ background: '#131316', border: '1px solid #252530', borderRadius: 'var(--r-card)', overflow: 'hidden', transition: 'border-color 0.2s', display: 'flex', flexDirection: 'column' }}>
 
       {/* ── CLICKABLE BODY ── */}
-      <div onClick={onOpenModal} style={{ display: 'flex', cursor: 'pointer', flex: 1, minHeight: 0 }}>
+      <div onClick={onOpenModal} style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', cursor: 'pointer', flex: 1, minHeight: 0 }}>
 
         {/* LEFT: Thumbnail with overlaid badges */}
-        <div style={{ position: 'relative', flexShrink: 0, width: 'clamp(140px, 28vw, 240px)', aspectRatio: '1 / 1', background: '#1a1a22', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', flexShrink: 0, ...(isMobile ? { width: '100%', height: 180 } : { width: 'clamp(140px, 28vw, 240px)', aspectRatio: '1 / 1' }), background: '#1a1a22', overflow: 'hidden' }}>
           {imgUrl && !imgErr
             ? <img
                 src={imgUrl}
@@ -946,7 +947,7 @@ function ItemCard({ item, onOpenModal, activeTooltip, setActiveTooltip }) {
 
           {/* Name + studio + category */}
           <div style={{ flex: 1 }}>
-            <h3 className="display" style={{ fontSize: 'var(--t-lg)', fontWeight: 500, margin: '0 0 4px', lineHeight: 1.25, color: 'var(--c-primary)' }}>{item.name}</h3>
+            <h3 className="display" style={{ fontSize: 'var(--t-lg)', fontWeight: 500, margin: '0 0 4px', lineHeight: 1.25, color: 'var(--c-primary)', ...(isMobile ? { display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' } : {}) }}>{item.name}</h3>
             <div style={{ fontSize: 'var(--t-sm)', lineHeight: 1.4, marginBottom: 2 }}>
               <span style={{ color: 'var(--c-gold)' }}>{item.studio}</span>
               <span style={{ margin: '0 5px', color: 'var(--c-faint)', opacity: 0.6 }}>·</span>
@@ -990,6 +991,16 @@ function ItemCard({ item, onOpenModal, activeTooltip, setActiveTooltip }) {
 // =============================================================================
 // DETAIL MODAL — full-screen overlay with all item details + edit form
 // =============================================================================
+
+function useMobile(bp = 640) {
+  const [m, setM] = useState(() => typeof window !== 'undefined' && window.innerWidth < bp);
+  useEffect(() => {
+    const fn = () => setM(window.innerWidth < bp);
+    window.addEventListener('resize', fn, { passive: true });
+    return () => window.removeEventListener('resize', fn);
+  }, [bp]);
+  return m;
+}
 
 function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, hasOverride, onClose, activeTooltip, setActiveTooltip }) {
   const tier = RARITY_TIERS[item.rarityTier] || RARITY_TIERS.Unknown;

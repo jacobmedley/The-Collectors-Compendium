@@ -29,8 +29,8 @@ const SEED_ITEMS = [
   { id: 'batman-joker', name: 'Batman vs The Joker: Eternal Enemies', franchise: 'DC Comics', studio: 'Sideshow Collectibles', category: 'Premium Format (Diorama)', edition: 'Exclusive Edition (Sideshow Exclusive)', rarityTier: 'T2', productionRun: 275, msrp: 1050, itemCost: 1006.90, totalPaid: 1216.85, marketLow: 1400, marketMid: 1750, marketHigh: 2200, marketSource: 'estimated', liquidity: 'high', savingsMethods: ['sale', 'rewards'], notes: 'EXCLUSIVE EDITION LE 275 — verified from PDP. Much rarer than previously estimated. Order AAZ98549. Sideshow-exclusive diorama. Paid $1,007 item after $43 discounts/rewards.', url: 'https://www.sideshow.com/collectibles/dc-comics-batman-vs-the-joker-eternal-enemies-sideshow-collectibles-2006431', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/batman-joker.jpg', purchaseDate: '2025-01-25', releaseDate: null, editionNumber: '43', acquisitionDate: null, dimensions: { heightIn: 31.25, widthIn: 21.0, depthIn: 15.0, weightLbs: 24.0 }, status: 'owned' },
   { id: 'red-sonja', name: 'Red Sonja: A Savage Sword Premium Format', franchise: 'Dynamite (Red Sonja)', studio: 'Sideshow Collectibles', category: 'Premium Format Figure', edition: 'Standard', rarityTier: 'T3', productionRun: 2000, msrp: 680, itemCost: 660, totalPaid: 784.84, marketLow: 650, marketMid: 800, marketHigh: 1000, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['sale'], notes: 'Discount -$20. Weight updated to 15.2 lbs.', url: 'https://www.sideshow.com/collectibles/dynamite-red-sonja-sideshow-collectibles-300813', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/red-sonja.jpg', purchaseDate: '2025-01-18', releaseDate: null, editionNumber: '631', acquisitionDate: '2025-02-18', dimensions: { heightIn: 22.5, widthIn: 16.0, depthIn: 18.0, weightLbs: 15.2}, status: 'owned' },
   { id: 'hulk-gamma', name: 'The Hulk: Gamma Smash (Sideshow Seconds)', franchise: 'Marvel', studio: 'Sideshow Collectibles', category: 'Premium Format Figure', edition: 'Sideshow Exclusive — Seconds/Distressed (LE 150)', rarityTier: 'T1', productionRun: 150, msrp: 850, itemCost: 702.50, totalPaid: 851.49, marketLow: 950, marketMid: 1200, marketHigh: 1500, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['sale', 'seconds-discount'], notes: 'SIDESHOW EXCLUSIVE LE 150 — T5 Very Rare. Sideshow Seconds (factory-distressed unit). Seconds discount $127.50 + promo $20 = -$147.50 total. Order AAZ90214. Resale value strong on rarity, Seconds designation may discount vs mint by ~15-20%. Weight updated to 33.2 lbs.', url: 'https://www.sideshow.com/collectibles/marvel-the-hulk-gamma-smash-sideshow-collectibles-300866', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/hulk-gamma.jpg', purchaseDate: '2025-01-16', releaseDate: null, editionNumber: '86', acquisitionDate: null, dimensions: { heightIn: 28.0, widthIn: 18.0, depthIn: 19.0, weightLbs: 33.2}, status: 'owned' },
-  { id: 'red-hood-samurai', name: 'Red Hood — Samurai Series 1/4', franchise: 'DC Comics', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Samurai Series', rarityTier: 'T2', productionRun: 899, msrp: 2499, itemCost: 999.60, totalPaid: 999.60, marketLow: 1800, marketMid: 2100, marketHigh: 2500, marketSource: 'verified', liquidity: 'medium', savingsMethods: ['sale', 'black-friday'], notes: 'XM product image verified dimensions: Height 53 cm / 20.87 in; B 33 cm / 12.99 in; L 38.5 cm / 15.16 in. B mapped to widthIn and L mapped to depthIn, matching Cable image convention. Weight not shown in this image, so existing weight remains unchanged.', url: 'https://www.xm-studios.com/products/red-hood-samurai-series.aspx', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/red-hood-samurai.jpg', purchaseDate: '2026-05-27', releaseDate: null, editionNumber: '346', acquisitionDate: null, dimensions: { heightIn: 20.87, widthIn: 12.99, depthIn: 15.16, weightLbs: 26.46 }, status: 'owned' },
-  { id: 'batman-shogu', name: 'Batman Shugo (Ver B XM Exclusive) 1/4', franchise: 'DC Comics', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Samurai Series Version B (XM Exclusive)', rarityTier: 'T2', productionRun: 999, msrp: 2199, itemCost: 879.60, totalPaid: 879.60, marketLow: 1800, marketMid: 2200, marketHigh: 2700, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['sale', 'black-friday'], notes: 'XM product image/spec verified dimensions: L 41 cm / 16.14 in; B 50 cm / 19.69 in; H 66 cm / 25.98 in; estimated product weight 19 kg / 41.89 lbs. Stored as heightIn=H, widthIn=B, depthIn=L. Edition 584/999. Order/ref: d198-omdc-qcxp-0584.', url: 'https://www.xm-studios.com/products/batman-shugo-ver-a.aspx', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/batman-shogu.jpg', purchaseDate: '2026-05-27', releaseDate: null, editionNumber: '584', acquisitionDate: '2026-09-26', dimensions: { heightIn: 25.98, widthIn: 19.69, depthIn: 16.14, weightLbs: 41.89 }, status: 'owned' },
+  { id: 'red-hood-samurai', name: 'Red Hood — Samurai Series 1/4', franchise: 'DC Comics', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Samurai Series', rarityTier: 'T2', productionRun: 899, msrp: 2499, itemCost: 999.60, totalPaid: 999.60, marketLow: 1800, marketMid: 2100, marketHigh: 2500, marketSource: 'verified', liquidity: 'medium', savingsMethods: ['sale', 'black-friday'], notes: 'XM product image verified dimensions: Height 53 cm / 20.87 in; B 33 cm / 12.99 in; L 38.5 cm / 15.16 in. B mapped to widthIn and L mapped to depthIn, matching Cable image convention. Weight not shown in this image, so existing weight remains unchanged. Registered with XM: D279-KSDL-EGER-0346. 28 other owners in this country.', url: 'https://www.xm-studios.com/products/red-hood-samurai-series.aspx', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/red-hood-samurai.jpg', purchaseDate: '2026-05-27', releaseDate: null, editionNumber: '346', acquisitionDate: null, dimensions: { heightIn: 20.87, widthIn: 12.99, depthIn: 15.16, weightLbs: 26.46 }, status: 'owned' },
+  { id: 'batman-shogu', name: 'Batman Shugo (Ver B XM Exclusive) 1/4', franchise: 'DC Comics', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Samurai Series Version B (XM Exclusive)', rarityTier: 'T2', productionRun: 999, msrp: 2199, itemCost: 879.60, totalPaid: 879.60, marketLow: 1800, marketMid: 2200, marketHigh: 2700, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['sale', 'black-friday'], notes: 'XM product image/spec verified dimensions: L 41 cm / 16.14 in; B 50 cm / 19.69 in; H 66 cm / 25.98 in; estimated product weight 19 kg / 41.89 lbs. Stored as heightIn=H, widthIn=B, depthIn=L. Edition 584/999. Order/ref: d198-omdc-qcxp-0584. Registered with XM: D198-OMDC-QCXP-0584. 37 other owners in this country.', url: 'https://www.xm-studios.com/products/batman-shugo-ver-a.aspx', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/batman-shogu.jpg', purchaseDate: '2026-05-27', releaseDate: null, editionNumber: '584', acquisitionDate: '2026-09-26', dimensions: { heightIn: 25.98, widthIn: 19.69, depthIn: 16.14, weightLbs: 41.89 }, status: 'owned' },
   { id: 'rhino', name: 'Rhino 1/4', franchise: 'Marvel', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Standard', rarityTier: 'T2', productionRun: 499, msrp: 1669, itemCost: 667.60, totalPaid: 667.60, marketLow: 1100, marketMid: 1400, marketHigh: 1800, marketSource: 'verified', liquidity: 'medium', savingsMethods: ['sale', 'black-friday'], notes: 'XM product image verified dimensions: Height 50 cm / 19.69 in; B 53 cm / 20.87 in; L 52 cm / 20.47 in; product weight 20 kg / 44.09 lbs. B mapped to widthIn and L mapped to depthIn.', url: 'https://xm-studios.com/guest/shop/detail/rhino-copy-1769692922', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/rhino.jpg', purchaseDate: '2026-05-24', releaseDate: null, editionNumber: null, acquisitionDate: null, dimensions: { heightIn: 19.69, widthIn: 20.87, depthIn: 20.47, weightLbs: 44.09 }, status: 'owned' },
   { id: 'magneto-prestige', name: 'Magneto 1:3 Prestige — Premier Edition', franchise: 'Marvel (X-Men)', studio: 'XM Studios', category: '1:3 Prestige Statue', edition: 'Premier Edition (Legendary Beast)', rarityTier: 'T2', productionRun: 699, msrp: 2999, itemCost: 1199.60, totalPaid: 1199.60, marketLow: 1800, marketMid: 2200, marketHigh: 2600, marketSource: 'verified', liquidity: 'medium', savingsMethods: ['sale', 'black-friday'], notes: 'Edition #234/699. Piece #234 of 699. Actual measured product weight 65 lbs (owner-weighed; replaces prior shipping/proxy estimate). Dimensions approx 87 cm / 34.25 in H, 74 cm / 29.13 in W, 56 cm / 22.05 in D.', url: 'https://xm-studios.com/guest/shop/detail/magneto-premier-edition-prestige-series', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/magneto-prestige.jpg', purchaseDate: '2026-05-23', releaseDate: null, editionNumber: '234', acquisitionDate: null, dimensions: { heightIn: 34.25, widthIn: 29.13, depthIn: 22.05, weightLbs: 65.0 }, status: 'owned' },
   { id: 'ww-hydra', name: 'Wonder Woman vs Hydra — Fabok EX Bonus', franchise: 'DC Comics', studio: 'Prime 1 Studio', category: 'Museum Masterline 1:3 Statue', edition: 'EX Bonus (MMDC-48EXS, numbered)', rarityTier: 'T2', productionRun: 800, msrp: 1499, itemCost: 744, totalPaid: 1408, marketLow: 1400, marketMid: 1700, marketHigh: 2100, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['sale', 'rewards'], notes: 'Numbered LE 800. Prime 1 Order C2356334, May 25 2026. PROCESSING — all paid, about to ship. Caught 50%-off sale: item $749, rewards -$5 = $744 paid + $664 ship = $1,408 total.', url: 'https://www.prime1studio.com/dcwwc-wonder-woman-versus-hydra-concept-design-by-jason-fabok/MMDC-48EXS.html', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/ww-hydra.jpg', purchaseDate: '2026-05-25', releaseDate: null, editionNumber: '167', acquisitionDate: null, dimensions: { heightIn: 35.24, widthIn: 23.23, depthIn: 17.99, weightLbs: 63.93 }, status: 'owned' },
@@ -60,8 +60,8 @@ const SEED_ITEMS = [
 
   { id: 'nightcrawler', name: 'Nightcrawler — BDS Art Scale 1/10', franchise: 'Marvel (X-Men)', studio: 'Iron Studios', category: '1:10 BDS Art Scale Statue', edition: 'Standard (Limited)', rarityTier: 'T6', productionRun: null, msrp: 169.99, itemCost: 169.99, totalPaid: 169.99, marketLow: 160, marketMid: 200, marketHigh: 260, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['gift'], notes: 'Gift from wife. BDS = Battle Diorama Series — more elaborate base than standard Art Scale (sentinel wreckage + teleport cloud effects). Currently sold out at Iron Studios. X-Men piece pairs well with Mystique (also gifted).', url: 'https://ironstudios.com/products/statue-nightcrawler-x-men-bds-art-scale-1-10-iron-studios', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/nightcrawler.jpg', purchaseDate: '2021-12-25', releaseDate: null, editionNumber: null, acquisitionDate: null, dimensions: { heightIn: 8.0, widthIn: 7.0, depthIn: 5.1, weightLbs: 2.0 }, status: 'owned' },
   { id: 'mystique', name: 'Mystique — Restin State', franchise: 'Marvel (X-Men)', studio: 'Diamond Select', category: 'Premier Collection Statue', edition: 'Premier Collection', rarityTier: 'T4', productionRun: 3000, msrp: 180, itemCost: 180, totalPaid: 180, marketLow: 150, marketMid: 180, marketHigh: 230, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['gift'], notes: 'Gift from wife (Neighborhood Comics). Cost at MSRP. Weight < 1.0 lb per specs. Weight listed as < 1.0 lb.', url: 'https://neighborhoodcomics.com/products/premier-collection-mystique-restin-state', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/mystique.jpg', purchaseDate: null, releaseDate: null, editionNumber: '0109', acquisitionDate: null, dimensions: { heightIn: 12.0, widthIn: 6.0, depthIn: 7.0, weightLbs: 1.0 }, status: 'owned' },
-  { id: 'cable-hope', name: 'Cable with Hope', franchise: 'Marvel (X-Force)', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Limited Edition', rarityTier: 'T2', productionRun: 800, msrp: 1316.33, itemCost: 824, totalPaid: 824, marketLow: 925, marketMid: 1450, marketHigh: 1900, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['sale', 'bundle', 'free-shipping', 'market-weighted-allocation'], notes: 'XM product image verified dimensions: Height 50 cm / 19.68 in; B 36 cm / 14.17 in; L 38 cm / 14.96 in; owner-measured weight 28.8 lbs. Owner measurement replaces the prior 17.6 lb product-spec figure.', url: 'https://xm-studios.com/guest/shop/detail/cable-with-hope', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/cable-hope.jpg', purchaseDate: '2026-06-06', releaseDate: '2021-11-10', editionNumber: '414', acquisitionDate: null, dimensions: { heightIn: 19.68, widthIn: 14.17, depthIn: 14.96, weightLbs: 28.8 }, status: 'owned' },
-  { id: 'apocalypse', name: 'Apocalypse', franchise: 'Marvel (X-Men)', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Limited Edition', rarityTier: 'T2', productionRun: 999, msrp: 1626, itemCost: 824, totalPaid: 824, marketLow: 900, marketMid: 1450, marketHigh: 1800, marketSource: 'verified', liquidity: 'medium', savingsMethods: ['sale', 'bundle', 'free-shipping', 'market-weighted-allocation'], notes: 'Dimensions updated from supplied metric specs: Height 82 cm / 32.3 in; Width 64 cm / 25.2 in; Length 62 cm / 24.4 in; Owner-measured weight 60 lbs replaces the prior 61.7 lb product-spec figure. Length mapped to depthIn.', url: 'https://xm-studios.com/guest/shop/detail/apocalypse', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/apocalypse.jpg', purchaseDate: '2026-06-06', releaseDate: '2021-09-29', editionNumber: '646', acquisitionDate: null, dimensions: { heightIn: 32.3, widthIn: 25.2, depthIn: 24.4, weightLbs: 60.0 }, status: 'owned' },
+  { id: 'cable-hope', name: 'Cable with Hope', franchise: 'Marvel (X-Force)', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Limited Edition', rarityTier: 'T2', productionRun: 800, msrp: 1316.33, itemCost: 824, totalPaid: 824, marketLow: 925, marketMid: 1450, marketHigh: 1900, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['sale', 'bundle', 'free-shipping', 'market-weighted-allocation'], notes: 'XM product image verified dimensions: Height 50 cm / 19.68 in; B 36 cm / 14.17 in; L 38 cm / 14.96 in; owner-measured weight 28.8 lbs. Owner measurement replaces the prior 17.6 lb product-spec figure. Registered with XM: X291-WFWV-DWSH-0414. 17 other owners in this country.', url: 'https://xm-studios.com/guest/shop/detail/cable-with-hope', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/cable-hope.jpg', purchaseDate: '2026-06-06', releaseDate: '2021-11-10', editionNumber: '414', acquisitionDate: null, dimensions: { heightIn: 19.68, widthIn: 14.17, depthIn: 14.96, weightLbs: 28.8 }, status: 'owned' },
+  { id: 'apocalypse', name: 'Apocalypse', franchise: 'Marvel (X-Men)', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Limited Edition', rarityTier: 'T2', productionRun: 999, msrp: 1626, itemCost: 824, totalPaid: 824, marketLow: 900, marketMid: 1450, marketHigh: 1800, marketSource: 'verified', liquidity: 'medium', savingsMethods: ['sale', 'bundle', 'free-shipping', 'market-weighted-allocation'], notes: 'Dimensions updated from supplied metric specs: Height 82 cm / 32.3 in; Width 64 cm / 25.2 in; Length 62 cm / 24.4 in; Owner-measured weight 60 lbs replaces the prior 61.7 lb product-spec figure. Length mapped to depthIn. Registered with XM: X250-PZQP-EYWV-0646. 28 other owners in this country.', url: 'https://xm-studios.com/guest/shop/detail/apocalypse', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/apocalypse.jpg', purchaseDate: '2026-06-06', releaseDate: '2021-09-29', editionNumber: '646', acquisitionDate: null, dimensions: { heightIn: 32.3, widthIn: 25.2, depthIn: 24.4, weightLbs: 60.0 }, status: 'owned' },
 ];
 
 // =============================================================================
@@ -124,6 +124,25 @@ const SORT_OPTIONS = [
   { key: 'depthIn', label: 'Depth' },
   { key: 'weightLbs', label: 'Weight' },
 ];
+
+const TAG_OPTIONS = ['Cinematic', 'Comics', 'X-Men', 'X-Force', 'Fantastic Four', 'Stephen King', 'Bumble Bee'];
+
+function normalizeTaxonomy(item) {
+  const sourceFranchise = item.franchise || '';
+  const franchise = sourceFranchise.includes('Marvel') ? 'Marvel'
+    : sourceFranchise.includes('DC Comics') ? 'DC'
+      : sourceFranchise.includes('Transformers') ? 'Transformers'
+        : 'Other';
+  const tags = new Set(item.tags || []);
+  if (sourceFranchise.includes('Marvel') || sourceFranchise.includes('DC Comics')) tags.add('Comics');
+  if (sourceFranchise.includes('X-Men')) tags.add('X-Men');
+  if (sourceFranchise.includes('X-Force')) tags.add('X-Force');
+  if (sourceFranchise.includes('Fantastic Four')) tags.add('Fantastic Four');
+  if (sourceFranchise.includes('Transformers')) { tags.add('Cinematic'); tags.add('Bumble Bee'); }
+  if (sourceFranchise === 'IT') tags.add('Stephen King');
+  if (sourceFranchise === 'Star Wars') tags.add('Cinematic');
+  return { ...item, franchise, tags: Array.from(tags) };
+}
 
 // Tooltip definitions — what each metric actually means
 const TOOLTIPS = {
@@ -336,13 +355,16 @@ export default function CollectionApp() {
   const [filterFranchise, setFilterFranchise] = useState('all');
   const [filterStudio, setFilterStudio] = useState('all');
   const [filterCategory, setFilterCategory] = useState('all');
+  const [filterTag, setFilterTag] = useState('all');
   const [filterRarity, setFilterRarity] = useState('all');
   const [filterStatus, setFilterStatus] = useState('all');
   const [filterLiquidity, setFilterLiquidity] = useState('all');
   const [sortKey, setSortKey] = useState('marketMid');
   const [sortDir, setSortDir] = useState('desc');
   const [showFilters, setShowFilters] = useState(false);
-  const [showPortfolio, setShowPortfolio] = useState(false);
+  const [portfolioOpen, setPortfolioOpen] = useState(false);
+  const isMobile = useMobile(760);
+  const [mobileDraft, setMobileDraft] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [modalItemId, setModalItemId] = useState(null);
   const [activeTooltip, setActiveTooltip] = useState(null);
@@ -362,14 +384,14 @@ export default function CollectionApp() {
     try { await store.set(STORAGE_KEY, JSON.stringify(next)); } catch (e) {}
   };
 
-  const items = useMemo(() => SEED_ITEMS.map((s) => ({ ...s, ...(overrides[s.id] || {}) })), [overrides]);
+  const items = useMemo(() => SEED_ITEMS.map((s) => normalizeTaxonomy({ ...s, ...(overrides[s.id] || {}) })), [overrides]);
 
   const updateItem = (id, patch) => saveOverrides({ ...overrides, [id]: { ...(overrides[id] || {}), ...patch } });
   const resetItem = (id) => { const next = { ...overrides }; delete next[id]; saveOverrides(next); };
 
   const uniques = useMemo(() => {
     const set = (key) => Array.from(new Set(items.map((i) => i[key]))).filter(Boolean).sort();
-    return { franchise: set('franchise'), studio: set('studio'), category: set('category') };
+    return { franchise: ['Marvel', 'DC', 'Transformers', 'Other'], studio: set('studio'), category: set('category') };
   }, [items]);
 
   const visible = useMemo(() => {
@@ -381,6 +403,7 @@ export default function CollectionApp() {
     if (filterFranchise !== 'all') arr = arr.filter((i) => i.franchise === filterFranchise);
     if (filterStudio !== 'all') arr = arr.filter((i) => i.studio === filterStudio);
     if (filterCategory !== 'all') arr = arr.filter((i) => i.category === filterCategory);
+    if (filterTag !== 'all') arr = arr.filter((i) => i.tags?.includes(filterTag));
     if (filterRarity !== 'all') arr = arr.filter((i) => i.rarityTier === filterRarity);
     if (filterStatus !== 'all') arr = arr.filter((i) => i.status === filterStatus);
     if (filterLiquidity !== 'all') arr = arr.filter((i) => i.liquidity === filterLiquidity);
@@ -393,7 +416,7 @@ export default function CollectionApp() {
       return sortDir === 'asc' ? va - vb : vb - va;
     });
     return arr;
-  }, [items, search, filterFranchise, filterStudio, filterCategory, filterRarity, filterStatus, filterLiquidity, sortKey, sortDir]);
+  }, [items, search, filterFranchise, filterStudio, filterCategory, filterTag, filterRarity, filterStatus, filterLiquidity, sortKey, sortDir]);
 
   const totals = useMemo(() => {
     const committed = visible.filter((i) => i.status !== 'wishlist');
@@ -441,8 +464,19 @@ export default function CollectionApp() {
     };
   }, [visible]);
 
-  const activeFilterCount = (filterFranchise !== 'all' ? 1 : 0) + (filterStudio !== 'all' ? 1 : 0) + (filterCategory !== 'all' ? 1 : 0) + (filterRarity !== 'all' ? 1 : 0) + (filterStatus !== 'all' ? 1 : 0) + (filterLiquidity !== 'all' ? 1 : 0);
-  const clearFilters = () => { setFilterFranchise('all'); setFilterStudio('all'); setFilterCategory('all'); setFilterRarity('all'); setFilterStatus('all'); setFilterLiquidity('all'); setSearch(''); };
+  const activeFilterCount = (filterFranchise !== 'all' ? 1 : 0) + (filterStudio !== 'all' ? 1 : 0) + (filterCategory !== 'all' ? 1 : 0) + (filterTag !== 'all' ? 1 : 0) + (filterRarity !== 'all' ? 1 : 0) + (filterStatus !== 'all' ? 1 : 0) + (filterLiquidity !== 'all' ? 1 : 0);
+  const clearFilters = () => { setFilterFranchise('all'); setFilterStudio('all'); setFilterCategory('all'); setFilterTag('all'); setFilterRarity('all'); setFilterStatus('all'); setFilterLiquidity('all'); setSearch(''); setMobileDraft(null); };
+  const committedFilters = { franchise: filterFranchise, studio: filterStudio, category: filterCategory, tag: filterTag, rarity: filterRarity, status: filterStatus, liquidity: filterLiquidity };
+  const draftFilters = mobileDraft || committedFilters;
+  const setFilterValue = (key, value) => {
+    if (isMobile) setMobileDraft((draft) => ({ ...(draft || committedFilters), [key]: value }));
+    else ({ franchise: setFilterFranchise, studio: setFilterStudio, category: setFilterCategory, tag: setFilterTag, rarity: setFilterRarity, status: setFilterStatus, liquidity: setFilterLiquidity })[key](value);
+  };
+  const applyMobileFilters = () => {
+    if (!mobileDraft) return;
+    setFilterFranchise(mobileDraft.franchise); setFilterStudio(mobileDraft.studio); setFilterCategory(mobileDraft.category); setFilterTag(mobileDraft.tag); setFilterRarity(mobileDraft.rarity); setFilterStatus(mobileDraft.status); setFilterLiquidity(mobileDraft.liquidity);
+    setMobileDraft(null); setShowFilters(false);
+  };
 
   if (!loaded) {
     return <div style={{ background: '#0a0a0b', color: '#f5f1e8', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'serif' }}>Loading…</div>;
@@ -491,7 +525,7 @@ export default function CollectionApp() {
           gap: var(--gap-card);
         }
         @media (min-width: 1024px) {
-          .stats-grid { grid-template-columns: repeat(3, 1fr); }
+          .stats-grid { grid-template-columns: repeat(4, 1fr); }
           .cards-grid { grid-template-columns: repeat(2, 1fr); }
         }
         /* ── Swipeable mini-stats (mobile ≤1023px shows 2 at a time, swipe for more) ── */
@@ -556,25 +590,45 @@ export default function CollectionApp() {
           <Stat label="Market Value" tooltipKey="marketValue" value={fmt$(totals.marketMid)} sub={`range ${fmt$(totals.marketLow)}–${fmt$(totals.marketHigh)}`} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
           <Stat label="Total OOP" tooltipKey="totalPaid" value={fmt$(totals.totalPaid)} sub="all-in invested" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
           <Stat label="Unrealized Gain" tooltipKey="gainAbs" value={fmt$(totals.gainAbs)} sub={`liq-adj ${fmt$(totals.liquidAdjusted - totals.totalPaid)}`} tone={totals.gainAbs > 0 ? 'positive' : totals.gainAbs < 0 ? 'negative' : 'neutral'} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
-          <Stat label="Liquidation Value" tooltipKey="liquidation" value={fmt$(totals.liquidationValue)} sub="market low × liquidity factor · 30-day floor" tone="muted" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
-        </div>
-
-        <button onClick={(e) => { e.stopPropagation(); setShowPortfolio(!showPortfolio); }} style={{ marginTop: 12, width: '100%', padding: '10px 14px', background: showPortfolio ? '#3a2f1c' : '#16161a', border: `1px solid ${showPortfolio ? '#7a5d2e' : '#2a2a30'}`, borderRadius: 8, color: showPortfolio ? '#c9a55c' : '#f5f1e8', fontSize: 'var(--t-sm)', fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
-          <BarChart3 size={14} /> Portfolio Insights {showPortfolio ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-        </button>
-
-        {showPortfolio && <PortfolioInsights totals={totals} />}
+           <Stat label="Liquidation Value" tooltipKey="liquidation" value={fmt$(totals.liquidationValue)} sub="market low × liquidity factor · 30-day floor" tone="muted" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
+          <button onClick={(e) => { e.stopPropagation(); setPortfolioOpen(true); }} style={{ textAlign: 'left', background: 'linear-gradient(145deg, #33291b, #1b1814)', border: '1px solid #70572b', borderRadius: 10, padding: 'clamp(10px, 1.5vw, 14px)', color: '#f5f1e8', cursor: 'pointer' }}>
+            <div style={{ fontSize: 'var(--t-xs)', color: '#d4a750', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>Portfolio Insights</div>
+            <div className="display" style={{ fontSize: 'var(--t-lg)', lineHeight: 1.1 }}>View highlights</div>
+            <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-secondary)', marginTop: 6 }}>Concentration · holdings · gains</div>
+          </button>
+         </div>
       </header>
 
-      <div style={{ padding: 16, position: 'sticky', top: 0, background: 'rgba(10,10,11,0.92)', backdropFilter: 'blur(12px)', zIndex: 10, borderBottom: '1px solid #1f1f24' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '240px minmax(0, 1fr)', gap: 16, padding: 16, alignItems: 'start' }}>
+      <aside style={{ display: isMobile && !showFilters ? 'none' : 'block', position: isMobile ? 'fixed' : 'sticky', inset: isMobile ? 0 : undefined, top: isMobile ? 0 : 16, zIndex: isMobile ? 30 : 10, maxHeight: isMobile ? '100dvh' : 'calc(100dvh - 32px)', overflowY: 'auto', padding: isMobile ? 20 : 14, background: '#121216', border: '1px solid #2a2a30', borderRadius: isMobile ? 0 : 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+          <span style={{ fontSize: 'var(--t-sm)', color: 'var(--c-primary)', fontWeight: 700 }}>Filter collection</span>
+          {isMobile && <button onClick={() => setShowFilters(false)} style={{ background: 'transparent', border: 'none', color: 'var(--c-muted)', display: 'flex' }} aria-label="Close filters"><X size={18} /></button>}
+        </div>
+        <div style={{ display: 'grid', gap: 10 }}>
+          <FilterRow label="Franchise" value={draftFilters.franchise} onChange={(v) => setFilterValue('franchise', v)} options={uniques.franchise} />
+          <FilterRow label="Tag" value={draftFilters.tag} onChange={(v) => setFilterValue('tag', v)} options={TAG_OPTIONS} />
+          <FilterRow label="Studio" value={draftFilters.studio} onChange={(v) => setFilterValue('studio', v)} options={uniques.studio} />
+          <FilterRow label="Category" value={draftFilters.category} onChange={(v) => setFilterValue('category', v)} options={uniques.category} />
+          <FilterRow label="Rarity" value={draftFilters.rarity} onChange={(v) => setFilterValue('rarity', v)} options={Object.keys(RARITY_TIERS)} optionLabel={(k) => `${k} — ${RARITY_TIERS[k].label}`} />
+          <FilterRow label="Status" value={draftFilters.status} onChange={(v) => setFilterValue('status', v)} options={['owned', 'pre-order', 'payment-plan', 'wishlist']} optionLabel={(k) => STATUS_LABELS[k]} />
+          <FilterRow label="Liquidity" value={draftFilters.liquidity} onChange={(v) => setFilterValue('liquidity', v)} options={['high', 'medium', 'low']} optionLabel={(k) => LIQUIDITY_LABELS[k].label} />
+        </div>
+        <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
+          {activeFilterCount > 0 && <button onClick={clearFilters} style={{ flex: 1, padding: '8px 10px', background: 'transparent', border: '1px solid #5a4a2a', borderRadius: 6, color: '#c9a55c', fontSize: 'var(--t-xs)', fontWeight: 500 }}>Clear</button>}
+          {isMobile && <button onClick={applyMobileFilters} style={{ flex: 1, padding: '9px 10px', background: '#c9a55c', border: 'none', borderRadius: 6, color: '#0a0a0b', fontSize: 'var(--t-xs)', fontWeight: 700 }}>Apply filters</button>}
+        </div>
+      </aside>
+      <main style={{ minWidth: 0 }}>
+      <div style={{ padding: 0, position: 'sticky', top: 0, background: 'rgba(10,10,11,0.92)', backdropFilter: 'blur(12px)', zIndex: 10, borderBottom: '1px solid #1f1f24' }}>
         <div style={{ position: 'relative', marginBottom: 10 }}>
           <Search size={14} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--c-dim)' }} />
           <input type="text" placeholder="Search the archive…" value={search} onChange={(e) => setSearch(e.target.value)} style={{ width: '100%', padding: '10px 12px 10px 34px', background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', fontSize: 'var(--t-sm)', outline: 'none' }} />
         </div>
 
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <button onClick={(e) => { e.stopPropagation(); setShowFilters(!showFilters); }} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 12px', background: activeFilterCount > 0 ? '#3a2f1c' : '#16161a', border: `1px solid ${activeFilterCount > 0 ? '#7a5d2e' : '#2a2a30'}`, borderRadius: 8, color: activeFilterCount > 0 ? '#c9a55c' : '#f5f1e8', fontSize: 'var(--t-sm)', fontWeight: 500 }}>
-            <Filter size={13} /> Filter
+          <button onClick={(e) => { e.stopPropagation(); setMobileDraft(committedFilters); setShowFilters(!showFilters); }} style={{ display: isMobile ? 'flex' : 'none', alignItems: 'center', gap: 6, padding: '8px 12px', background: activeFilterCount > 0 ? '#3a2f1c' : '#16161a', border: `1px solid ${activeFilterCount > 0 ? '#7a5d2e' : '#2a2a30'}`, borderRadius: 8, color: activeFilterCount > 0 ? '#c9a55c' : '#f5f1e8', fontSize: 'var(--t-sm)', fontWeight: 500 }}>
+            <Filter size={13} /> Filters
             {activeFilterCount > 0 && <span style={{ background: '#c9a55c', color: '#0a0a0b', borderRadius: 99, padding: '0 6px', fontSize: 'var(--t-xs)', fontWeight: 700 }}>{activeFilterCount}</span>}
           </button>
           <div style={{ flex: 1, display: 'flex', gap: 6, alignItems: 'center' }}>
@@ -587,17 +641,6 @@ export default function CollectionApp() {
           </div>
         </div>
 
-        {showFilters && (
-          <div style={{ marginTop: 12, padding: 12, background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, display: 'grid', gap: 10 }}>
-            <FilterRow label="Franchise" value={filterFranchise} onChange={setFilterFranchise} options={uniques.franchise} />
-            <FilterRow label="Studio" value={filterStudio} onChange={setFilterStudio} options={uniques.studio} />
-            <FilterRow label="Category" value={filterCategory} onChange={setFilterCategory} options={uniques.category} />
-            <FilterRow label="Rarity" value={filterRarity} onChange={setFilterRarity} options={Object.keys(RARITY_TIERS)} optionLabel={(k) => `${k} — ${RARITY_TIERS[k].label}`} />
-            <FilterRow label="Status" value={filterStatus} onChange={setFilterStatus} options={['owned', 'pre-order', 'payment-plan', 'wishlist']} optionLabel={(k) => STATUS_LABELS[k]} />
-            <FilterRow label="Liquidity" value={filterLiquidity} onChange={setFilterLiquidity} options={['high', 'medium', 'low']} optionLabel={(k) => LIQUIDITY_LABELS[k].label} />
-            {activeFilterCount > 0 && <button onClick={clearFilters} style={{ padding: '8px 12px', background: 'transparent', border: '1px solid #5a4a2a', borderRadius: 6, color: '#c9a55c', fontSize: 'var(--t-xs)', fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}><X size={12} /> Clear all filters</button>}
-          </div>
-        )}
       </div>
 
       <div className="cards-grid" style={{ padding: 16 }}>
@@ -610,6 +653,8 @@ export default function CollectionApp() {
             setActiveTooltip={setActiveTooltip}
           />
         ))}
+      </div>
+      </main>
       </div>
 
       {modalItemId && (() => {
@@ -630,6 +675,7 @@ export default function CollectionApp() {
           />
         );
       })()}
+      {portfolioOpen && <PortfolioInsightsModal totals={totals} onClose={() => setPortfolioOpen(false)} />}
     </div></div>
   );
 }
@@ -720,6 +766,31 @@ function PortfolioInsights({ totals }) {
   );
 }
 
+function PortfolioInsightsModal({ totals, onClose }) {
+  useEffect(() => {
+    const handler = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { window.removeEventListener('keydown', handler); document.body.style.overflow = previousOverflow; };
+  }, [onClose]);
+
+  return (
+    <div onClick={(e) => { if (e.target === e.currentTarget) onClose(); }} style={{ position: 'fixed', inset: 0, zIndex: 900, background: 'rgba(0,0,0,0.72)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}>
+      <div style={{ width: 'min(1100px, 100%)', maxHeight: '90dvh', overflowY: 'auto', background: '#0e0e12', border: '1px solid #3a3020', borderRadius: 16, boxShadow: '0 24px 80px rgba(0,0,0,0.55)' }}>
+        <div style={{ position: 'sticky', top: 0, zIndex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 18px', background: 'rgba(14,14,18,0.96)', borderBottom: '1px solid #252530' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#d4a750', fontSize: 'var(--t-xs)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700 }}><BarChart3 size={14} /> Portfolio insights</div>
+            <div className="display" style={{ marginTop: 4, color: 'var(--c-primary)', fontSize: 'var(--t-xl)' }}>Collection health and highlights</div>
+          </div>
+          <button onClick={onClose} aria-label="Close portfolio insights" style={{ width: 34, height: 34, borderRadius: '50%', background: '#1a1a22', border: '1px solid #3a3a40', color: 'var(--c-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><X size={16} /></button>
+        </div>
+        <PortfolioInsights totals={totals} />
+      </div>
+    </div>
+  );
+}
+
 function ConcentrationBar({ title, data, total, accent, formatLabel }) {
   if (!data || data.length === 0 || total === 0) return null;
   return (
@@ -786,12 +857,14 @@ function Stat({ label, value, sub, tone = 'neutral', tooltipKey, activeTooltip, 
 
 function FilterRow({ label, value, onChange, options, optionLabel }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
       <span style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>{label}</span>
-      <select value={value} onChange={(e) => onChange(e.target.value)} style={{ padding: '8px 10px', background: '#0a0a0b', border: '1px solid #2a2a30', borderRadius: 6, color: '#f5f1e8', fontSize: 'var(--t-sm)' }}>
-        <option value="all">All</option>
-        {options.map((o) => <option key={o} value={o}>{optionLabel ? optionLabel(o) : o}</option>)}
-      </select>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, maxHeight: 112, overflowY: 'auto' }}>
+        {['all', ...options].map((o) => {
+          const selected = value === o;
+          return <button key={o} type="button" onClick={() => onChange(o)} style={{ padding: '5px 8px', background: selected ? '#3a2f1c' : '#0a0a0b', border: `1px solid ${selected ? '#7a5d2e' : '#2a2a30'}`, borderRadius: 999, color: selected ? '#d4a750' : 'var(--c-secondary)', fontSize: 'var(--t-xs)', lineHeight: 1.15, whiteSpace: 'nowrap' }}>{o === 'all' ? 'All' : (optionLabel ? optionLabel(o) : o)}</button>;
+        })}
+      </div>
     </div>
   );
 }
@@ -954,6 +1027,9 @@ function ItemCard({ item, onOpenModal, activeTooltip, setActiveTooltip }) {
               <span style={{ color: 'var(--c-secondary)' }}>{item.franchise}</span>
             </div>
             <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-dim)' }}>{item.category}</div>
+            {item.tags?.length > 0 && <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginTop: 7 }}>
+              {item.tags.slice(0, 3).map((tag) => <span key={tag} style={{ padding: '3px 7px', borderRadius: 999, background: '#1a1a22', border: '1px solid #2a2a30', color: 'var(--c-muted)', fontSize: 'var(--t-xs)' }}>{tag}</span>)}
+            </div>}
           </div>
 
           {/* 4-col mini stats */}
@@ -1008,6 +1084,8 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
   const liq = LIQUIDITY_LABELS[item.liquidity] || LIQUIDITY_LABELS.medium;
   const gainTone = item.gainAbs > 0 ? '#5aaf6a' : item.gainAbs < 0 ? '#c07070' : 'var(--c-muted)';
   const savingsTone = item.savingsAbs > 0 ? '#5aaf6a' : 'var(--c-muted)';
+  const modalCard = { background: '#15151b', border: '1px solid #252530', borderRadius: 12, padding: isMobile ? 12 : 16 };
+  const sectionLabel = { fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 12 };
   const imgUrl = resolveImg(item);
   const [imgErr, setImgErr] = useState(false);
 
@@ -1117,20 +1195,23 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
 
           {!editing ? (
             <>
-              {/* Financial grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, minmax(0, 1fr))', gap: isMobile ? 12 : 16, marginBottom: 16 }}>
-                <DetailRow label="MSRP" value={fmt$(item.msrp)} mono sub="creator retail" tooltipKey="msrp" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-msrp-m`} />
-                <DetailRow label="Item Paid" value={fmt$(item.itemCost)} mono sub="post-discount" tooltipKey="itemCost" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-ic-m`} />
-                <DetailRow label="Savings vs MSRP" value={`${fmt$(item.savingsAbs)} (${fmtPct(item.savingsPct)})`} mono tone={savingsTone} sub="deal quality" tooltipKey="savingsAbs" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-sav-m`} />
-                <DetailRow label="Overhead" value={fmt$(item.overhead)} mono sub="ship · tax · tariff" tone="#9c8870" tooltipKey="overhead" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-oh-m`} />
-                <DetailRow label="Total Paid" value={fmt$(item.totalPaid)} mono sub="all-in out of pocket" tooltipKey="totalPaid" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-tp-m`} />
-                <DetailRow label="Market Mid" value={fmt$(item.marketMid)} mono sub={item.marketSource === 'verified' ? '✓ verified' : 'estimated'} tooltipKey="marketValue" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mv-m`} />
-                <DetailRow label="Resell Range" value={`${fmt$(item.marketLow)} – ${fmt$(item.marketHigh)}`} mono sub={`spread ${item.spreadPct.toFixed(0)}%`} tooltipKey="marketRange" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mr-m`} />
-                <DetailRow label="Gain vs Paid" value={item.gainAbs !== null ? `${fmt$(item.gainAbs)} (${fmtPct(item.gainPct)})` : '—'} mono tone={gainTone} tooltipKey="gainAbs" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-g-m`} />
-              </div>
+              <section style={{ ...modalCard, marginBottom: 12 }}>
+                <div style={sectionLabel}>Financial snapshot</div>
+                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, minmax(0, 1fr))', gap: isMobile ? 14 : 18 }}>
+                  <DetailRow label="MSRP" value={fmt$(item.msrp)} mono sub="creator retail" tooltipKey="msrp" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-msrp-m`} />
+                  <DetailRow label="Item Paid" value={fmt$(item.itemCost)} mono sub="post-discount" tooltipKey="itemCost" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-ic-m`} />
+                  <DetailRow label="Savings vs MSRP" value={`${fmt$(item.savingsAbs)} (${fmtPct(item.savingsPct)})`} mono tone={savingsTone} sub="deal quality" tooltipKey="savingsAbs" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-sav-m`} />
+                  <DetailRow label="Overhead" value={fmt$(item.overhead)} mono sub="ship · tax · tariff" tone="#9c8870" tooltipKey="overhead" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-oh-m`} />
+                  <DetailRow label="Total Paid" value={fmt$(item.totalPaid)} mono sub="all-in out of pocket" tooltipKey="totalPaid" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-tp-m`} />
+                  <DetailRow label="Market Mid" value={fmt$(item.marketMid)} mono sub={item.marketSource === 'verified' ? '✓ verified' : 'estimated'} tooltipKey="marketValue" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mv-m`} />
+                  <DetailRow label="Resell Range" value={`${fmt$(item.marketLow)} – ${fmt$(item.marketHigh)}`} mono sub={`spread ${item.spreadPct.toFixed(0)}%`} tooltipKey="marketRange" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mr-m`} />
+                  <DetailRow label="Gain vs Paid" value={item.gainAbs !== null ? `${fmt$(item.gainAbs)} (${fmtPct(item.gainPct)})` : '—'} mono tone={gainTone} tooltipKey="gainAbs" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-g-m`} />
+                </div>
+              </section>
 
-              {/* Collector details */}
-              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(3, minmax(0, 1fr))', gap: isMobile ? 12 : 16, marginBottom: 16 }}>
+              <section style={{ ...modalCard, marginBottom: 12 }}>
+                <div style={sectionLabel}>Collector details</div>
+                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(3, minmax(0, 1fr))', gap: isMobile ? 14 : 18 }}>
                 <DetailRow label="Edition" value={item.edition} />
                 <DetailRow label="Rarity" value={`${item.rarityTier} · ${tier.rpg}`} sub={tier.label} tone={tier.color} tooltipKey="rarity" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-rar-m`} />
                 {item.productionRun && <DetailRow label="Production Run" value={`${item.productionRun.toLocaleString()} pieces`} tooltipKey="productionRun" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-prod-m`} />}
@@ -1144,37 +1225,36 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
                   : <DetailRow label="Release Date" value="—" sub="add when known" tone="var(--c-dim)" />
                 }
                 {item.acquisitionDate && <DetailRow label="Acquired" value={new Date(item.acquisitionDate).toLocaleDateString('en-US', {year:'numeric', month:'short', day:'numeric'})} />}
-              </div>
+                </div>
+              </section>
 
-              {/* Dimensions */}
               {item.dimensions && (item.dimensions.heightIn || item.dimensions.widthIn || item.dimensions.depthIn || item.dimensions.weightLbs) && (
-                <div style={{ marginBottom: 16 }}>
-                  <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Dimensions</div>
-                  <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+                <section style={{ ...modalCard, marginBottom: 12 }}>
+                  <div style={sectionLabel}>Dimensions</div>
+                  <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(4, minmax(0, 1fr))', gap: isMobile ? 14 : 18 }}>
                     {item.dimensions.heightIn  != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Height</div><div className="mono" style={{ fontSize: 'var(--t-md)', color: 'var(--c-primary)' }}>{item.dimensions.heightIn}"</div></div>}
                     {item.dimensions.widthIn   != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Width</div><div className="mono" style={{ fontSize: 'var(--t-md)', color: 'var(--c-primary)' }}>{item.dimensions.widthIn}"</div></div>}
                     {item.dimensions.depthIn   != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Depth</div><div className="mono" style={{ fontSize: 'var(--t-md)', color: 'var(--c-primary)' }}>{item.dimensions.depthIn}"</div></div>}
                     {item.dimensions.weightLbs != null && <div><div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 3 }}>Weight</div><div className="mono" style={{ fontSize: 'var(--t-md)', color: 'var(--c-primary)' }}>{item.dimensions.weightLbs} lbs</div></div>}
                   </div>
-                </div>
+                </section>
               )}
 
-              {/* Savings methods */}
               {item.savingsMethods.length > 0 && (
-                <div style={{ marginBottom: 16 }}>
-                  <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 8 }}>Savings methods</div>
+                <section style={{ ...modalCard, marginBottom: 12 }}>
+                  <div style={sectionLabel}>Savings methods</div>
                   <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                     {item.savingsMethods.map((m) => <span key={m} style={{ fontSize: 'var(--t-sm)', padding: '4px 10px', background: 'rgba(58,47,28,0.6)', color: 'var(--c-gold)', borderRadius: 5, border: '1px solid #5a4a2a' }}>{SAVINGS_LABELS[m] || m}</span>)}
                   </div>
-                </div>
+                </section>
               )}
 
               {/* Notes */}
               {item.notes && (
-                <div style={{ marginBottom: 16, padding: 12, background: '#131316', borderRadius: 8, border: '1px solid #252530' }}>
-                  <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 6 }}>Notes</div>
+                <section style={{ ...modalCard, marginBottom: 12 }}>
+                  <div style={sectionLabel}>Notes</div>
                   <div style={{ fontSize: 'var(--t-sm)', color: 'var(--c-secondary)', lineHeight: 1.65 }}>{item.notes}</div>
-                </div>
+                </section>
               )}
 
               {/* Action buttons */}

@@ -1003,6 +1003,7 @@ function useMobile(bp = 640) {
 }
 
 function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, hasOverride, onClose, activeTooltip, setActiveTooltip }) {
+  const isMobile = useMobile();
   const tier = RARITY_TIERS[item.rarityTier] || RARITY_TIERS.Unknown;
   const liq = LIQUIDITY_LABELS[item.liquidity] || LIQUIDITY_LABELS.medium;
   const gainTone = item.gainAbs > 0 ? '#5aaf6a' : item.gainAbs < 0 ? '#c07070' : 'var(--c-muted)';
@@ -1040,25 +1041,26 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
       style={{
         position: 'fixed', inset: 0, zIndex: 1000,
         background: 'rgba(0,0,0,0.72)', backdropFilter: 'blur(4px)',
-        display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
-        padding: '0',
+         display: 'flex', alignItems: isMobile ? 'flex-end' : 'center', justifyContent: 'center',
+         padding: isMobile ? '0' : '24px',
       }}
     >
       {/* Sheet — slides up from bottom on mobile, centered on desktop */}
       <div
         style={{
           position: 'relative',
-          width: '100%', maxWidth: 680,
-          maxHeight: '92dvh',
+           width: isMobile ? '100%' : 'min(960px, calc(100vw - 48px))',
+           maxWidth: 960,
+           maxHeight: isMobile ? '92dvh' : '88dvh',
           background: '#0e0e12',
           border: `1px solid ${tier.color}30`,
-          borderRadius: '20px 20px 0 0',
+           borderRadius: isMobile ? '20px 20px 0 0' : 16,
           display: 'flex', flexDirection: 'column',
           overflow: 'hidden',
         }}
       >
         {/* ── HERO HEADER ── */}
-        <div style={{ position: 'relative', flexShrink: 0, height: 200, background: '#1a1a22', overflow: 'hidden' }}>
+         <div style={{ position: 'relative', flexShrink: 0, height: isMobile ? 180 : 190, background: '#1a1a22', overflow: 'hidden' }}>
           {imgUrl && !imgErr
             ? <img src={imgUrl} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: IMG_POSITION[item.id] || IMG_POSITION_DEFAULT, display: 'block' }} onError={() => setImgErr(true)} />
             : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: `radial-gradient(ellipse at center, ${tier.color}18 0%, transparent 70%)` }}>
@@ -1094,7 +1096,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
         </div>
 
         {/* ── SCROLLABLE CONTENT ── */}
-        <div style={{ flex: 1, overflowY: 'auto', padding: '16px 16px 32px' }}>
+        <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '14px 14px 24px' : '18px 24px 24px' }}>
 
           {/* LE / rarity pill row */}
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}>
@@ -1116,7 +1118,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
           {!editing ? (
             <>
               {/* Financial grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, minmax(0, 1fr))', gap: isMobile ? 12 : 16, marginBottom: 16 }}>
                 <DetailRow label="MSRP" value={fmt$(item.msrp)} mono sub="creator retail" tooltipKey="msrp" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-msrp-m`} />
                 <DetailRow label="Item Paid" value={fmt$(item.itemCost)} mono sub="post-discount" tooltipKey="itemCost" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-ic-m`} />
                 <DetailRow label="Savings vs MSRP" value={`${fmt$(item.savingsAbs)} (${fmtPct(item.savingsPct)})`} mono tone={savingsTone} sub="deal quality" tooltipKey="savingsAbs" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-sav-m`} />
@@ -1128,7 +1130,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
               </div>
 
               {/* Collector details */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(3, minmax(0, 1fr))', gap: isMobile ? 12 : 16, marginBottom: 16 }}>
                 <DetailRow label="Edition" value={item.edition} />
                 <DetailRow label="Rarity" value={`${item.rarityTier} · ${tier.rpg}`} sub={tier.label} tone={tier.color} tooltipKey="rarity" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-rar-m`} />
                 {item.productionRun && <DetailRow label="Production Run" value={`${item.productionRun.toLocaleString()} pieces`} tooltipKey="productionRun" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-prod-m`} />}

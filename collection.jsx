@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { Search, Filter, ArrowUp, ArrowDown, X, Edit3, ExternalLink, TrendingUp, TrendingDown, Minus, Gift, Info, BarChart3, ChevronDown, ChevronUp, Award, Zap, CheckCircle2, Wallet, CalendarClock, Percent } from 'lucide-react';
 
 // =============================================================================
-// SEED DATA — 44 items
+// SEED DATA — 45 items
 // MSRP = creator's official retail price (source of truth)
 // itemCost = paid for item only, post-discount, pre tax/ship
 // totalPaid = full out-of-pocket (item + overhead)
@@ -62,6 +62,62 @@ const SEED_ITEMS = [
   { id: 'mystique', name: 'Mystique — Restin State', franchise: 'Marvel (X-Men)', studio: 'Diamond Select', category: 'Premier Collection Statue', edition: 'Premier Collection', rarityTier: 'T4', productionRun: 3000, msrp: 180, itemCost: 180, totalPaid: 180, marketLow: 150, marketMid: 180, marketHigh: 230, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['gift'], notes: 'Gift from wife (Neighborhood Comics). Cost at MSRP. Weight < 1.0 lb per specs. Weight listed as < 1.0 lb.', url: 'https://neighborhoodcomics.com/products/premier-collection-mystique-restin-state', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/mystique.jpg', purchaseDate: null, releaseDate: null, editionNumber: '0109', acquisitionDate: null, dimensions: { heightIn: 12.0, widthIn: 6.0, depthIn: 7.0, weightLbs: 1.0 }, status: 'owned' },
   { id: 'cable-hope', name: 'Cable with Hope', franchise: 'Marvel (X-Force)', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Limited Edition', rarityTier: 'T2', productionRun: 800, msrp: 1316.33, itemCost: 824, totalPaid: 824, marketLow: 925, marketMid: 1450, marketHigh: 1900, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['sale', 'bundle', 'free-shipping', 'market-weighted-allocation'], notes: 'XM product image verified dimensions: Height 50 cm / 19.68 in; B 36 cm / 14.17 in; L 38 cm / 14.96 in; owner-measured weight 28.8 lbs. Owner measurement replaces the prior 17.6 lb product-spec figure. Registered with XM: X291-WFWV-DWSH-0414. 17 other owners in this country.', url: 'https://xm-studios.com/guest/shop/detail/cable-with-hope', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/cable-hope.jpg', purchaseDate: '2026-06-06', releaseDate: '2021-11-10', editionNumber: '414', acquisitionDate: null, dimensions: { heightIn: 19.68, widthIn: 14.17, depthIn: 14.96, weightLbs: 28.8 }, status: 'owned' },
   { id: 'apocalypse', name: 'Apocalypse', franchise: 'Marvel (X-Men)', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Limited Edition', rarityTier: 'T2', productionRun: 999, msrp: 1626, itemCost: 824, totalPaid: 824, marketLow: 900, marketMid: 1450, marketHigh: 1800, marketSource: 'verified', liquidity: 'medium', savingsMethods: ['sale', 'bundle', 'free-shipping', 'market-weighted-allocation'], notes: 'Dimensions updated from supplied metric specs: Height 82 cm / 32.3 in; Width 64 cm / 25.2 in; Length 62 cm / 24.4 in; Owner-measured weight 60 lbs replaces the prior 61.7 lb product-spec figure. Length mapped to depthIn. Registered with XM: X250-PZQP-EYWV-0646. 28 other owners in this country.', url: 'https://xm-studios.com/guest/shop/detail/apocalypse', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/apocalypse.jpg', purchaseDate: '2026-06-06', releaseDate: '2021-09-29', editionNumber: '646', acquisitionDate: null, dimensions: { heightIn: 32.3, widthIn: 25.2, depthIn: 24.4, weightLbs: 60.0 }, status: 'owned' },
+  { id: 'storm-pcs', name: "Storm Black Suit — Marvel's Future Revolution", franchise: 'Marvel (X-Men)', studio: 'Premium Collectibles Studio', category: '1:3 Scale Statue', edition: 'Black Suit', rarityTier: 'Unknown', productionRun: null, msrp: null, itemCost: 1610, totalPaid: 1895.61, marketLow: null, marketMid: null, marketHigh: null, marketSource: null, liquidity: 'medium', savingsMethods: ['sale'], notes: 'Secret Compass order #1152678, Oct 26 2026. Listed $1,625; order discount $15; item paid $1,610; shipping $285.61; tax $0; total $1,895.61. Expected delivery Oct 30 2026; receipt not yet confirmed. Manufacturer MSRP, edition size, and secondary-market value not verified. Dimensions from retailer product page.', url: 'https://secretcompassonline.com/products/marvel-x-men-storm-1', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/storm-pcs.jpg', purchaseDate: '2026-10-26', releaseDate: null, editionNumber: null, acquisitionDate: null, dimensions: { heightIn: 37, widthIn: 22, depthIn: 16, weightLbs: null }, status: 'owned' },
+];
+
+// Separate from owned pieces: asking prices are retailer offers, and resale
+// bands are indicative estimates unless a completed sale is explicitly cited.
+const WISHLIST_ITEMS = [
+  {
+    id: 'wish-professor-x', name: 'Professor X — Version A (Wheelchair)', studio: 'XM Studios', scale: '1/4 scale',
+    price: 439.60, priceNote: '60% sale · free eligible shipping',
+    low: 450, mid: 650, high: 900, evidence: 'Asking-led estimate; no matching completed sale confirmed. Current US asks include $600 sealed and $625 used plus shipping.',
+    evidenceUrl: 'https://www.ebay.com/b/XM-Studios-Collectible-Comics-Statues/80/bn_115251957',
+    note: 'Max edition size 599. Complements the XM X-Men group; confirm the delivered total and condition before comparing with resale.',
+    url: 'https://www.specfictionshop.com/collections/black-friday/products/professor-x-version-a-wheelchair-1-4-scale-statue-by-xm-studios',
+  },
+  {
+    id: 'wish-psylocke', name: 'Psylocke', studio: 'XM Studios', scale: '1/4 scale',
+    price: 498.80, priceNote: '60% sale · free contiguous-US shipping',
+    low: 450, mid: 625, high: 850, evidence: 'A third-party feed reported $625 and $300 eBay sales, but the feed mixed in unrelated statues. Treat this band as provisional; compare matching sold listings.',
+    evidenceUrl: 'https://www.ebay.com/sch/i.html?_nkw=XM+Studios+Psylocke+1%2F4+statue&LH_Sold=1&LH_Complete=1',
+    note: 'Edition size 799. Resale history is thin; condition, sealed status, and shipping affect comparisons.',
+    url: 'https://www.specfictionshop.com/collections/black-friday/products/x-men-psylocke-1-4-scale-premium-statue',
+  },
+  {
+    id: 'wish-harley', name: 'Arkham City Harley Quinn — DX Bonus', studio: 'Prime 1 Studio', scale: '1/3 scale',
+    price: 999.60, priceNote: '60% sale · free eligible shipping',
+    low: 850, mid: 1150, high: 1350, evidence: 'Asking-led estimate; a matching DX Bonus is offered locally for $1,250. No completed sale confirmed.',
+    evidenceUrl: 'https://offerup.com/item/detail/6954654b-bfc4-3d4f-b1e4-681c9f125ce1',
+    note: 'Check that all four portraits, head stands, and bonus parts are included; missing parts can materially lower resale.',
+    url: 'https://www.specfictionshop.com/collections/black-friday/products/arkham-city-harley-quinn-museum-statue',
+  },
+  {
+    id: 'wish-catwoman', name: 'Batman Returns Catwoman', studio: 'Darkside Collectibles Studio', scale: '1/3 scale',
+    price: 1299, priceNote: 'Cart discount may apply · shipping extra',
+    low: 750, mid: 1000, high: 1200, evidence: 'Asking-led estimate; a used matching 1/3 statue has been listed at $1,104.99. No completed sale confirmed.',
+    evidenceUrl: 'https://www.ebay.com/itm/198653848809',
+    note: 'The shop advertises a tiered cart discount, but shipping is calculated at checkout. Compare the final landed cost.',
+    url: 'https://www.specfictionshop.com/collections/black-friday/products/batman-returns-catwoman-1-3-scale-statue',
+  },
+  {
+    id: 'wish-geralt', name: 'The Witcher 3 — Geralt of Rivia Deluxe', studio: 'PureArts', scale: '1/4 scale',
+    price: 1899, priceNote: '25% cart discount advertised · free contiguous-US shipping',
+    low: 1000, mid: 1300, high: 1700, evidence: 'A matching US eBay listing shows sold at $1,299, but Best Offer was enabled, so the accepted price may be lower. Thin resale history.',
+    evidenceUrl: 'https://www.ebay.com/itm/257577589801',
+    note: 'Edition size 750. Dettlaff spans 42 inches; allow substantial display space. Advertised 25% tier implies $1,424.25 before tax if it applies at checkout.',
+    url: 'https://www.specfictionshop.com/collections/black-friday/products/the-witcher-3-wild-hunt-geralt-of-rivia-deluxe-1-4-scale-statue',
+  },
+  {
+    id: 'wish-egyptian-queen', name: 'Frazetta Legacy — Egyptian Queen Deluxe', studio: 'ReVenture Studios', scale: '1/4 scale',
+    price: 1349, priceNote: 'Pre-order / waitlist shown · shipping due later',
+    low: null, mid: null, high: null,
+    evidence: 'No completed resale sales found for this unreleased edition; revisit after deliveries begin.',
+    evidenceUrl: 'https://www.frazettamuseum.com/blogs/news/reventure-studios-x-frazetta-museum-egyptian-queen',
+    evidenceLabel: 'Museum details ↗',
+    note: 'Edition of 100. The deluxe base includes the throne and panther. Allow 33.4 × 21.5 inches of display space; listed height is 27.75 inches.',
+    url: 'https://www.specfictionshop.com/products/egyptian-queen-1-4-scale-statue',
+  },
 ];
 
 // =============================================================================
@@ -91,7 +147,7 @@ const SAVINGS_LABELS = {
 };
 
 const STATUS_LABELS = {
-  'owned': 'Owned', 'pre-order': 'Pre-Order', 'payment-plan': 'Payment Plan', 'wishlist': 'Wishlist',
+  'owned': 'Owned', 'pre-order': 'Pre-Order', 'payment-plan': 'Payment Plan',
 };
 
 const LIQUIDITY_LABELS = {
@@ -282,17 +338,18 @@ const computeMetrics = (item) => {
   const marketHigh = item.marketHigh || 0;
   const totalPaid = item.totalPaid;
 
-  const savingsAbs = itemCost !== null && itemCost !== undefined ? msrp - itemCost : null;
-  const savingsPct = itemCost !== null && itemCost !== undefined && msrp > 0
+  const savingsAbs = item.msrp != null && itemCost !== null && itemCost !== undefined ? msrp - itemCost : null;
+  const savingsPct = item.msrp != null && itemCost !== null && itemCost !== undefined && msrp > 0
     ? ((msrp - itemCost) / msrp) * 100 : null;
 
   const overhead = totalPaid !== null && totalPaid !== undefined && itemCost !== null && itemCost !== undefined
     ? totalPaid - itemCost : null;
 
-  const gainAbs = totalPaid !== null && totalPaid !== undefined ? marketMid - totalPaid : null;
-  const gainPct = totalPaid !== null && totalPaid !== undefined && totalPaid > 0
+  const hasMarket = item.marketMid !== null && item.marketMid !== undefined;
+  const gainAbs = hasMarket && totalPaid !== null && totalPaid !== undefined ? marketMid - totalPaid : null;
+  const gainPct = hasMarket && totalPaid !== null && totalPaid !== undefined && totalPaid > 0
     ? ((marketMid - totalPaid) / totalPaid) * 100
-    : (totalPaid === 0 && marketMid > 0 ? Infinity : null);
+    : (hasMarket && totalPaid === 0 && marketMid > 0 ? Infinity : null);
 
   // Spread as % of mid — wider = less certain
   const spreadPct = marketMid > 0 ? ((marketHigh - marketLow) / marketMid) * 100 : 0;
@@ -350,6 +407,7 @@ const store = {
 export default function CollectionApp() {
   const [overrides, setOverrides] = useState({});
   const [loaded, setLoaded] = useState(false);
+  const [activeView, setActiveView] = useState('acquired');
 
   const [search, setSearch] = useState('');
   const [filterFranchise, setFilterFranchise] = useState('all');
@@ -434,8 +492,9 @@ export default function CollectionApp() {
     const marketLow = sum('marketLow');
     const marketHigh = sum('marketHigh');
     const msrp = sum('msrp');
-    const savingsAbs = committed.reduce((s, i) => s + (i.msrp || 0) - (i.itemCost || 0), 0);
-    const gainAbs = marketMid - totalPaid;
+    const savingsAbs = committed.reduce((s, i) => s + (i.savingsAbs || 0), 0);
+    const gainAbs = committed.reduce((s, i) => s + (i.gainAbs || 0), 0);
+    const missingMarketCount = committed.filter((i) => i.marketMid == null).length;
 
     // Liquidity-weighted market value: higher liquidity items get more credit
     const liquidityWeight = { high: 1.0, medium: 0.85, low: 0.65 };
@@ -454,7 +513,7 @@ export default function CollectionApp() {
     return {
       count: visible.length, committedCount: committed.length,
       msrp, itemSpend, overhead, totalPaid, marketMid, marketLow, marketHigh,
-      savingsAbs, gainAbs, liquidAdjusted, liquidationValue, hhi,
+      savingsAbs, gainAbs, missingMarketCount, liquidAdjusted, liquidationValue, hhi,
       byStudio: groupBy('studio'),
       byFranchise: groupBy('franchise'),
       byRarity: groupBy('rarityTier'),
@@ -524,6 +583,14 @@ export default function CollectionApp() {
           grid-template-columns: 1fr;
           gap: var(--gap-card);
         }
+        .wishlist-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: var(--gap-card);
+        }
+        @media (min-width: 760px) {
+          .wishlist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
         @media (min-width: 1024px) {
           .stats-grid { grid-template-columns: repeat(4, 1fr); }
           .cards-grid { grid-template-columns: repeat(2, 1fr); }
@@ -577,27 +644,54 @@ export default function CollectionApp() {
       <header style={{ padding: '24px 16px 16px', borderBottom: '1px solid #1f1f24' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
           <h1 className="display" style={{ fontSize: 'var(--t-2xl)', fontWeight: 400, margin: 0 }}>The Archive</h1>
-          <span className="mono" style={{ fontSize: 'var(--t-xs)', color: 'var(--c-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{visible.length} / {items.length}</span>
+          <span className="mono" style={{ fontSize: 'var(--t-xs)', color: 'var(--c-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{activeView === 'acquired' ? `${visible.length} / ${items.length}` : `${WISHLIST_ITEMS.length} saved`}</span>
         </div>
         <p style={{ fontSize: 'var(--t-xs)', color: 'var(--c-muted)', margin: 0, letterSpacing: '0.02em', lineHeight: 1.5 }}>
-          Creator MSRP · resell ranges · liquidity-weighted · tap <Info size={10} style={{ display: 'inline', verticalAlign: 'middle' }} /> to learn any metric
+          {activeView === 'acquired' ? <>Creator MSRP · resell ranges · liquidity-weighted · tap <Info size={10} style={{ display: 'inline', verticalAlign: 'middle' }} /> to learn any metric</> : 'Pieces under consideration · shop offers · resale research'}
         </p>
 
-        <div className="stats-grid" style={{ marginTop: 20 }}>
+        <nav aria-label="Collection views" style={{ display: 'flex', gap: 8, marginTop: 20 }}>
+          {[
+            ['acquired', 'Acquired', items.length],
+            ['wishlist', 'Wish List', WISHLIST_ITEMS.length],
+          ].map(([view, label, count]) => (
+            <button key={view} type="button" aria-pressed={activeView === view} onClick={() => { setActiveView(view); setShowFilters(false); setModalItemId(null); setEditingId(null); setPortfolioOpen(false); }} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, flex: isMobile ? 1 : '0 1 auto', minWidth: isMobile ? 0 : 150, padding: '10px 16px', background: activeView === view ? '#3a2f1c' : '#16161a', border: `1px solid ${activeView === view ? '#a07828' : '#35343a'}`, borderRadius: 8, color: activeView === view ? '#f0c677' : 'var(--c-secondary)', fontSize: 'var(--t-sm)', fontWeight: 700, cursor: 'pointer' }}>
+              {label}<span className="mono" style={{ fontSize: 'var(--t-xs)', color: activeView === view ? '#f0c677' : 'var(--c-muted)' }}>{count}</span>
+            </button>
+          ))}
+        </nav>
+
+        {activeView === 'acquired' && <div className="stats-grid" style={{ marginTop: 20 }}>
           <Stat label="Item Spend" tooltipKey="itemCost" value={fmt$(totals.itemSpend)} sub="items only" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
           <Stat label="Overhead" tooltipKey="overhead" value={fmt$(totals.overhead)} sub="ship · tax · tariff" tone="muted" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
           <Stat label="Savings vs MSRP" tooltipKey="savingsAbs" value={fmt$(totals.savingsAbs)} sub={`${totals.msrp > 0 ? ((totals.savingsAbs / totals.msrp) * 100).toFixed(0) : 0}% off retail`} tone={totals.savingsAbs > 0 ? 'positive' : 'neutral'} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
-          <Stat label="Market Value" tooltipKey="marketValue" value={fmt$(totals.marketMid)} sub={`range ${fmt$(totals.marketLow)}–${fmt$(totals.marketHigh)}`} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
+          <Stat label="Market Value" tooltipKey="marketValue" value={fmt$(totals.marketMid)} sub={totals.missingMarketCount ? `${totals.missingMarketCount} piece(s) unvalued` : `range ${fmt$(totals.marketLow)}–${fmt$(totals.marketHigh)}`} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
           <Stat label="Total OOP" tooltipKey="totalPaid" value={fmt$(totals.totalPaid)} sub="all-in invested" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
-          <Stat label="Unrealized Gain" tooltipKey="gainAbs" value={fmt$(totals.gainAbs)} sub={`liq-adj ${fmt$(totals.liquidAdjusted - totals.totalPaid)}`} tone={totals.gainAbs > 0 ? 'positive' : totals.gainAbs < 0 ? 'negative' : 'neutral'} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
+          <Stat label="Unrealized Gain" tooltipKey="gainAbs" value={fmt$(totals.gainAbs)} sub={totals.missingMarketCount ? 'valued pieces only' : `liq-adj ${fmt$(totals.liquidAdjusted - totals.totalPaid)}`} tone={totals.gainAbs > 0 ? 'positive' : totals.gainAbs < 0 ? 'negative' : 'neutral'} activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
            <Stat label="Liquidation Value" tooltipKey="liquidation" value={fmt$(totals.liquidationValue)} sub="market low × liquidity factor · 30-day floor" tone="muted" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} />
           <button onClick={(e) => { e.stopPropagation(); setPortfolioOpen(true); }} style={{ textAlign: 'left', background: 'linear-gradient(145deg, #33291b, #1b1814)', border: '1px solid #70572b', borderRadius: 10, padding: 'clamp(10px, 1.5vw, 14px)', color: '#f5f1e8', cursor: 'pointer' }}>
             <div style={{ fontSize: 'var(--t-xs)', color: '#d4a750', letterSpacing: '0.07em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>Portfolio Insights</div>
             <div className="display" style={{ fontSize: 'var(--t-lg)', lineHeight: 1.1 }}>View highlights</div>
             <div style={{ fontSize: 'var(--t-xs)', color: 'var(--c-secondary)', marginTop: 6 }}>Concentration · holdings · gains</div>
           </button>
-         </div>
+         </div>}
       </header>
+
+      {activeView === 'wishlist' && <section aria-labelledby="wishlist-heading" style={{ padding: '28px 16px 30px', borderBottom: '1px solid #2a2a30' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', marginBottom: 8 }}>
+          <h2 id="wishlist-heading" className="display" style={{ fontSize: 'var(--t-xl)', fontWeight: 400, margin: 0 }}>Wish List</h2>
+          <span className="mono" style={{ color: 'var(--c-muted)', fontSize: 'var(--t-xs)' }}>{WISHLIST_ITEMS.length} under consideration</span>
+        </div>
+        <p style={{ color: 'var(--c-secondary)', fontSize: 'var(--t-xs)', lineHeight: 1.5, margin: '0 0 18px' }}>
+          Resale bands are research estimates, not completed-sale guarantees. Unreleased pieces without completed sales show pending values. Shop prices checked October 29–30, 2026; tax and shipping may change the final cost.
+        </p>
+        <div className="wishlist-grid">
+          {WISHLIST_ITEMS.map((item) => <WishlistCard key={item.id} item={item} />)}
+        </div>
+      </section>}
+
+      {activeView === 'acquired' && <>
+      <h2 className="display" style={{ fontSize: 'var(--t-xl)', fontWeight: 400, margin: '26px 16px 0' }}>Acquisitions</h2>
 
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '240px minmax(0, 1fr)', gap: 16, padding: 16, alignItems: 'start' }}>
       <aside style={{ display: isMobile && !showFilters ? 'none' : 'block', position: isMobile ? 'fixed' : 'sticky', inset: isMobile ? 0 : undefined, top: isMobile ? 0 : 16, zIndex: isMobile ? 30 : 10, maxHeight: isMobile ? '100dvh' : 'calc(100dvh - 32px)', overflowY: 'auto', padding: isMobile ? 20 : 14, background: '#121216', border: '1px solid #2a2a30', borderRadius: isMobile ? 0 : 12 }}>
@@ -611,7 +705,7 @@ export default function CollectionApp() {
           <FilterRow label="Studio" value={draftFilters.studio} onChange={(v) => setFilterValue('studio', v)} options={uniques.studio} />
           <FilterRow label="Category" value={draftFilters.category} onChange={(v) => setFilterValue('category', v)} options={uniques.category} />
           <FilterRow label="Rarity" value={draftFilters.rarity} onChange={(v) => setFilterValue('rarity', v)} options={Object.keys(RARITY_TIERS)} optionLabel={(k) => `${k} — ${RARITY_TIERS[k].label}`} />
-          <FilterRow label="Status" value={draftFilters.status} onChange={(v) => setFilterValue('status', v)} options={['owned', 'pre-order', 'payment-plan', 'wishlist']} optionLabel={(k) => STATUS_LABELS[k]} />
+          <FilterRow label="Status" value={draftFilters.status} onChange={(v) => setFilterValue('status', v)} options={['owned', 'pre-order', 'payment-plan']} optionLabel={(k) => STATUS_LABELS[k]} />
           <FilterRow label="Liquidity" value={draftFilters.liquidity} onChange={(v) => setFilterValue('liquidity', v)} options={['high', 'medium', 'low']} optionLabel={(k) => LIQUIDITY_LABELS[k].label} />
         </div>
         <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>
@@ -656,6 +750,7 @@ export default function CollectionApp() {
       </div>
       </main>
       </div>
+      </>}
 
       {modalItemId && (() => {
         const modalItem = visible.find(i => i.id === modalItemId);
@@ -677,6 +772,45 @@ export default function CollectionApp() {
       })()}
       {portfolioOpen && <PortfolioInsightsModal totals={totals} onClose={() => setPortfolioOpen(false)} />}
     </div></div>
+  );
+}
+
+// =============================================================================
+// WISHLIST — simple, self-contained cards; not part of acquisition totals
+// =============================================================================
+
+function WishlistCard({ item }) {
+  const badgeStyle = { flex: '1 1 0', minWidth: 0, border: '1px solid #3b3428', background: '#211d18', borderRadius: 8, padding: '9px 5px', textAlign: 'center' };
+  return (
+    <article style={{ minWidth: 0, overflow: 'hidden', border: '1px solid #33302b', borderRadius: 12, background: '#151518', display: 'grid', gridTemplateColumns: 'minmax(95px, 28%) minmax(0, 1fr)' }}>
+      <img src={`images/thumbs/${item.id}.jpg`} alt={`${item.name} statue`} loading="lazy" style={{ display: 'block', width: '100%', height: '100%', minHeight: 245, objectFit: 'cover', objectPosition: 'center top', background: '#222227' }} />
+      <div style={{ minWidth: 0, padding: 'clamp(12px, 1.6vw, 18px)', display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <div>
+          <div style={{ color: 'var(--c-muted)', fontSize: 'var(--t-xs)' }}>{item.studio} · {item.scale}</div>
+          <h3 className="display" style={{ fontSize: 'var(--t-md)', margin: '3px 0 0', lineHeight: 1.18 }}>{item.name}</h3>
+        </div>
+        <div style={{ color: 'var(--c-secondary)', fontSize: 'var(--t-xs)' }}>
+          Shop offer <strong className="mono" style={{ color: 'var(--c-primary)' }}>{item.price.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 })}</strong><br />{item.priceNote}
+        </div>
+        <div>
+          <div style={{ color: 'var(--c-muted)', fontSize: 'var(--t-xs)', marginBottom: 5 }}>Indicative resale · low / mid / high</div>
+          <div style={{ display: 'flex', gap: 5 }}>
+            {[['Low', item.low], ['Mid', item.mid], ['High', item.high]].map(([label, value]) => (
+              <div key={label} style={badgeStyle}>
+                <div style={{ color: 'var(--c-muted)', fontSize: 12, lineHeight: 1.2 }}>{label}</div>
+                <div className="mono" style={{ color: label === 'Mid' ? '#d4a750' : 'var(--c-primary)', fontSize: 'clamp(12px, 1vw, 15px)', fontWeight: 700, marginTop: 3 }}>{value == null ? 'Pending' : fmt$(value)}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p style={{ color: 'var(--c-secondary)', fontSize: 'var(--t-xs)', lineHeight: 1.45, margin: 0 }}>{item.note}</p>
+        <p style={{ color: 'var(--c-muted)', fontSize: 'var(--t-xs)', lineHeight: 1.4, margin: 0 }}>{item.evidence}</p>
+        <div style={{ display: 'flex', gap: 15, flexWrap: 'wrap', marginTop: 'auto', fontSize: 'var(--t-xs)' }}>
+          <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: '#d4a750' }}>Shop listing ↗</a>
+          <a href={item.evidenceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--c-secondary)' }}>{item.evidenceLabel || 'Resale evidence ↗'}</a>
+        </div>
+      </div>
+    </article>
   );
 }
 
@@ -1203,7 +1337,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
                   <DetailRow label="Savings vs MSRP" value={`${fmt$(item.savingsAbs)} (${fmtPct(item.savingsPct)})`} mono tone={savingsTone} sub="deal quality" tooltipKey="savingsAbs" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-sav-m`} />
                   <DetailRow label="Overhead" value={fmt$(item.overhead)} mono sub="ship · tax · tariff" tone="#9c8870" tooltipKey="overhead" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-oh-m`} />
                   <DetailRow label="Total Paid" value={fmt$(item.totalPaid)} mono sub="all-in out of pocket" tooltipKey="totalPaid" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-tp-m`} />
-                  <DetailRow label="Market Mid" value={fmt$(item.marketMid)} mono sub={item.marketSource === 'verified' ? '✓ verified' : 'estimated'} tooltipKey="marketValue" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mv-m`} />
+                  <DetailRow label="Market Mid" value={fmt$(item.marketMid)} mono sub={item.marketMid == null ? 'not yet valued' : item.marketSource === 'verified' ? '✓ verified' : 'estimated'} tooltipKey="marketValue" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mv-m`} />
                   <DetailRow label="Resell Range" value={`${fmt$(item.marketLow)} – ${fmt$(item.marketHigh)}`} mono sub={`spread ${item.spreadPct.toFixed(0)}%`} tooltipKey="marketRange" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mr-m`} />
                   <DetailRow label="Gain vs Paid" value={item.gainAbs !== null ? `${fmt$(item.gainAbs)} (${fmtPct(item.gainPct)})` : '—'} mono tone={gainTone} tooltipKey="gainAbs" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-g-m`} />
                 </div>

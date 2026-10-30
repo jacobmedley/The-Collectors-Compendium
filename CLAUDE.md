@@ -5,11 +5,11 @@ Project memory for Claude Code. Read this before making changes.
 ## What this is
 
 An interactive, single-page dashboard for a high-end collectible statue & figure
-collection (44 pieces: 39 owned, 3 payment-plan, 2 pre-order). It tracks what was
+collection (45 acquisition records as of Oct 2026; 6 separate wish-list cards). It tracks what was
 paid, deal quality vs MSRP, current market value, gain/loss, rarity, liquidity, and
 physical dimensions. It doubles as estate & insurance documentation.
 
-**Headline totals (2026-06-09):** MSRP $30,604 | Paid $22,673 | Market mid $33,100 |
+**Historical headline totals (2026-06-09, 44 pieces):** MSRP $30,604 | Paid $22,673 | Market mid $33,100 |
 Market high / insurance $41,637 | Unrealized gain $10,427 | Verified rows 7 / Estimated 37
 
 **Live site:** https://jacobmedley.github.io/The-Collectors-Compendium/
@@ -20,7 +20,8 @@ Market high / insurance $41,637 | Unrealized gain $10,427 | Verified rows 7 / Es
 This app has one dev dependency (`esbuild`) used only at build time. Three files matter:
 
 - **`collection.jsx`** — the entire React app in one file. This is the source of
-  truth you edit. ~1,337 lines: helpers, `SEED_ITEMS` data array, then components.
+  truth you edit: `SEED_ITEMS` for acquisitions, `WISHLIST_ITEMS` for the separate
+  wish-list cards, then helpers and components.
 - **`icons.json`** — pre-extracted icon arrays for the 21 Lucide icons used by the
   app (generated once by `node generate-icons.mjs`, then committed). `build.mjs`
   reads this; the browser never fetches lucide separately.
@@ -109,7 +110,7 @@ backend (out of scope for the zero-build setup) or committing edits back into
 
 ## Images
 
-All 44 product photos live in `images/thumbs/<id>.jpg`, named by item id. They are
+The 45 acquisition photos and 6 wish-list photos live in `images/thumbs/<id>.jpg`, named by item id. They are
 served from the same repo, so they always load on the live site (no hotlink issues).
 
 `resolveImg(item)` builds the URL from `IMAGE_BASE_URL + item.id + '.jpg'`.

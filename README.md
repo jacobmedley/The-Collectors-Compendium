@@ -4,11 +4,17 @@ An interactive dashboard for a high-end collectible statue & figure collection.
 Tracks cost basis, deal quality, market value, gain/loss, rarity, liquidity, and
 physical dimensions — and doubles as estate & insurance documentation.
 
+Use the Acquired and Wish List buttons at the top to switch views. The six Wish List cards show
+retailer offers and indicative low/mid/high resale bands with linked evidence;
+they do not enter collection counts or financial totals. Edit `WISHLIST_ITEMS`
+in `collection.jsx` to maintain them. Asking-led bands are not verified sales;
+unreleased pieces without observed sales show pending values.
+
 **Live:** https://jacobmedley.github.io/The-Collectors-Compendium/
 
-![Pieces](https://img.shields.io/badge/pieces-44-c9a55c) ![Build](https://img.shields.io/badge/build-zero--config-success)
+![Pieces](https://img.shields.io/badge/pieces-45-c9a55c) ![Build](https://img.shields.io/badge/build-zero--config-success)
 
-**Headline totals (2026-06-09):** 44 items (39 owned / 3 payment-plan / 2 pre-order) ·
+**Historical headline totals (2026-06-09):** 44 items (39 owned / 3 payment-plan / 2 pre-order) ·
 MSRP $30,604 · Paid $22,673 · Market mid $33,100 · Insurance value $41,637 ·
 Unrealized gain $10,427 · Verified rows 7 / Estimated 37
 
@@ -61,7 +67,7 @@ committing** or the live site will be stale. (See `CLAUDE.md` for the why.)
 ├── CLAUDE.md           # project memory / instructions for Claude Code
 ├── README.md           # this file
 └── images/
-    └── thumbs/         # 44 product photos, named <item-id>.jpg
+    └── thumbs/         # 45 acquisition photos + 6 wish-list photos
 ```
 
 ## Data model

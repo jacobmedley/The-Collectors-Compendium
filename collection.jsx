@@ -588,12 +588,27 @@ export default function CollectionApp() {
           grid-template-columns: 1fr;
           gap: var(--gap-card);
         }
+        .wishlist-card {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+        .wishlist-card-image {
+          display: block;
+          width: 100%;
+          height: clamp(200px, 58vw, 250px);
+          object-fit: cover;
+          object-position: center top;
+          background: #222227;
+          border-bottom: 1px solid #33302b;
+        }
         @media (min-width: 760px) {
           .wishlist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         @media (min-width: 1024px) {
           .stats-grid { grid-template-columns: repeat(4, 1fr); }
           .cards-grid { grid-template-columns: repeat(2, 1fr); }
+          .wishlist-card { grid-template-columns: minmax(95px, 28%) minmax(0, 1fr); }
+          .wishlist-card-image { height: 100%; min-height: 245px; border-bottom: 0; border-right: 1px solid #33302b; }
         }
         /* ── Swipeable mini-stats (mobile ≤1023px shows 2 at a time, swipe for more) ── */
         .mini-stats {
@@ -782,8 +797,8 @@ export default function CollectionApp() {
 function WishlistCard({ item }) {
   const badgeStyle = { flex: '1 1 0', minWidth: 0, border: '1px solid #3b3428', background: '#211d18', borderRadius: 8, padding: '9px 5px', textAlign: 'center' };
   return (
-    <article style={{ minWidth: 0, overflow: 'hidden', border: '1px solid #33302b', borderRadius: 12, background: '#151518', display: 'grid', gridTemplateColumns: 'minmax(95px, 28%) minmax(0, 1fr)' }}>
-      <img src={`images/thumbs/${item.id}.jpg`} alt={`${item.name} statue`} loading="lazy" style={{ display: 'block', width: '100%', height: '100%', minHeight: 245, objectFit: 'cover', objectPosition: 'center top', background: '#222227' }} />
+    <article className="wishlist-card" style={{ minWidth: 0, overflow: 'hidden', border: '1px solid #33302b', borderRadius: 12, background: '#151518' }}>
+      <img className="wishlist-card-image" src={`images/thumbs/${item.id}.jpg`} alt={`${item.name} statue`} loading="lazy" />
       <div style={{ minWidth: 0, padding: 'clamp(12px, 1.6vw, 18px)', display: 'flex', flexDirection: 'column', gap: 10 }}>
         <div>
           <div style={{ color: 'var(--c-muted)', fontSize: 'var(--t-xs)' }}>{item.studio} · {item.scale}</div>

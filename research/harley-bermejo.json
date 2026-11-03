@@ -1,0 +1,140 @@
+{
+  "itemId": "harley-bermejo",
+  "researchedOn": "2026-11-02",
+  "identification": {
+    "name": "Batman: Black & White — Harley Quinn by Lee Bermejo",
+    "character": "Harley Quinn",
+    "manufacturer": "DC Collectibles",
+    "designer": "Lee Bermejo",
+    "sculptor": "Jean St. Jean",
+    "editionNumber": "0475",
+    "productionRun": 5200,
+    "editionEvidence": "Owner's underside photo reads 0475 of 5200, Manufactured in China, TM & copyright DC Comics, and (s16).",
+    "visualMatch": "Monochrome pigtails, black mask, ruff, lace-up corset, Puddin' waist marking, shoulder-rested mallet, boots and oval Batman-logo base match the Lee Bermejo statue.",
+    "heightIn": 7.5,
+    "widthIn": null,
+    "depthIn": null,
+    "weightLbs": null,
+    "measurementNote": "Height is the published approximate product height. Retailer packaging dimensions and listed weight were not substituted for statue measurements.",
+    "msrpUsd": 80,
+    "originalSolicitedRelease": "2016-08",
+    "retailReleaseDate": "2016-09-14",
+    "releaseDateNote": "The DC solicitation advertised August 2016. Contemporary September 14 release lists include this specific statue, corroborated by My Anime Shelf. The underside s16 is a year marking, not an exact release date.",
+    "diamondCode": "FEB160284",
+    "entertainmentEarthItem": "DC33949"
+  },
+  "ownership": {
+    "status": "owned",
+    "reportedPaidUsd": 25,
+    "costBasisAssumption": "Owner explicitly stated Harley is 25 and Huntress is 35. Harley item and total paid are both recorded at $25; no separate tax or shipping charges were supplied. Huntress remains at $35.",
+    "purchaseDate": null,
+    "acquisitionDate": null,
+    "boxStatus": "unknown",
+    "condition": "Displayed in owner's photo with mallet and base. A full condition inspection and packaging check were not supplied.",
+    "photos": [
+      { "path": "images/thumbs/harley-bermejo.jpg", "originalFilename": "1-Photo-1.jpg", "description": "Full front view on oval Batman-logo base; collection display photo." },
+      { "path": "images/records/harley-bermejo/underside.jpg", "originalFilename": "2-Photo-2.jpg", "description": "Underside showing edition #0475 of 5200, origin and DC Comics (s16) markings." }
+    ]
+  },
+  "market": {
+    "currency": "USD",
+    "low": null,
+    "mid": null,
+    "high": null,
+    "status": "pending",
+    "liquidity": "medium",
+    "liquidityBasis": "Provisional collection category assumption; actual time to sale has not been measured.",
+    "reason": "Matching asking-price evidence and an indexed sold page were found. A dependable range of directly verified completed transactions was not established; catalog prices and inaccessible indexed sold records do not establish one.",
+    "observations": [
+      {
+        "type": "catalog-asking",
+        "sourceId": "ebay-catalog",
+        "amount": 44.99,
+        "currency": "USD",
+        "condition": "Used",
+        "note": "Matching Bermejo product summary in eBay's category page; not an individual completed transaction. Current results and shipping may change."
+      },
+      {
+        "type": "catalog-asking",
+        "sourceId": "ebay-catalog",
+        "amount": 80,
+        "currency": "USD",
+        "condition": "New",
+        "note": "Matching product's catalog summary; not used as a verified sale or as the source of manufacturer MSRP."
+      },
+      {
+        "type": "indexed-sold-unverified",
+        "sourceId": "poshmark-indexed",
+        "amount": 50,
+        "shipping": 6.49,
+        "currency": "USD",
+        "note": "Search index displayed Sold and $50 for the exact titled statue, but the direct listing returned 404. Condition, actual transaction date, final payment and current availability could not be verified; excluded from market valuation."
+      },
+      {
+        "type": "closed-unsold",
+        "sourceId": "hipcomic",
+        "amount": 80,
+        "currency": "USD",
+        "note": "Exact statue #2109/5200. Closed listing explicitly states it has not been sold; not a sale comparable."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "dc-solicitation",
+      "title": "DC Collectibles — August 2016 group solicitation, January 19 2016",
+      "url": "https://www.dc.com/blog/2016/01/19/dc-collectibles-announces-new-suicide-squad-statues-group-solicits-august-2016",
+      "supports": ["Lee Bermejo design", "Jean St. Jean sculpt", "Edition of 5200", "Original August 2016 solicitation"],
+      "accessNote": "Publisher solicitation appeared in search/open results; subsequent page requests returned 403. The manufacturer text is also reproduced by Toymania."
+    },
+    {
+      "id": "toymania-solicitation",
+      "title": "Toymania — Lee Bermejo, January 19 2016 DC Collectibles solicitation",
+      "url": "https://toymania.com/taxonomy/term/810",
+      "supports": ["Reproduced manufacturer MSRP $80", "7.5-inch height", "Edition 5200", "Designer and sculptor", "Originally on sale August 2016"]
+    },
+    {
+      "id": "entertainment-earth",
+      "title": "Entertainment Earth — Batman Black and White Harley Quinn by Lee Bermejo Statue",
+      "url": "https://www.entertainmentearth.com/product/batman-black-and-white-harley-quinn-by-lee-bermejo-statue/dc33949",
+      "supports": ["Exact product identity", "7.5-inch height", "Edition 5200", "Country of origin China", "Retailer item DC33949"]
+    },
+    {
+      "id": "release-list",
+      "title": "Graphic Policy — New Releases September 14 2016",
+      "url": "https://graphicpolicy.com/2016/09/13/new-releases-9142016/",
+      "supports": ["Contemporary retail release list", "Diamond code FEB160284", "$80 retail price"]
+    },
+    {
+      "id": "comiclist",
+      "title": "ComicList — DC Comics New Releases for September 14 2016",
+      "url": "https://gocollect.com/blog/comiclist-dc-comics-new-releases-for-09-14-2016",
+      "supports": ["Contemporary listing of this statue for September 14 2016"]
+    },
+    {
+      "id": "my-anime-shelf",
+      "title": "My Anime Shelf — Batman Black & White Harley Quinn by Lee Bermejo",
+      "url": "https://myanimeshelf.com/figures/2227718_Batman_Black__White_Harley_Quinn_by_Lee_Bermejo",
+      "supports": ["September 14 2016 release date corroboration", "191 mm approximate height", "Designer, sculptor and MSRP corroboration"]
+    },
+    {
+      "id": "ebay-catalog",
+      "title": "eBay category — matching Batman Black and White Harley Quinn Bermejo product summary",
+      "url": "https://www.ebay.com/b/Harley-Quinn-San-Diego-Comic-Con-Comic-Statues-Collectible-Figurines/80/bn_115251936",
+      "supports": ["Catalog asking-price observations only; category mixes multiple Harley versions"]
+    },
+    {
+      "id": "poshmark-indexed",
+      "title": "Poshmark — Batman Black & White Harley Quinn 7.5-Inch Statue Lee Bermejo",
+      "url": "https://poshmark.com/listing/Batman-Black-White-Harley-Quinn-75Inch-Statue-Lee-Bermejo-696431ea5919e06d7cba4a2d",
+      "supports": ["Unverified indexed sold observation only"],
+      "accessNote": "Direct listing returned 404; not accepted as verified transaction evidence."
+    },
+    {
+      "id": "hipcomic",
+      "title": "HipComic — Batman Black & White Harley Quinn by Lee Bermejo #2109/5200",
+      "url": "https://www.hipcomic.com/listing/batman-black-white-harley-quinn-statue-by-lee-bermejo-2109-5200/14088574",
+      "supports": ["Closed $80 listing with explicit unsold history; not a completed sale"]
+    }
+  ]
+}

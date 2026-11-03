@@ -5,7 +5,7 @@ Project memory for Claude Code. Read this before making changes.
 ## What this is
 
 An interactive, single-page dashboard for a high-end collectible statue & figure
-collection (45 acquisition records as of Oct 2026; 6 separate wish-list cards). It tracks what was
+collection (47 acquisition records as of Nov 2026; 6 separate wish-list cards). It tracks what was
 paid, deal quality vs MSRP, current market value, gain/loss, rarity, liquidity, and
 physical dimensions. It doubles as estate & insurance documentation.
 
@@ -110,11 +110,11 @@ backend (out of scope for the zero-build setup) or committing edits back into
 
 ## Images
 
-The 45 acquisition photos and 6 wish-list photos live in `images/thumbs/<id>.jpg`, named by item id. They are
+The 47 acquisition photos and 6 wish-list photos live in `images/thumbs/<id>.jpg`, named by item id. They are
 served from the same repo, so they always load on the live site (no hotlink issues).
 
 `resolveImg(item)` builds the URL from `IMAGE_BASE_URL + item.id + '.jpg'`.
-`IMAGE_BASE_URL` is the GitHub raw URL. To add a new item's image: drop
+`IMAGE_BASE_URL` is the relative `images/thumbs` path. To add a new item's image: drop
 `<new-id>.jpg` into `images/thumbs/` and the app finds it automatically.
 
 The `imageUrl` field on each item is now legacy/unused for display (kept as a record

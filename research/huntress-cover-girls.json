@@ -1,0 +1,128 @@
+{
+  "itemId": "huntress-cover-girls",
+  "researchedOn": "2026-11-02",
+  "identification": {
+    "name": "DC Cover Girls: Huntress by Joëlle Jones",
+    "character": "Helena Bertinelli",
+    "manufacturer": "DC Collectibles",
+    "designer": "Joëlle Jones",
+    "sculptor": "Jack Mathews",
+    "material": "Polyresin",
+    "costume": "Rebirth-inspired",
+    "editionNumber": "0949",
+    "productionRun": 5000,
+    "editionEvidence": "Owner's underside photo reads 0949 of 5000; DC Collectibles, manufactured in China, and WarnerMedia (s19) markings are visible.",
+    "heightIn": 9,
+    "widthIn": null,
+    "depthIn": null,
+    "weightLbs": null,
+    "weightNote": "Retailer box dimensions and shipping weights were not used as statue measurements.",
+    "msrpUsd": 125,
+    "originalSolicitedRelease": "2019-12",
+    "retailerReleaseDate": "2020-01-15",
+    "releaseDateNote": "Midtown Comics' retail release date is used in the collection. The DC solicitation advertised December 2019; the underside s19 marking is not an exact release date.",
+    "upc": "761941356044",
+    "diamondCode": "MAY190547",
+    "sideshowSku": "904643"
+  },
+  "ownership": {
+    "status": "owned",
+    "reportedPaidUsd": 35,
+    "costBasisAssumption": "Owner answered 35 when asked what was paid. Item and total paid are both recorded at that stated amount; no separate tax or shipping charges were supplied.",
+    "purchaseDate": null,
+    "acquisitionDate": null,
+    "boxStatus": "unknown",
+    "condition": "Displayed in owner photos. A complete condition inspection and packaging check were not supplied.",
+    "photos": [
+      { "path": "images/thumbs/huntress-cover-girls.jpg", "originalFilename": "1-Photo-1.jpg", "description": "Front view with hood, costume and crossbow; collection display photo." },
+      { "path": "images/records/huntress-cover-girls/crossbow-and-base.jpg", "originalFilename": "2-Photo-2.jpg", "description": "Crossbow, boot and Joëlle-marked base detail." },
+      { "path": "images/records/huntress-cover-girls/underside.jpg", "originalFilename": "3-Photo-3.jpg", "description": "Original upside-down underside photo documenting edition and manufacturer markings." }
+    ]
+  },
+  "market": {
+    "currency": "USD",
+    "low": null,
+    "mid": null,
+    "high": null,
+    "status": "pending",
+    "liquidity": "low",
+    "liquidityBasis": "Provisional qualitative estimate from sparse exact-match listings and auction evidence; time to sale is unverified.",
+    "reason": "No reliable comparable US completed-sale range established. Asking prices are not completed transactions. The two UK auction results identify the same edition number and are not independent comparable examples; later disclosure includes a missing crossbow string.",
+    "observations": [
+      {
+        "type": "asking",
+        "sourceId": "ebay-used",
+        "amount": 180,
+        "shipping": 20,
+        "currency": "USD",
+        "condition": "Used; regular Joëlle Jones Cover Girls version.",
+        "note": "Active Buy It Now / Best Offer listing; no completed sale verified. Asking price excludes shipping and tax."
+      },
+      {
+        "type": "auction-hammer",
+        "sourceId": "auction-may-12",
+        "saleDate": "2026-05-12",
+        "amount": 30,
+        "currency": "GBP",
+        "editionNumber": "74",
+        "condition": "Boxed in the listing; same numbered example appears again on May 26.",
+        "note": "Hammer only; buyer premium, shipping and tax excluded. Settlement not independently verified; not converted to USD or used as a clean-condition US comparable."
+      },
+      {
+        "type": "auction-hammer",
+        "sourceId": "auction-may-26",
+        "saleDate": "2026-05-26",
+        "amount": 25,
+        "currency": "GBP",
+        "editionNumber": "74",
+        "condition": "Boxed; one crossbow string missing according to auctioneer.",
+        "note": "Hammer only; buyer premium, shipping and tax excluded. Same numbered example as May 12; not an independent comparable and not representative of an intact example."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "dc-solicitation",
+      "title": "DC Previews — May 2019, DC Collectibles Huntress solicitation",
+      "url": "https://ten.comicfiles.ru/Weekly%20Release/2019.04.17/DC%20PREVIEWS%20May%202019.pdf",
+      "type": "Publisher catalog hosted in a third-party archive",
+      "supports": ["Designer and sculptor", "Polyresin", "Edition of 5000", "Approximately 9 inches", "Original MSRP $125", "Solicited December 2019"]
+    },
+    {
+      "id": "sideshow",
+      "title": "Sideshow — Huntress, DC Cover Girls by Joëlle Jones",
+      "url": "https://www.sideshow.com/collectibles/dc-comics-huntress-dc-collectibles-904643",
+      "supports": ["Character and product identity", "Joelle Jones design and Jack Mathews sculpt", "Polyresin", "9-inch product height", "UPC and Sideshow SKU"]
+    },
+    {
+      "id": "midtown",
+      "title": "Midtown Comics — Cover Girls of the DC Universe Huntress by Joelle Jones Statue",
+      "url": "https://www.midtowncomics.com/p/1843131-cover-girls-of-the-dc-universe-huntress-by-joelle-jones-statue/",
+      "supports": ["Retail release January 15 2020", "DC Collectibles manufacturer", "Diamond MAY190547", "UPC 761941356044", "Rebirth-inspired costume"]
+    },
+    {
+      "id": "entertainment-earth",
+      "title": "Entertainment Earth — DC Cover Girls Huntress by Joelle Jones Statue",
+      "url": "https://www.entertainmentearth.com/product/dc-cover-girls-huntress-by-joelle-jones-statue/dc35604",
+      "supports": ["Individually numbered edition of 5000", "Polyresin", "Approximately 9 inches tall"]
+    },
+    {
+      "id": "ebay-used",
+      "title": "eBay item 327174603672 — DC Cover Girls: Huntress Joelle Jones 9 inch Statue",
+      "url": "https://www.ebay.com/itm/327174603672",
+      "supports": ["Used asking price $180 plus $20 US shipping; not a sale"]
+    },
+    {
+      "id": "auction-may-12",
+      "title": "Easy Live Auction — Warrington & Northwich, May 12 2026, lot 138",
+      "url": "https://www.easyliveauction.com/catalogue/lot/d1af233ae20a6a54fc883bdd628d10bb/0af8d24542e81eb9357e7ef448a6646f/warrington-northwich-auction-lot-138/",
+      "supports": ["Published £30 hammer result", "Edition 74 of 5000"]
+    },
+    {
+      "id": "auction-may-26",
+      "title": "Warrington & Northwich Auction — May 26 2026, lot 1019",
+      "url": "https://www.warringtonauction.co.uk/catalogue/lot/238d37235eaf1be3db740c93df5569dc/98db3d04e6d82a612ac855ca62ee74c1/warrington-northwich-auction-lot-1019/",
+      "supports": ["Published £25 hammer result", "Edition 74 of 5000", "Missing crossbow string disclosed"]
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { Search, Filter, ArrowUp, ArrowDown, X, Edit3, ExternalLink, TrendingUp, TrendingDown, Minus, Gift, Info, BarChart3, ChevronDown, ChevronUp, Award, Zap, CheckCircle2, Wallet, CalendarClock, Percent } from 'lucide-react';
 
 // =============================================================================
-// SEED DATA — 45 items
+// SEED DATA — 47 items
 // MSRP = creator's official retail price (source of truth)
 // itemCost = paid for item only, post-discount, pre tax/ship
 // totalPaid = full out-of-pocket (item + overhead)
@@ -62,7 +62,9 @@ const SEED_ITEMS = [
   { id: 'mystique', name: 'Mystique — Restin State', franchise: 'Marvel (X-Men)', studio: 'Diamond Select', category: 'Premier Collection Statue', edition: 'Premier Collection', rarityTier: 'T4', productionRun: 3000, msrp: 180, itemCost: 180, totalPaid: 180, marketLow: 150, marketMid: 180, marketHigh: 230, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['gift'], notes: 'Gift from wife (Neighborhood Comics). Cost at MSRP. Weight < 1.0 lb per specs. Weight listed as < 1.0 lb.', url: 'https://neighborhoodcomics.com/products/premier-collection-mystique-restin-state', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/mystique.jpg', purchaseDate: null, releaseDate: null, editionNumber: '0109', acquisitionDate: null, dimensions: { heightIn: 12.0, widthIn: 6.0, depthIn: 7.0, weightLbs: 1.0 }, status: 'owned' },
   { id: 'cable-hope', name: 'Cable with Hope', franchise: 'Marvel (X-Force)', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Limited Edition', rarityTier: 'T2', productionRun: 800, msrp: 1316.33, itemCost: 824, totalPaid: 824, marketLow: 925, marketMid: 1450, marketHigh: 1900, marketSource: 'estimated', liquidity: 'medium', savingsMethods: ['sale', 'bundle', 'free-shipping', 'market-weighted-allocation'], notes: 'XM product image verified dimensions: Height 50 cm / 19.68 in; B 36 cm / 14.17 in; L 38 cm / 14.96 in; owner-measured weight 28.8 lbs. Owner measurement replaces the prior 17.6 lb product-spec figure. Registered with XM: X291-WFWV-DWSH-0414. 17 other owners in this country.', url: 'https://xm-studios.com/guest/shop/detail/cable-with-hope', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/cable-hope.jpg', purchaseDate: '2026-06-06', releaseDate: '2021-11-10', editionNumber: '414', acquisitionDate: null, dimensions: { heightIn: 19.68, widthIn: 14.17, depthIn: 14.96, weightLbs: 28.8 }, status: 'owned' },
   { id: 'apocalypse', name: 'Apocalypse', franchise: 'Marvel (X-Men)', studio: 'XM Studios', category: '1/4 Scale Statue', edition: 'Limited Edition', rarityTier: 'T2', productionRun: 999, msrp: 1626, itemCost: 824, totalPaid: 824, marketLow: 900, marketMid: 1450, marketHigh: 1800, marketSource: 'verified', liquidity: 'medium', savingsMethods: ['sale', 'bundle', 'free-shipping', 'market-weighted-allocation'], notes: 'Dimensions updated from supplied metric specs: Height 82 cm / 32.3 in; Width 64 cm / 25.2 in; Length 62 cm / 24.4 in; Owner-measured weight 60 lbs replaces the prior 61.7 lb product-spec figure. Length mapped to depthIn. Registered with XM: X250-PZQP-EYWV-0646. 28 other owners in this country.', url: 'https://xm-studios.com/guest/shop/detail/apocalypse', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/apocalypse.jpg', purchaseDate: '2026-06-06', releaseDate: '2021-09-29', editionNumber: '646', acquisitionDate: null, dimensions: { heightIn: 32.3, widthIn: 25.2, depthIn: 24.4, weightLbs: 60.0 }, status: 'owned' },
-  { id: 'storm-pcs', name: "Storm Black Suit — Marvel's Future Revolution", franchise: 'Marvel (X-Men)', studio: 'Premium Collectibles Studio', category: '1:3 Scale Statue', edition: 'Black Suit', rarityTier: 'Unknown', productionRun: null, msrp: null, itemCost: 1610, totalPaid: 1895.61, marketLow: null, marketMid: null, marketHigh: null, marketSource: null, liquidity: 'medium', savingsMethods: ['sale'], notes: 'Secret Compass order #1152678, Oct 26 2026. Listed $1,625; order discount $15; item paid $1,610; shipping $285.61; tax $0; total $1,895.61. Expected delivery Oct 30 2026; receipt not yet confirmed. Manufacturer MSRP, edition size, and secondary-market value not verified. Dimensions from retailer product page.', url: 'https://secretcompassonline.com/products/marvel-x-men-storm-1', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/storm-pcs.jpg', purchaseDate: '2026-10-26', releaseDate: null, editionNumber: null, acquisitionDate: null, dimensions: { heightIn: 37, widthIn: 22, depthIn: 16, weightLbs: null }, status: 'owned' },
+  { id: 'storm-pcs', name: "Storm Black Suit — Marvel's Future Revolution (Platinum Exclusive)", franchise: 'Marvel (X-Men)', studio: 'Premium Collectibles Studio', category: '1:3 Scale Statue', edition: 'Platinum Exclusive', rarityTier: 'T1', productionRun: 150, msrp: null, itemCost: 1610, totalPaid: 1895.61, marketLow: null, marketMid: null, marketHigh: null, marketSource: null, liquidity: 'medium', savingsMethods: ['sale'], notes: 'Secret Compass order #1152678, Oct 26 2026. Listed $1,625; order discount $15; item paid $1,610; shipping $285.61; tax $0; total $1,895.61. Owner-provided photos reviewed Oct 31 2026 confirm Platinum Exclusive, edition #013/150, and receipt with original PCS packaging; actual delivery date not recorded. Packaging SKU MVFRSTORM13; UPC 712179860834; made in China. Manufacturer MSRP and secondary-market value not verified. Dimensions from retailer product page.', url: 'https://secretcompassonline.com/products/marvel-x-men-storm-1', imageUrl: 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs/storm-pcs.jpg', purchaseDate: '2026-10-26', releaseDate: null, editionNumber: '013', acquisitionDate: null, dimensions: { heightIn: 37, widthIn: 22, depthIn: 16, weightLbs: null }, status: 'owned' },
+  { id: 'huntress-cover-girls', name: 'Huntress — DC Cover Girls by Joëlle Jones', franchise: 'DC Comics', studio: 'DC Collectibles', category: 'DC Cover Girls Statue', edition: 'Limited Edition', rarityTier: 'T5', productionRun: 5000, msrp: 125, itemCost: 35, totalPaid: 35, marketLow: null, marketMid: null, marketHigh: null, marketSource: null, liquidity: 'low', savingsMethods: [], notes: 'Helena Bertinelli in her Rebirth-inspired costume. Designed by Joëlle Jones; sculpted by Jack Mathews; polyresin, approximately 9 inches tall. Owner photos reviewed Nov 2 2026 show edition #0949/5000, the Joëlle base mark, and DC Collectibles / WarnerMedia (s19) underside markings; made in China. Owner reported $35 paid; recorded as item and total paid, with no additional charges supplied. Purchase and receipt dates, box status, width, depth, and statue weight remain unknown. Original MSRP $125 from DC solicitation. Originally solicited for December 2019; Midtown Comics lists Jan 15 2020, used as the retail release date. UPC 761941356044; Diamond code MAY190547; Sideshow SKU 904643. Market research Nov 2 2026: matching used US eBay ask $180 plus $20 shipping (not a sale); UK auction results of £30 and £25 concern the same #74/5000, with missing crossbow string disclosed in the later lot. No reliable comparable US sold range established; market values remain pending. Research sources and three original owner photos are indexed in research/huntress-cover-girls.json.', url: 'https://www.sideshow.com/collectibles/dc-comics-huntress-dc-collectibles-904643', imageUrl: 'images/thumbs/huntress-cover-girls.jpg', purchaseDate: null, releaseDate: '2020-01-15', editionNumber: '0949', acquisitionDate: null, dimensions: { heightIn: 9, widthIn: null, depthIn: null, weightLbs: null }, status: 'owned' },
+  { id: 'harley-bermejo', name: 'Harley Quinn — Batman: Black & White by Lee Bermejo', franchise: 'DC Comics', studio: 'DC Collectibles', category: 'Batman: Black & White Statue', edition: 'Limited Edition', rarityTier: 'T5', productionRun: 5200, msrp: 80, itemCost: 25, totalPaid: 25, marketLow: null, marketMid: null, marketHigh: null, marketSource: null, liquidity: 'medium', savingsMethods: [], notes: 'Designed by Lee Bermejo; sculpted by Jean St. Jean. Monochrome Harley Quinn with pigtails, corset, shoulder-rested mallet and oval Batman-logo base; approximately 7.5 inches tall. Owner photos reviewed Nov 2 2026 show edition #0475/5200 and underside markings: manufactured in China, TM & copyright DC Comics (s16). Owner confirmed Harley $25 and Huntress $35; recorded Harley item and total paid at $25, with no additional charges supplied. Purchase and receipt dates, box status, width, depth and statue weight remain unknown. Original MSRP $80; originally solicited for August 2016. Contemporary release lists place the statue in shops September 14 2016, used as the retail release date. Diamond code FEB160284; Entertainment Earth item DC33949. Resale value pending: matching eBay catalog asks and an indexed Poshmark sold page were found, but no dependable range of directly verified completed sales was established. Research sources and both original owner photos are indexed in research/harley-bermejo.json.', url: 'https://www.entertainmentearth.com/product/batman-black-and-white-harley-quinn-by-lee-bermejo-statue/dc33949', imageUrl: 'images/thumbs/harley-bermejo.jpg', purchaseDate: null, releaseDate: '2016-09-14', editionNumber: '0475', acquisitionDate: null, dimensions: { heightIn: 7.5, widthIn: null, depthIn: null, weightLbs: null }, status: 'owned' },
 ];
 
 // Separate from owned pieces: asking prices are retailer offers, and resale
@@ -302,7 +304,7 @@ function useRemoteImage(url) {
 //
 // Leave IMAGE_BASE_URL = '' to keep using each item's imageUrl via the wsrv.nl
 // proxy (best-effort; may still fail for hotlink-protected CDNs).
-const IMAGE_BASE_URL = 'https://raw.githubusercontent.com/jacobmedley/The-Collectors-Compendium/main/images/thumbs';
+const IMAGE_BASE_URL = 'images/thumbs';
 const IMAGE_EXT      = 'jpg';     // file extension you save them as
 const USE_PROXY      = true;      // ignored once IMAGE_BASE_URL is set
 
@@ -425,6 +427,7 @@ export default function CollectionApp() {
   const [mobileDraft, setMobileDraft] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [modalItemId, setModalItemId] = useState(null);
+  const [galleryItemId, setGalleryItemId] = useState(null);
   const [activeTooltip, setActiveTooltip] = useState(null);
 
   useEffect(() => {
@@ -601,6 +604,37 @@ export default function CollectionApp() {
           background: #222227;
           border-bottom: 1px solid #33302b;
         }
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-card); padding: 16px 0; }
+        .gallery-card { min-width: 0; border: 1px solid #33302b; border-radius: var(--r-card); background: #151518; overflow: hidden; }
+        .gallery-open { display: flex; flex-direction: column; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; color: var(--c-primary); text-align: left; }
+        .gallery-card:focus-within { outline: 2px solid var(--c-gold); outline-offset: 3px; }
+        .gallery-open:hover { background: #211e18; }
+        .gallery-photo { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 4 / 5; background: #0d0d10; overflow: hidden; }
+        .gallery-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+        .gallery-photo-fallback { padding: 16px; color: var(--c-muted); font-size: var(--t-xs); text-align: center; }
+        .gallery-caption { display: flex; flex-direction: column; gap: 6px; padding: 12px; overflow-wrap: anywhere; }
+        .gallery-name { font-size: var(--t-sm); line-height: 1.3; }
+        .gallery-meta { color: var(--c-secondary); font-size: var(--t-xs); line-height: 1.4; }
+        .gallery-status { color: var(--c-gold); font-size: var(--t-xs); }
+        .gallery-dialog { position: fixed; inset: 0; margin: auto; padding: 0; width: min(1080px, calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 32px); overflow: auto; border: 1px solid #70572b; border-radius: 16px; background: #101013; color: var(--c-primary); }
+        .gallery-dialog::backdrop { background: rgba(0, 0, 0, 0.88); }
+        .gallery-viewer-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #2a2a30; }
+        .gallery-viewer-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 30%); }
+        .gallery-viewer-photo { display: flex; min-width: 0; background: #08080a; }
+        .gallery-viewer-photo .gallery-photo { aspect-ratio: auto; height: min(70dvh, 760px); }
+        .gallery-viewer-caption { min-width: 0; padding: 20px; display: flex; flex-direction: column; gap: 14px; overflow-wrap: anywhere; }
+        .gallery-viewer-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+        .gallery-control { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 8px 12px; border: 1px solid #494035; border-radius: 8px; background: #211d18; color: var(--c-primary); font-size: var(--t-xs); text-decoration: none; }
+        .gallery-control:disabled { opacity: 0.45; cursor: default; }
+        .gallery-details { background: #c9a55c; border-color: #c9a55c; color: #0a0a0b; font-weight: 700; }
+        @media (min-width: 760px) { .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); } }
+        @media (max-width: 639px) {
+          .gallery-dialog { width: calc(100% - 16px); max-height: calc(100dvh - 16px); }
+          .gallery-viewer-body { grid-template-columns: minmax(0, 1fr); }
+          .gallery-viewer-photo .gallery-photo { height: 48dvh; }
+          .gallery-viewer-caption { padding: 16px; gap: 12px; }
+        }
+        @media (max-width: 359px) { .gallery-grid { grid-template-columns: minmax(0, 1fr); } }
         @media (min-width: 760px) {
           .wishlist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
@@ -659,18 +693,19 @@ export default function CollectionApp() {
       <header style={{ padding: '24px 16px 16px', borderBottom: '1px solid #1f1f24' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
           <h1 className="display" style={{ fontSize: 'var(--t-2xl)', fontWeight: 400, margin: 0 }}>The Archive</h1>
-          <span className="mono" style={{ fontSize: 'var(--t-xs)', color: 'var(--c-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{activeView === 'acquired' ? `${visible.length} / ${items.length}` : `${WISHLIST_ITEMS.length} saved`}</span>
+          <span className="mono" style={{ fontSize: 'var(--t-xs)', color: 'var(--c-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{activeView !== 'wishlist' ? `${visible.length} / ${items.length}` : `${WISHLIST_ITEMS.length} saved`}</span>
         </div>
         <p style={{ fontSize: 'var(--t-xs)', color: 'var(--c-muted)', margin: 0, letterSpacing: '0.02em', lineHeight: 1.5 }}>
-          {activeView === 'acquired' ? <>Creator MSRP · resell ranges · liquidity-weighted · tap <Info size={10} style={{ display: 'inline', verticalAlign: 'middle' }} /> to learn any metric</> : 'Pieces under consideration · shop offers · resale research'}
+          {activeView === 'gallery' ? 'Browse the collection in photos · select a piece for a closer look' : activeView === 'acquired' ? <>Creator MSRP · resell ranges · liquidity-weighted · tap <Info size={10} style={{ display: 'inline', verticalAlign: 'middle' }} /> to learn any metric</> : 'Pieces under consideration · shop offers · resale research'}
         </p>
 
-        <nav aria-label="Collection views" style={{ display: 'flex', gap: 8, marginTop: 20 }}>
+        <nav aria-label="Collection views" style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 20 }}>
           {[
             ['acquired', 'Acquired', items.length],
+            ['gallery', 'Gallery', items.length],
             ['wishlist', 'Wish List', WISHLIST_ITEMS.length],
           ].map(([view, label, count]) => (
-            <button key={view} type="button" aria-pressed={activeView === view} onClick={() => { setActiveView(view); setShowFilters(false); setModalItemId(null); setEditingId(null); setPortfolioOpen(false); }} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, flex: isMobile ? 1 : '0 1 auto', minWidth: isMobile ? 0 : 150, padding: '10px 16px', background: activeView === view ? '#3a2f1c' : '#16161a', border: `1px solid ${activeView === view ? '#a07828' : '#35343a'}`, borderRadius: 8, color: activeView === view ? '#f0c677' : 'var(--c-secondary)', fontSize: 'var(--t-sm)', fontWeight: 700, cursor: 'pointer' }}>
+            <button key={view} type="button" aria-pressed={activeView === view} onClick={() => { setActiveView(view); setShowFilters(false); setModalItemId(null); setGalleryItemId(null); setEditingId(null); setPortfolioOpen(false); }} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: isMobile ? 4 : 8, flex: isMobile ? '1 1 90px' : '0 1 auto', minWidth: isMobile ? 'min-content' : 150, whiteSpace: 'nowrap', padding: isMobile ? '10px 6px' : '10px 16px', background: activeView === view ? '#3a2f1c' : '#16161a', border: `1px solid ${activeView === view ? '#a07828' : '#35343a'}`, borderRadius: 8, color: activeView === view ? '#f0c677' : 'var(--c-secondary)', fontSize: 'var(--t-sm)', fontWeight: 700, cursor: 'pointer' }}>
               {label}<span className="mono" style={{ fontSize: 'var(--t-xs)', color: activeView === view ? '#f0c677' : 'var(--c-muted)' }}>{count}</span>
             </button>
           ))}
@@ -705,8 +740,8 @@ export default function CollectionApp() {
         </div>
       </section>}
 
-      {activeView === 'acquired' && <>
-      <h2 className="display" style={{ fontSize: 'var(--t-xl)', fontWeight: 400, margin: '26px 16px 0' }}>Acquisitions</h2>
+      {activeView !== 'wishlist' && <>
+      <h2 className="display" style={{ fontSize: 'var(--t-xl)', fontWeight: 400, margin: '26px 16px 0' }}>{activeView === 'gallery' ? 'Photo Gallery' : 'Acquisitions'}</h2>
 
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '240px minmax(0, 1fr)', gap: 16, padding: 16, alignItems: 'start' }}>
       <aside style={{ display: isMobile && !showFilters ? 'none' : 'block', position: isMobile ? 'fixed' : 'sticky', inset: isMobile ? 0 : undefined, top: isMobile ? 0 : 16, zIndex: isMobile ? 30 : 10, maxHeight: isMobile ? '100dvh' : 'calc(100dvh - 32px)', overflowY: 'auto', padding: isMobile ? 20 : 14, background: '#121216', border: '1px solid #2a2a30', borderRadius: isMobile ? 0 : 12 }}>
@@ -732,7 +767,7 @@ export default function CollectionApp() {
       <div style={{ padding: 0, position: 'sticky', top: 0, background: 'rgba(10,10,11,0.92)', backdropFilter: 'blur(12px)', zIndex: 10, borderBottom: '1px solid #1f1f24' }}>
         <div style={{ position: 'relative', marginBottom: 10 }}>
           <Search size={14} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--c-dim)' }} />
-          <input type="text" placeholder="Search the archive…" value={search} onChange={(e) => setSearch(e.target.value)} style={{ width: '100%', padding: '10px 12px 10px 34px', background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', fontSize: 'var(--t-sm)', outline: 'none' }} />
+          <input type="text" aria-label="Search the archive" placeholder="Search the archive…" value={search} onChange={(e) => setSearch(e.target.value)} style={{ width: '100%', padding: '10px 12px 10px 34px', background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', fontSize: 'var(--t-sm)' }} />
         </div>
 
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
@@ -740,11 +775,11 @@ export default function CollectionApp() {
             <Filter size={13} /> Filters
             {activeFilterCount > 0 && <span style={{ background: '#c9a55c', color: '#0a0a0b', borderRadius: 99, padding: '0 6px', fontSize: 'var(--t-xs)', fontWeight: 700 }}>{activeFilterCount}</span>}
           </button>
-          <div style={{ flex: 1, display: 'flex', gap: 6, alignItems: 'center' }}>
-            <select value={sortKey} onChange={(e) => setSortKey(e.target.value)} style={{ flex: 1, padding: '8px 10px', background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', fontSize: 'var(--t-sm)', appearance: 'none' }}>
+          <div style={{ flex: 1, minWidth: 0, display: 'flex', gap: 6, alignItems: 'center' }}>
+            <select aria-label="Sort collection" value={sortKey} onChange={(e) => setSortKey(e.target.value)} style={{ flex: 1, minWidth: 0, padding: '8px 10px', background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', fontSize: 'var(--t-sm)', appearance: 'none' }}>
               {SORT_OPTIONS.map((o) => <option key={o.key} value={o.key}>Sort: {o.label}</option>)}
             </select>
-            <button onClick={() => setSortDir(sortDir === 'asc' ? 'desc' : 'asc')} style={{ padding: 8, background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', display: 'flex' }}>
+            <button aria-label={sortDir === 'asc' ? 'Sort descending' : 'Sort ascending'} onClick={() => setSortDir(sortDir === 'asc' ? 'desc' : 'asc')} style={{ padding: 8, background: '#16161a', border: '1px solid #2a2a30', borderRadius: 8, color: '#f5f1e8', display: 'flex' }}>
               {sortDir === 'asc' ? <ArrowUp size={14} /> : <ArrowDown size={14} />}
             </button>
           </div>
@@ -752,9 +787,14 @@ export default function CollectionApp() {
 
       </div>
 
-      <div className="cards-grid" style={{ padding: 16 }}>
-        {visible.length === 0 && <div style={{ padding: 40, textAlign: 'center', color: 'var(--c-dim)' }}>No items match your filters.</div>}
-        {visible.map((item) => (
+      {visible.length === 0 && <div style={{ padding: '40px 16px', textAlign: 'center', color: 'var(--c-muted)' }}>
+        <p>No items match your filters.</p>
+        <button type="button" onClick={clearFilters} className="gallery-control" style={{ marginTop: 12 }}>Clear search and filters</button>
+      </div>}
+      <div className={activeView === 'gallery' ? 'gallery-grid' : 'cards-grid'} style={activeView === 'gallery' ? undefined : { padding: 16 }}>
+        {visible.map((item) => activeView === 'gallery' ? (
+          <GalleryCard key={item.id} item={item} onOpen={() => setGalleryItemId(item.id)} />
+        ) : (
           <ItemCard
             key={item.id} item={item}
             onOpenModal={() => { setModalItemId(item.id); setEditingId(null); }}
@@ -766,6 +806,13 @@ export default function CollectionApp() {
       </main>
       </div>
       </>}
+
+      {galleryItemId && activeView === 'gallery' && visible.some((item) => item.id === galleryItemId) && <GalleryViewer
+        items={visible} itemId={galleryItemId}
+        onNavigate={setGalleryItemId}
+        onClose={() => setGalleryItemId(null)}
+        onDetails={(id) => { setGalleryItemId(null); setModalItemId(id); setEditingId(null); }}
+      />}
 
       {modalItemId && (() => {
         const modalItem = visible.find(i => i.id === modalItemId);
@@ -787,6 +834,111 @@ export default function CollectionApp() {
       })()}
       {portfolioOpen && <PortfolioInsightsModal totals={totals} onClose={() => setPortfolioOpen(false)} />}
     </div></div>
+  );
+}
+
+// =============================================================================
+// PHOTO GALLERY — uses the same filtered acquisition records and local photos
+// =============================================================================
+
+function keepDialogFocus(event) {
+  if (event.key !== 'Tab') return;
+  const controls = event.currentTarget.querySelectorAll('button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled)');
+  const first = controls[0], last = controls[controls.length - 1];
+  if (!first) return;
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+function GalleryPhoto({ item, loading = 'lazy' }) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <span className="gallery-photo">
+      {failed
+        ? <span className="gallery-photo-fallback">Photo unavailable for {item.name}</span>
+        : <img src={`images/thumbs/${item.id}.jpg`} alt={item.name} loading={loading} decoding="async" onError={() => setFailed(true)} />}
+    </span>
+  );
+}
+
+function GalleryCard({ item, onOpen }) {
+  return (
+    <article className="gallery-card">
+      <button type="button" className="gallery-open" onClick={onOpen} aria-label={`View photo of ${item.name}`} aria-haspopup="dialog">
+        <GalleryPhoto key={item.id} item={item} />
+        <span className="gallery-caption">
+          <span className="display gallery-name">{item.name}</span>
+          <span className="gallery-meta">{item.studio} · {item.franchise}</span>
+          <span className="gallery-status">{STATUS_LABELS[item.status] || item.status}</span>
+        </span>
+      </button>
+    </article>
+  );
+}
+
+function GalleryViewer({ items, itemId, onNavigate, onClose, onDetails }) {
+  const dialogRef = useRef(null);
+  const index = items.findIndex((item) => item.id === itemId);
+  const item = items[index];
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    const trigger = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    dialog.showModal();
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+      if (trigger instanceof HTMLElement && trigger.isConnected) trigger.focus({ preventScroll: true });
+    };
+  }, []);
+
+  const navigate = (direction) => onNavigate(items[(index + direction + items.length) % items.length].id);
+
+  return (
+    <dialog ref={dialogRef} className="gallery-dialog" aria-labelledby="gallery-viewer-label"
+      onCancel={(event) => { event.preventDefault(); onClose(); }}
+      onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
+      onKeyDown={(event) => {
+        if (event.key === 'Tab') {
+          keepDialogFocus(event);
+          return;
+        }
+        if (event.altKey || event.ctrlKey || event.metaKey) return;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          navigate(event.key === 'ArrowLeft' ? -1 : 1);
+        }
+      }}>
+      <div className="gallery-viewer-header">
+        <h2 id="gallery-viewer-label" className="display" style={{ fontSize: 'var(--t-md)', margin: 0 }}>Photo viewer</h2>
+        <button type="button" className="gallery-control" onClick={onClose} aria-label="Close photo viewer"><X size={20} /></button>
+      </div>
+      <div className="gallery-viewer-body">
+        <div className="gallery-viewer-photo"><GalleryPhoto key={item.id} item={item} loading="eager" /></div>
+        <div className="gallery-viewer-caption">
+          <div aria-live="polite" aria-atomic="true">
+            <p className="mono gallery-meta" style={{ margin: '0 0 10px' }}>{index + 1} of {items.length}</p>
+            <h3 className="display" style={{ fontSize: 'var(--t-lg)', lineHeight: 1.2, margin: 0 }}>{item.name}</h3>
+          </div>
+          <p className="gallery-meta" style={{ margin: 0 }}>{item.studio}<br />{item.franchise} · {item.category}</p>
+          <p className="gallery-status" style={{ margin: 0 }}>{STATUS_LABELS[item.status] || item.status}</p>
+          <div className="gallery-viewer-controls">
+            <button type="button" className="gallery-control" aria-label="Previous photo" disabled={items.length < 2} onClick={() => navigate(-1)}>← Previous</button>
+            <button type="button" className="gallery-control" aria-label="Next photo" disabled={items.length < 2} onClick={() => navigate(1)}>Next →</button>
+          </div>
+          <button type="button" className="gallery-control gallery-details" onClick={() => onDetails(item.id)}>View details</button>
+          {item.url && <a className="gallery-control" href={item.url} target="_blank" rel="noopener noreferrer">Product page <ExternalLink size={14} style={{ marginLeft: 8 }} /></a>}
+          <p className="gallery-meta" style={{ margin: 0 }}>Use ← and → to browse. Esc to close.</p>
+        </div>
+      </div>
+    </dialog>
   );
 }
 
@@ -1204,7 +1356,7 @@ function ItemCard({ item, onOpenModal, activeTooltip, setActiveTooltip }) {
           <span className="mono">
             {item.itemCost === 0 && item.totalPaid === 0 ? 'Gift / Free Bonus'
               : item.gainAbs !== null ? `${fmtPct(item.gainPct)} vs paid`
-              : 'Market est.'}
+              : item.marketMid == null ? 'Not yet valued' : 'Market est.'}
           </span>
         </span>
       </div>
@@ -1228,6 +1380,7 @@ function useMobile(bp = 640) {
 }
 
 function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, hasOverride, onClose, activeTooltip, setActiveTooltip }) {
+  const dialogRef = useRef(null);
   const isMobile = useMobile();
   const tier = RARITY_TIERS[item.rarityTier] || RARITY_TIERS.Unknown;
   const liq = LIQUIDITY_LABELS[item.liquidity] || LIQUIDITY_LABELS.medium;
@@ -1258,8 +1411,13 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
   // Lock body scroll while open
   useEffect(() => {
     const prev = document.body.style.overflow;
+    const trigger = document.activeElement;
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = prev; };
+    dialogRef.current.querySelector('button')?.focus();
+    return () => {
+      document.body.style.overflow = prev;
+      if (trigger instanceof HTMLElement && trigger.isConnected) trigger.focus({ preventScroll: true });
+    };
   }, []);
 
   return (
@@ -1274,6 +1432,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
     >
       {/* Sheet — slides up from bottom on mobile, centered on desktop */}
       <div
+        ref={dialogRef} role="dialog" aria-modal="true" aria-label={item.name} onKeyDown={keepDialogFocus}
         style={{
           position: 'relative',
            width: isMobile ? '100%' : 'min(960px, calc(100vw - 48px))',
@@ -1353,7 +1512,7 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
                   <DetailRow label="Overhead" value={fmt$(item.overhead)} mono sub="ship · tax · tariff" tone="#9c8870" tooltipKey="overhead" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-oh-m`} />
                   <DetailRow label="Total Paid" value={fmt$(item.totalPaid)} mono sub="all-in out of pocket" tooltipKey="totalPaid" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-tp-m`} />
                   <DetailRow label="Market Mid" value={fmt$(item.marketMid)} mono sub={item.marketMid == null ? 'not yet valued' : item.marketSource === 'verified' ? '✓ verified' : 'estimated'} tooltipKey="marketValue" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mv-m`} />
-                  <DetailRow label="Resell Range" value={`${fmt$(item.marketLow)} – ${fmt$(item.marketHigh)}`} mono sub={`spread ${item.spreadPct.toFixed(0)}%`} tooltipKey="marketRange" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mr-m`} />
+                  <DetailRow label="Resell Range" value={`${fmt$(item.marketLow)} – ${fmt$(item.marketHigh)}`} mono sub={item.marketMid == null ? 'not yet valued' : `spread ${item.spreadPct.toFixed(0)}%`} tooltipKey="marketRange" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-mr-m`} />
                   <DetailRow label="Gain vs Paid" value={item.gainAbs !== null ? `${fmt$(item.gainAbs)} (${fmtPct(item.gainPct)})` : '—'} mono tone={gainTone} tooltipKey="gainAbs" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-g-m`} />
                 </div>
               </section>
@@ -1368,12 +1527,12 @@ function DetailModal({ item, editing, onEdit, onCloseEdit, onUpdate, onReset, ha
                 <DetailRow label="Risk Profile" value={item.riskClass} tone={RISK_COLORS[item.riskClass]} sub={item.riskClass === 'Conservative' ? 'High liquidity, broad edition' : item.riskClass === 'Speculative' ? 'Illiquid or very scarce — patient hold required' : 'Balanced liquidity and rarity'} />
                 <DetailRow label="Edition №" value={item.editionNumber ? `#${item.editionNumber} / ${item.productionRun ? item.productionRun.toLocaleString() : '?'}` : '— pending'} sub={item.editionNumber ? 'your specific piece' : 'add when you have the box'} tone={item.editionNumber ? 'var(--c-gold)' : 'var(--c-dim)'} tooltipKey="editionNumber" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-en-m`} />
                 {item.cagrPct !== null && <DetailRow label="CAGR (est.)" value={fmtPct(item.cagrPct)} mono tone={item.cagrPct > 0 ? '#5aaf6a' : '#c07070'} sub="annualized return" />}
-                {item.purchaseDate && <DetailRow label="Purchase Date" value={new Date(item.purchaseDate).toLocaleDateString('en-US', {year:'numeric', month:'short', day:'numeric'})} sub={item.holdingDays ? `${item.holdingDays} days held` : null} />}
+                {item.purchaseDate && <DetailRow label="Purchase Date" value={new Date(item.purchaseDate).toLocaleDateString('en-US', {timeZone:'UTC', year:'numeric', month:'short', day:'numeric'})} sub={item.holdingDays ? `${item.holdingDays} days held` : null} />}
                 {item.releaseDate
-                  ? <DetailRow label="Release Date" value={new Date(item.releaseDate).toLocaleDateString('en-US', {year:'numeric', month:'short', day:'numeric'})} tooltipKey="releaseDate" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-rd-m`} />
+                  ? <DetailRow label="Release Date" value={new Date(item.releaseDate).toLocaleDateString('en-US', {timeZone:'UTC', year:'numeric', month:'short', day:'numeric'})} tooltipKey="releaseDate" activeTooltip={activeTooltip} setActiveTooltip={setActiveTooltip} anchorId={`${item.id}-rd-m`} />
                   : <DetailRow label="Release Date" value="—" sub="add when known" tone="var(--c-dim)" />
                 }
-                {item.acquisitionDate && <DetailRow label="Acquired" value={new Date(item.acquisitionDate).toLocaleDateString('en-US', {year:'numeric', month:'short', day:'numeric'})} />}
+                {item.acquisitionDate && <DetailRow label="Acquired" value={new Date(item.acquisitionDate).toLocaleDateString('en-US', {timeZone:'UTC', year:'numeric', month:'short', day:'numeric'})} />}
                 </div>
               </section>
 

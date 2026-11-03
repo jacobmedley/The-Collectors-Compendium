@@ -10,9 +10,15 @@ they do not enter collection counts or financial totals. Edit `WISHLIST_ITEMS`
 in `collection.jsx` to maintain them. Asking-led bands are not verified sales;
 unreleased pieces without observed sales show pending values.
 
+Use **Gallery** for a photo-first view of the acquisitions. Search, filters and
+sort order carry over from Acquired. Select a photo to enlarge it, browse the
+filtered collection with Previous/Next or the arrow keys, and open the piece's
+details. Escape or the close button returns to the gallery. Photos use the
+existing files in `images/thumbs/`; wish-list pieces stay in their own view.
+
 **Live:** https://jacobmedley.github.io/The-Collectors-Compendium/
 
-![Pieces](https://img.shields.io/badge/pieces-45-c9a55c) ![Build](https://img.shields.io/badge/build-zero--config-success)
+![Pieces](https://img.shields.io/badge/pieces-47-c9a55c) ![Build](https://img.shields.io/badge/build-zero--config-success)
 
 **Historical headline totals (2026-06-09):** 44 items (39 owned / 3 payment-plan / 2 pre-order) ·
 MSRP $30,604 · Paid $22,673 · Market mid $33,100 · Insurance value $41,637 ·
@@ -67,7 +73,7 @@ committing** or the live site will be stale. (See `CLAUDE.md` for the why.)
 ├── CLAUDE.md           # project memory / instructions for Claude Code
 ├── README.md           # this file
 └── images/
-    └── thumbs/         # 45 acquisition photos + 6 wish-list photos
+    └── thumbs/         # 47 acquisition photos + 6 wish-list photos
 ```
 
 ## Data model
@@ -136,6 +142,11 @@ for quick personal tweaks; use `SEED_ITEMS` for anything that should stick.
 2. Save its photo as `images/thumbs/<id>.jpg`.
 3. `node build.mjs`
 4. Commit & push.
+
+Research sources and original owner-photo indexes are saved for
+[Huntress](research/huntress-cover-girls.json) and
+[Harley Quinn by Lee Bermejo](research/harley-bermejo.json).
+Item photos use relative paths, so additions appear locally and on GitHub Pages.
 
 ## Owner-verified corrections (settled)
 

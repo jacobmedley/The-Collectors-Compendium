@@ -1,0 +1,42 @@
+{
+  "status": "planned-not-implemented",
+  "scope": "Per-item photo galleries, starting with Huntress and Harley; preserve the existing collection-wide gallery",
+  "dataModel": {
+    "images": "Ordered array per item: stable image id, src, thumbnailSrc, alt, caption, type (owner/reference), sourceUrl, credit, isPrimary",
+    "fallback": "Items without images continue to use images/thumbs/<id>.jpg",
+    "initialImageCounts": {
+      "huntress-cover-girls": 6,
+      "harley-bermejo": 3
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "work": "Promote existing owner and downloaded reference photo metadata into item image arrays; use product photo as primary and retain owner front, detail and numbered base shots."
+    },
+    {
+      "step": 2,
+      "work": "Add thumbnail strip and selected-photo area to item details, with caption, source link and visible Owner photo / Product reference label; show prototype disclaimer for references."
+    },
+    {
+      "step": 3,
+      "work": "Add an image lightbox with Previous image / Next image, image count, keyboard arrows, Escape, focus trapping and focus restoration; keep collection navigation separately labeled Previous piece / Next piece."
+    },
+    {
+      "step": 4,
+      "work": "Load primary photo promptly, lazy-load thumbnails, reserve aspect ratios and contain full statues; use locally hosted assets and graceful missing-image fallback."
+    },
+    {
+      "step": 5,
+      "work": "Validate desktop and 390px mobile: every image selectable, keyboard navigation, no horizontal overflow, captions and credits readable, and all 47 legacy entries still work."
+    }
+  ],
+  "acceptanceChecks": [
+    "Huntress shows 3 owner and 3 product reference images; Harley shows 2 owner and 1 product reference image.",
+    "The edition underside photo is accessible for both pieces.",
+    "Image navigation never changes the selected collection piece.",
+    "Reference photos are clearly labeled and attributed; original owner files remain unchanged.",
+    "Build and smoke checks pass; verify browser errors and broken-image handling."
+  ],
+  "publication": "Implement gallery in a separate change; this file is a plan only."
+}

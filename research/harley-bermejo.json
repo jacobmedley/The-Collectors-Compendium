@@ -32,19 +32,27 @@
     "boxStatus": "unknown",
     "condition": "Displayed in owner's photo with mallet and base. A full condition inspection and packaging check were not supplied.",
     "photos": [
-      { "path": "images/thumbs/harley-bermejo.jpg", "originalFilename": "1-Photo-1.jpg", "description": "Full front view on oval Batman-logo base; collection display photo." },
-      { "path": "images/records/harley-bermejo/underside.jpg", "originalFilename": "2-Photo-2.jpg", "description": "Underside showing edition #0475 of 5200, origin and DC Comics (s16) markings." }
+      {
+        "path": "images/records/harley-bermejo/owner-front.jpg",
+        "originalFilename": "1-Photo-1.jpg",
+        "description": "Full front view on oval Batman-logo base; collection display photo."
+      },
+      {
+        "path": "images/records/harley-bermejo/underside.jpg",
+        "originalFilename": "2-Photo-2.jpg",
+        "description": "Underside showing edition #0475 of 5200, origin and DC Comics (s16) markings."
+      }
     ]
   },
   "market": {
     "currency": "USD",
-    "low": null,
-    "mid": null,
-    "high": null,
-    "status": "pending",
+    "low": 35,
+    "mid": 50,
+    "high": 75,
+    "status": "estimated",
     "liquidity": "medium",
     "liquidityBasis": "Provisional collection category assumption; actual time to sale has not been measured.",
-    "reason": "Matching asking-price evidence and an indexed sold page were found. A dependable range of directly verified completed transactions was not established; catalog prices and inaccessible indexed sold records do not establish one.",
+    "reason": "Low confidence. Used display-piece estimate, assuming intact mallet and base; box unconfirmed. Modeled $35 low / $50 mid / $75 high before seller fees, shipping and tax. Exact Bermejo eBay product asks $75-$80 boxed; indexed Poshmark sold page shows $50 but direct verification failed. Estimates are asking-led, not verified sold comparables.",
     "observations": [
       {
         "type": "catalog-asking",
@@ -77,64 +85,120 @@
         "currency": "USD",
         "note": "Exact statue #2109/5200. Closed listing explicitly states it has not been sold; not a sale comparable."
       }
-    ]
+    ],
+    "confidence": "low",
+    "valuationBasis": "Used US private resale, intact; packaging unconfirmed; excludes transaction costs",
+    "reviewedOn": "2026-11-02"
   },
   "sources": [
     {
       "id": "dc-solicitation",
       "title": "DC Collectibles — August 2016 group solicitation, January 19 2016",
       "url": "https://www.dc.com/blog/2016/01/19/dc-collectibles-announces-new-suicide-squad-statues-group-solicits-august-2016",
-      "supports": ["Lee Bermejo design", "Jean St. Jean sculpt", "Edition of 5200", "Original August 2016 solicitation"],
+      "supports": [
+        "Lee Bermejo design",
+        "Jean St. Jean sculpt",
+        "Edition of 5200",
+        "Original August 2016 solicitation"
+      ],
       "accessNote": "Publisher solicitation appeared in search/open results; subsequent page requests returned 403. The manufacturer text is also reproduced by Toymania."
     },
     {
       "id": "toymania-solicitation",
       "title": "Toymania — Lee Bermejo, January 19 2016 DC Collectibles solicitation",
       "url": "https://toymania.com/taxonomy/term/810",
-      "supports": ["Reproduced manufacturer MSRP $80", "7.5-inch height", "Edition 5200", "Designer and sculptor", "Originally on sale August 2016"]
+      "supports": [
+        "Reproduced manufacturer MSRP $80",
+        "7.5-inch height",
+        "Edition 5200",
+        "Designer and sculptor",
+        "Originally on sale August 2016"
+      ]
     },
     {
       "id": "entertainment-earth",
       "title": "Entertainment Earth — Batman Black and White Harley Quinn by Lee Bermejo Statue",
       "url": "https://www.entertainmentearth.com/product/batman-black-and-white-harley-quinn-by-lee-bermejo-statue/dc33949",
-      "supports": ["Exact product identity", "7.5-inch height", "Edition 5200", "Country of origin China", "Retailer item DC33949"]
+      "supports": [
+        "Exact product identity",
+        "7.5-inch height",
+        "Edition 5200",
+        "Country of origin China",
+        "Retailer item DC33949"
+      ]
     },
     {
       "id": "release-list",
       "title": "Graphic Policy — New Releases September 14 2016",
       "url": "https://graphicpolicy.com/2016/09/13/new-releases-9142016/",
-      "supports": ["Contemporary retail release list", "Diamond code FEB160284", "$80 retail price"]
+      "supports": [
+        "Contemporary retail release list",
+        "Diamond code FEB160284",
+        "$80 retail price"
+      ]
     },
     {
       "id": "comiclist",
       "title": "ComicList — DC Comics New Releases for September 14 2016",
       "url": "https://gocollect.com/blog/comiclist-dc-comics-new-releases-for-09-14-2016",
-      "supports": ["Contemporary listing of this statue for September 14 2016"]
+      "supports": [
+        "Contemporary listing of this statue for September 14 2016"
+      ]
     },
     {
       "id": "my-anime-shelf",
       "title": "My Anime Shelf — Batman Black & White Harley Quinn by Lee Bermejo",
       "url": "https://myanimeshelf.com/figures/2227718_Batman_Black__White_Harley_Quinn_by_Lee_Bermejo",
-      "supports": ["September 14 2016 release date corroboration", "191 mm approximate height", "Designer, sculptor and MSRP corroboration"]
+      "supports": [
+        "September 14 2016 release date corroboration",
+        "191 mm approximate height",
+        "Designer, sculptor and MSRP corroboration"
+      ]
     },
     {
       "id": "ebay-catalog",
       "title": "eBay category — matching Batman Black and White Harley Quinn Bermejo product summary",
       "url": "https://www.ebay.com/b/Harley-Quinn-San-Diego-Comic-Con-Comic-Statues-Collectible-Figurines/80/bn_115251936",
-      "supports": ["Catalog asking-price observations only; category mixes multiple Harley versions"]
+      "supports": [
+        "Catalog asking-price observations only; category mixes multiple Harley versions"
+      ]
     },
     {
       "id": "poshmark-indexed",
       "title": "Poshmark — Batman Black & White Harley Quinn 7.5-Inch Statue Lee Bermejo",
       "url": "https://poshmark.com/listing/Batman-Black-White-Harley-Quinn-75Inch-Statue-Lee-Bermejo-696431ea5919e06d7cba4a2d",
-      "supports": ["Unverified indexed sold observation only"],
+      "supports": [
+        "Unverified indexed sold observation only"
+      ],
       "accessNote": "Direct listing returned 404; not accepted as verified transaction evidence."
     },
     {
       "id": "hipcomic",
       "title": "HipComic — Batman Black & White Harley Quinn by Lee Bermejo #2109/5200",
       "url": "https://www.hipcomic.com/listing/batman-black-white-harley-quinn-statue-by-lee-bermejo-2109-5200/14088574",
-      "supports": ["Closed $80 listing with explicit unsold history; not a completed sale"]
+      "supports": [
+        "Closed $80 listing with explicit unsold history; not a completed sale"
+      ]
+    },
+    {
+      "id": "market-refresh-2026-11-02",
+      "title": "Matching resale and retailer evidence reviewed for modeled estimates",
+      "url": "https://www.ebay.com/p/1260158759",
+      "supports": [
+        "Asking-price context only; no verified sold range"
+      ]
+    }
+  ],
+  "referencePhotos": [
+    {
+      "path": "images/records/harley-bermejo/product-front.jpg",
+      "sourcePage": "https://stores.comichub.com/cape_and_cowl_comics/products/batman-black-white-harley-quinn-statue-by-bermejo",
+      "sourceImage": "https://comichub.blob.core.windows.net/high/a90f41dd-e281-41f1-84d1-2e4874129056.jpg",
+      "credit": "DC Collectibles promotional product photograph, served by Cape and Cowl Comics / ComicHub",
+      "type": "retailer-reference",
+      "note": "Reference product image; does not document the condition or edition number of the owned unit. Manufacturer prototypes can differ from production.",
+      "downloadedOn": "2026-11-02",
+      "usedAsCollectionThumbnail": true
     }
   ]
 }
